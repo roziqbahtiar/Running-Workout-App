@@ -38,6 +38,15 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     final int PART_SIX_DURATION   = 120000;
     final int PART_SEVEN_DURATION =  60000;
 
+    // Titles for actionbar to set at each part
+    final String PART_ONE_TITLE   = "Part 1: Run 1 minute | 12 minute/mile pace";
+    final String PART_TWO_TITLE   = "Part 2: Run 2 minutes | 6 minute/mile pace";
+    final String PART_THREE_TITLE = "Part 3: Run 1 minute | 12 minute/mile pace";
+    final String PART_FOUR_TITLE  = "Part 4: Run 2 minutes | 6 minute/mile pace";
+    final String PART_FIVE_TITLE  = "Part 1: Run 1 minute | 12 minute/mile pace";
+    final String PART_SIX_TITLE   = "Part 2: Run 2 minutes | 6 minute/mile pace";
+    final String PART_SEVEN_TITLE = "Part 3: Run 1 minute | 12 minute/mile pace";
+
     public SpeedCalculationService speedCalculator;
     boolean isBound = false;
 
@@ -58,6 +67,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     double partFiveTimeStart,  partFiveTimeElapsed;
     double partSixTimeStart,   partSixTimeElapsed;
     double partSevenTimeStart, partSevenTimeElapsed;
+
+    double currentPartTimeStart;
+    int currentPartDuration;
 
     // Value to determine if the part has run for the first time
     boolean partOneFirstRun,  partTwoFirstRun,  partThreeFirstRun,
@@ -164,6 +176,15 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     }
 
     /**
+     * Updates pace color according to current pace
+     * @param color color to change the text to
+     */
+    private void updatePaceColor(int color) {
+        final TextView pace = (TextView) findViewById(R.id.paceView);
+        pace.setTextColor(color);
+    }
+
+    /**
      * Updates curent distance traveled
      * @param distance The current overall distance traveled
      */
@@ -173,30 +194,37 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     }
 
     /**
-     * Checks current pace and assigns appropriate text
+     * Checks current pace and assigns appropriate text and color
      */
     private void paceAlert() {
         timeStart = System.currentTimeMillis(); // Reset alert interval
+        int paceColor;
 
         if (currentPace > goalPace + MILE_TIME_ERROR) {
             paceText = "Speed up";
+            paceColor = 0x52be7f;//Green
             long[] pattern = {0, 200, 200, 200, 200, 200};
             vibrator.vibrate(pattern, -1);
 
         } else if (currentPace < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
+            paceColor = 0xe74c3c;//Red
             vibrator.vibrate(1000);
         } else {
             paceText = "Perfect Pace!";
+            paceColor = 0x52be7f;//Blue
         }
         updatePaceText(paceText);
+        updatePaceColor(paceColor);
     }
 
     /**
      * Updates the timer display on current workout to reflect total elapsed time
      */
     private void updateTime() {
-        double time = (System.currentTimeMillis() - workoutTimeStart) / 1000;
+        double currentPartTimeElapsed = System.currentTimeMillis() - currentPartTimeStart;
+        double time = (currentPartDuration - currentPartTimeElapsed) / 1000;
+
         int minutes = (int) time / 60;
         int seconds = (int) time % 60;
 
@@ -226,6 +254,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partOneBegin() {
         partOneFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_ONE_TITLE);
 
         final Timer partOneTimer = new Timer();
         partOneTimer.scheduleAtFixedRate(new TimerTask() {
@@ -239,8 +268,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                         public void run() {
                             if (partOneFirstRun) {
                                 timeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partOneTimeStart;
                                 partOneTimeStart = System.currentTimeMillis();
                                 workoutTimeStart = System.currentTimeMillis();
+                                currentPartDuration = PART_ONE_DURATION;
 
                                 updateTime();
 
@@ -264,7 +295,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partOneTimeElapsed = System.currentTimeMillis() - partOneTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -296,6 +327,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partTwoBegin() {
         partTwoFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_TWO_TITLE);
 
         final Timer partTwoTimer = new Timer();
         partTwoTimer.scheduleAtFixedRate(new TimerTask() {
@@ -308,6 +340,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partTwoFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partTwoTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partTwoTimeStart;
+                                currentPartDuration = PART_TWO_DURATION;
 
                                 paceText = "Part Two!";
                                 updatePaceText(paceText);
@@ -326,7 +360,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partTwoTimeElapsed = System.currentTimeMillis() - partTwoTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -353,6 +387,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partThreeBegin() {
         partThreeFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_THREE_TITLE);
 
         final Timer partThreeTimer = new Timer();
         partThreeTimer.scheduleAtFixedRate(new TimerTask() {
@@ -365,6 +400,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partThreeFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partThreeTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partThreeTimeStart;
+                                currentPartDuration = PART_THREE_DURATION;
 
                                 paceText = "Part Three!";
                                 updatePaceText(paceText);
@@ -383,7 +420,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partThreeTimeElapsed = System.currentTimeMillis() - partThreeTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -410,6 +447,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partFourBegin() {
         partFourFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_FOUR_TITLE);
 
         final Timer partFourTimer = new Timer();
         partFourTimer.scheduleAtFixedRate(new TimerTask() {
@@ -422,6 +460,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partFourFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partFourTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partFourTimeStart;
+                                currentPartDuration = PART_FOUR_DURATION;
 
                                 paceText = "Part Four!";
                                 updatePaceText(paceText);
@@ -440,7 +480,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partFourTimeElapsed = System.currentTimeMillis() - partFourTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -467,6 +507,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partFiveBegin() {
         partFiveFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_FIVE_TITLE);
 
         final Timer partFiveTimer = new Timer();
         partFiveTimer.scheduleAtFixedRate(new TimerTask() {
@@ -479,6 +520,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partFiveFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partFiveTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partFiveTimeStart;
+                                currentPartDuration = PART_FIVE_DURATION;
 
                                 paceText = "Part Five!";
                                 updatePaceText(paceText);
@@ -497,7 +540,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partFiveTimeElapsed = System.currentTimeMillis() - partFiveTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -524,6 +567,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partSixBegin() {
         partSixFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_SIX_TITLE);
 
         final Timer partSixTimer = new Timer();
         partSixTimer.scheduleAtFixedRate(new TimerTask() {
@@ -536,6 +580,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partSixFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partSixTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partSixTimeStart;
+                                currentPartDuration = PART_SIX_DURATION;
 
                                 paceText = "Part Six!";
                                 updatePaceText(paceText);
@@ -554,7 +600,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partSixTimeElapsed = System.currentTimeMillis() - partSixTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
@@ -581,6 +627,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partSevenBegin() {
         partSevenFirstRun = true;
         speedCalculator.resetValues();
+        getSupportActionBar().setTitle(PART_SEVEN_TITLE);
 
         final Timer partSevenTimer = new Timer();
         partSevenTimer.scheduleAtFixedRate(new TimerTask() {
@@ -593,6 +640,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             if (partSevenFirstRun) {
                                 timeStart = System.currentTimeMillis();
                                 partSevenTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partSevenTimeStart;
+                                currentPartDuration = PART_SEVEN_DURATION;
 
                                 paceText = "Part Seven!";
                                 updatePaceText(paceText);
@@ -611,7 +660,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                             partSevenTimeElapsed = System.currentTimeMillis() - partSevenTimeStart;
 
                             speed = speedCalculator.getCurrentSpeed();
-                            updateSpeed(speed);
+                            //updateSpeed(speed);
 
                             currentPace = 60 / speed;
                             updateCurrentPace(currentPace);
