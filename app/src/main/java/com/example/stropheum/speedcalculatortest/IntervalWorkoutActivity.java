@@ -3,8 +3,10 @@ package com.example.stropheum.speedcalculatortest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.os.Vibrator;
 import java.util.Timer;
@@ -19,6 +21,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
     // Allow 15 seconds of error for time calculations
     final double MILE_TIME_ERROR = 0.25;
+
+    //final TextView pace = (TextView) findViewById(R.id.paceView);
 
     // Goal mile times for each part
     final double PART_ONE_GOAL_PACE   = 12.0;
@@ -145,10 +149,11 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     private void updateCurrentPace(double currentPace) {
         int minutes = (int) currentPace;
-        if (minutes > 9999) {
-            minutes = 9999;
-        }
         int seconds = (int) (((currentPace * 100) % 100) * 0.6);
+        if (minutes > 25) {
+            minutes = 0;
+            seconds = 0;
+        }
         final TextView emtVal = (TextView) findViewById(R.id.emtVal);
         emtVal.setText(String.format("%d:%02d", minutes, seconds));
     }
@@ -171,7 +176,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * @param paceText indicator for user;s current speed in relation to goal time
      */
     private void updatePaceText(String paceText) {
-        final TextView pace = (TextView) findViewById(R.id.paceView);
+        TextView pace = (TextView) findViewById(R.id.paceView);
         pace.setText(paceText);
     }
 
@@ -179,9 +184,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Updates pace color according to current pace
      * @param color color to change the text to
      */
-    private void updatePaceColor(int color) {
-        final TextView pace = (TextView) findViewById(R.id.paceView);
-        pace.setTextColor(color);
+    private void updatePaceColor(String color) {
+        TextView pace = (TextView) findViewById(R.id.paceView);
+        pace.setTextColor(Color.parseColor(color));
     }
 
     /**
@@ -189,7 +194,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * @param distance The current overall distance traveled
      */
     private void updateDistance(double distance) {
-        final TextView distanceText = (TextView) findViewById(R.id.DistanceVal);
+        final TextView distanceText = (TextView) findViewById(R.id.distanceVal);
         distanceText.setText(String.format("%.3f", distance));
     }
 
@@ -198,21 +203,21 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     private void paceAlert() {
         timeStart = System.currentTimeMillis(); // Reset alert interval
-        int paceColor;
+        String paceColor;
 
         if (currentPace > goalPace + MILE_TIME_ERROR) {
             paceText = "Speed up";
-            paceColor = 0x52be7f;//Green
+            paceColor = "#52be7f";//Green
             long[] pattern = {0, 200, 200, 200, 200, 200};
             vibrator.vibrate(pattern, -1);
 
         } else if (currentPace < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
-            paceColor = 0xe74c3c;//Red
+            paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
         } else {
             paceText = "Perfect Pace!";
-            paceColor = 0x52be7f;//Blue
+            paceColor = "#3498db";//Blue
         }
         updatePaceText(paceText);
         updatePaceColor(paceColor);
@@ -256,6 +261,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_ONE_TITLE);
 
+        final RadioButton partButton1 = (RadioButton) findViewById(R.id.radioButton1);
+        partButton1.setChecked(true);
+
         final Timer partOneTimer = new Timer();
         partOneTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -268,15 +276,12 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                         public void run() {
                             if (partOneFirstRun) {
                                 timeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partOneTimeStart;
                                 partOneTimeStart = System.currentTimeMillis();
                                 workoutTimeStart = System.currentTimeMillis();
+                                currentPartTimeStart = partOneTimeStart;
                                 currentPartDuration = PART_ONE_DURATION;
 
                                 updateTime();
-
-                                paceText = "Begin!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_ONE_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -329,6 +334,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_TWO_TITLE);
 
+        final RadioButton partButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        partButton2.setChecked(true);
+
         final Timer partTwoTimer = new Timer();
         partTwoTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -342,9 +350,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partTwoTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partTwoTimeStart;
                                 currentPartDuration = PART_TWO_DURATION;
-
-                                paceText = "Part Two!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_TWO_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -389,6 +394,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_THREE_TITLE);
 
+        final RadioButton partButton3 = (RadioButton) findViewById(R.id.radioButton3);
+        partButton3.setChecked(true);
+
         final Timer partThreeTimer = new Timer();
         partThreeTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -402,9 +410,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partThreeTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partThreeTimeStart;
                                 currentPartDuration = PART_THREE_DURATION;
-
-                                paceText = "Part Three!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_THREE_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -449,6 +454,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_FOUR_TITLE);
 
+        final RadioButton partButton4 = (RadioButton) findViewById(R.id.radioButton4);
+        partButton4.setChecked(true);
+
         final Timer partFourTimer = new Timer();
         partFourTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -462,9 +470,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partFourTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partFourTimeStart;
                                 currentPartDuration = PART_FOUR_DURATION;
-
-                                paceText = "Part Four!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_FOUR_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -509,6 +514,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_FIVE_TITLE);
 
+        final RadioButton partButton5 = (RadioButton) findViewById(R.id.radioButton5);
+        partButton5.setChecked(true);
+
         final Timer partFiveTimer = new Timer();
         partFiveTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -522,9 +530,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partFiveTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partFiveTimeStart;
                                 currentPartDuration = PART_FIVE_DURATION;
-
-                                paceText = "Part Five!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_FIVE_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -569,6 +574,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_SIX_TITLE);
 
+        final RadioButton partButton6 = (RadioButton) findViewById(R.id.radioButton6);
+        partButton6.setChecked(true);
+
         final Timer partSixTimer = new Timer();
         partSixTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -582,9 +590,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partSixTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partSixTimeStart;
                                 currentPartDuration = PART_SIX_DURATION;
-
-                                paceText = "Part Six!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_SIX_GOAL_PACE;
                                 updateGoalPace(goalPace);
@@ -629,6 +634,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         speedCalculator.resetValues();
         getSupportActionBar().setTitle(PART_SEVEN_TITLE);
 
+        final RadioButton partButton7 = (RadioButton) findViewById(R.id.radioButton7);
+        partButton7.setChecked(true);
+
         final Timer partSevenTimer = new Timer();
         partSevenTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -642,9 +650,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                                 partSevenTimeStart = System.currentTimeMillis();
                                 currentPartTimeStart = partSevenTimeStart;
                                 currentPartDuration = PART_SEVEN_DURATION;
-
-                                paceText = "Part Seven!";
-                                updatePaceText(paceText);
 
                                 goalPace = PART_SEVEN_GOAL_PACE;
                                 updateGoalPace(goalPace);
