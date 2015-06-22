@@ -1,5 +1,6 @@
 package com.example.stropheum.speedcalculatortest;
 
+import android.app.ActionBar;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +25,11 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
     //final TextView pace = (TextView) findViewById(R.id.paceView);
 
+    // TextViews for displaying goal paces and workout summaries
+    TextView mainTitle;
+    TextView secondaryTitle;
+    TextView nextTitle;
+
     // Goal mile times for each part
     final double PART_ONE_GOAL_PACE   = 12.0;
     final double PART_TWO_GOAL_PACE   =  6.0;
@@ -42,14 +48,32 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     final int PART_SIX_DURATION   = 120000;
     final int PART_SEVEN_DURATION =  60000;
 
-    // Titles for actionbar to set at each part
-    final String PART_ONE_TITLE   = "Part 1: Run 1 minute | 12 minute/mile pace";
-    final String PART_TWO_TITLE   = "Part 2: Run 2 minutes | 6 minute/mile pace";
-    final String PART_THREE_TITLE = "Part 3: Run 1 minute | 12 minute/mile pace";
-    final String PART_FOUR_TITLE  = "Part 4: Run 2 minutes | 6 minute/mile pace";
-    final String PART_FIVE_TITLE  = "Part 1: Run 1 minute | 12 minute/mile pace";
-    final String PART_SIX_TITLE   = "Part 2: Run 2 minutes | 6 minute/mile pace";
-    final String PART_SEVEN_TITLE = "Part 3: Run 1 minute | 12 minute/mile pace";
+    // Main titles for actionbar to set at each part
+    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
+    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
+    final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
+    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
+    final String PART_FIVE_MAIN_TITLE  = "Part 1: Run 1 minute";
+    final String PART_SIX_MAIN_TITLE   = "Part 2: Run 2 minutes";
+    final String PART_SEVEN_MAIN_TITLE = "Part 3: Run 1 minute";
+
+    // Secondary titles for actionbar to set at each part
+    final String PART_ONE_SECONDARY_TITLE   = "12 minute/mile pace";
+    final String PART_TWO_SECONDARY_TITLE   = "6 minute/mile pace";
+    final String PART_THREE_SECONDARY_TITLE = "12 minute/mile pace";
+    final String PART_FOUR_SECONDARY_TITLE  = "6 minute/mile pace";
+    final String PART_FIVE_SECONDARY_TITLE  = "12 minute/mile pace";
+    final String PART_SIX_SECONDARY_TITLE   = "6 minute/mile pace";
+    final String PART_SEVEN_SECONDARY_TITLE = "12 minute/mile pace";
+
+    // Secondary abbreviated titles for "next" title
+    final String PART_ONE_NEXT_TITLE   = "6:00 min/mile";
+    final String PART_TWO_NEXT_TITLE   = "12:00 min/mile";
+    final String PART_THREE_NEXT_TITLE = "6:00 min/mile";
+    final String PART_FOUR_NEXT_TITLE  = "12:00 min/mile";
+    final String PART_FIVE_NEXT_TITLE  = "6:00 min/mile";
+    final String PART_SIX_NEXT_TITLE   = "12:00 min/mile";
+    final String PART_SEVEN_NEXT_TITLE = "Finished";
 
     public SpeedCalculationService speedCalculator;
     boolean isBound = false;
@@ -90,7 +114,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interval_workout);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         i = new Intent(this, SpeedCalculationService.class);
+
+        mainTitle      = (TextView) findViewById(R.id.mainTitle);
+        secondaryTitle = (TextView) findViewById(R.id.secondaryTitle);
+        nextTitle      = (TextView) findViewById(R.id.nextTitle);
 
         // Starts the service for calculating user's speed
         bindService(i, speedConnection, Context.BIND_AUTO_CREATE);
@@ -119,6 +149,14 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+
+        if (id == 16908332) {
+            stopService(new Intent(IntervalWorkoutActivity.this, SpeedCalculationService.class));
+            unbindService(speedConnection);
+            this.finish();
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -259,7 +297,11 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partOneBegin() {
         partOneFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_ONE_TITLE);
+
+        // Update titles
+        mainTitle.setText(PART_ONE_MAIN_TITLE);
+        secondaryTitle.setText(PART_ONE_SECONDARY_TITLE);
+        nextTitle.setText(PART_ONE_NEXT_TITLE);
 
         final RadioButton partButton1 = (RadioButton) findViewById(R.id.radioButton1);
         partButton1.setChecked(true);
@@ -332,7 +374,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partTwoBegin() {
         partTwoFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_TWO_TITLE);
+
+        mainTitle.setText(PART_TWO_MAIN_TITLE);
+        secondaryTitle.setText(PART_TWO_SECONDARY_TITLE);
+        nextTitle.setText(PART_TWO_NEXT_TITLE);
 
         final RadioButton partButton2 = (RadioButton) findViewById(R.id.radioButton2);
         partButton2.setChecked(true);
@@ -392,7 +437,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partThreeBegin() {
         partThreeFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_THREE_TITLE);
+
+        mainTitle.setText(PART_THREE_MAIN_TITLE);
+        secondaryTitle.setText(PART_THREE_SECONDARY_TITLE);
+        nextTitle.setText(PART_THREE_NEXT_TITLE);
 
         final RadioButton partButton3 = (RadioButton) findViewById(R.id.radioButton3);
         partButton3.setChecked(true);
@@ -452,7 +500,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partFourBegin() {
         partFourFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_FOUR_TITLE);
+
+        mainTitle.setText(PART_FOUR_MAIN_TITLE);
+        secondaryTitle.setText(PART_FOUR_SECONDARY_TITLE);
+        nextTitle.setText(PART_FOUR_NEXT_TITLE);
 
         final RadioButton partButton4 = (RadioButton) findViewById(R.id.radioButton4);
         partButton4.setChecked(true);
@@ -512,7 +563,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partFiveBegin() {
         partFiveFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_FIVE_TITLE);
+
+        mainTitle.setText(PART_FIVE_MAIN_TITLE);
+        secondaryTitle.setText(PART_FIVE_SECONDARY_TITLE);
+        nextTitle.setText(PART_FIVE_NEXT_TITLE);
 
         final RadioButton partButton5 = (RadioButton) findViewById(R.id.radioButton5);
         partButton5.setChecked(true);
@@ -572,7 +626,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partSixBegin() {
         partSixFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_SIX_TITLE);
+
+        mainTitle.setText(PART_SIX_MAIN_TITLE);
+        secondaryTitle.setText(PART_SIX_SECONDARY_TITLE);
+        nextTitle.setText(PART_SIX_NEXT_TITLE);
 
         final RadioButton partButton6 = (RadioButton) findViewById(R.id.radioButton6);
         partButton6.setChecked(true);
@@ -632,7 +689,10 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     public void partSevenBegin() {
         partSevenFirstRun = true;
         speedCalculator.resetValues();
-        getSupportActionBar().setTitle(PART_SEVEN_TITLE);
+
+        mainTitle.setText(PART_SEVEN_MAIN_TITLE);
+        secondaryTitle.setText(PART_SEVEN_SECONDARY_TITLE);
+        nextTitle.setText(PART_SEVEN_NEXT_TITLE);
 
         final RadioButton partButton7 = (RadioButton) findViewById(R.id.radioButton7);
         partButton7.setChecked(true);
