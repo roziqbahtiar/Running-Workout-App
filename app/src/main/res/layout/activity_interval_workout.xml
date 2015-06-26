@@ -306,14 +306,14 @@
             android:gravity="center_horizontal"
             android:textSize="13dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView2"
-            android:layout_below="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/pause"
-            android:paddingTop="5dp" />
+            android:id="@+id/pauseButton"
+            android:background="@drawable/play"
+            android:layout_below="@+id/paceView"
+            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
     <TextView
