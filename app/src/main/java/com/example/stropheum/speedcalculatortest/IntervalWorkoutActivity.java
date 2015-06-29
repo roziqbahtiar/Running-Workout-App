@@ -27,6 +27,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     // Allow 15 seconds of error for time calculations
     final double MILE_TIME_ERROR = 0.25;
 
+    final int PACE_UPDATE_INTERVAL = 1;
+
     //final TextView pace = (TextView) findViewById(R.id.paceView);
 
     // TextViews for displaying goal paces and workout summaries
@@ -613,7 +615,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                     paceAverage = paceSum / tickCounter;
                 }
 
-                if (tickCounter % 5 == 0) {
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
                     updateCurrentPace(paceAverage);
                 }
 
@@ -695,14 +697,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -783,14 +790,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -871,14 +883,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -959,14 +976,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -1047,14 +1069,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -1135,14 +1162,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
                 // Average current pace to current average
                 if (Double.compare(currentPace, Double.NaN) != 0) {
                     paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
                     paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
                 }
 
 
