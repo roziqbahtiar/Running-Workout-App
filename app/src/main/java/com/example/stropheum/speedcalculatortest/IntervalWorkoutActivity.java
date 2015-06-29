@@ -34,48 +34,48 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     TextView nextTitle;
 
     // Goal mile times for each part
-    final double PART_ONE_GOAL_PACE   = 12.0;
-    final double PART_TWO_GOAL_PACE   =  6.0;
+    final double PART_ONE_GOAL_PACE = 12.0;
+    final double PART_TWO_GOAL_PACE = 6.0;
     final double PART_THREE_GOAL_PACE = 12.0;
-    final double PART_FOUR_GOAL_PACE  =  6.0;
-    final double PART_FIVE_GOAL_PACE  = 12.0;
-    final double PART_SIX_GOAL_PACE   =  6.0;
+    final double PART_FOUR_GOAL_PACE = 6.0;
+    final double PART_FIVE_GOAL_PACE = 12.0;
+    final double PART_SIX_GOAL_PACE = 6.0;
     final double PART_SEVEN_GOAL_PACE = 12.0;
 
     // Duration for each part in milliseconds
-    final int PART_ONE_DURATION   =  60000;
-    final int PART_TWO_DURATION   = 120000;
-    final int PART_THREE_DURATION =  60000;
-    final int PART_FOUR_DURATION  = 120000;
-    final int PART_FIVE_DURATION  =  60000;
-    final int PART_SIX_DURATION   = 120000;
-    final int PART_SEVEN_DURATION =  60000;
+    final int PART_ONE_DURATION = 60000;
+    final int PART_TWO_DURATION = 120000;
+    final int PART_THREE_DURATION = 60000;
+    final int PART_FOUR_DURATION = 120000;
+    final int PART_FIVE_DURATION = 60000;
+    final int PART_SIX_DURATION = 120000;
+    final int PART_SEVEN_DURATION = 60000;
 
     // Main titles for actionbar to set at each part
-    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
-    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
+    final String PART_ONE_MAIN_TITLE = "Part 1: Run 1 minute";
+    final String PART_TWO_MAIN_TITLE = "Part 2: Run 2 minutes";
     final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
-    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
-    final String PART_FIVE_MAIN_TITLE  = "Part 1: Run 1 minute";
-    final String PART_SIX_MAIN_TITLE   = "Part 2: Run 2 minutes";
+    final String PART_FOUR_MAIN_TITLE = "Part 4: Run 2 minutes";
+    final String PART_FIVE_MAIN_TITLE = "Part 1: Run 1 minute";
+    final String PART_SIX_MAIN_TITLE = "Part 2: Run 2 minutes";
     final String PART_SEVEN_MAIN_TITLE = "Part 3: Run 1 minute";
 
     // Secondary titles for actionbar to set at each part
-    final String PART_ONE_SECONDARY_TITLE   = "12 minute/mile pace";
-    final String PART_TWO_SECONDARY_TITLE   = "6 minute/mile pace";
+    final String PART_ONE_SECONDARY_TITLE = "12 minute/mile pace";
+    final String PART_TWO_SECONDARY_TITLE = "6 minute/mile pace";
     final String PART_THREE_SECONDARY_TITLE = "12 minute/mile pace";
-    final String PART_FOUR_SECONDARY_TITLE  = "6 minute/mile pace";
-    final String PART_FIVE_SECONDARY_TITLE  = "12 minute/mile pace";
-    final String PART_SIX_SECONDARY_TITLE   = "6 minute/mile pace";
+    final String PART_FOUR_SECONDARY_TITLE = "6 minute/mile pace";
+    final String PART_FIVE_SECONDARY_TITLE = "12 minute/mile pace";
+    final String PART_SIX_SECONDARY_TITLE = "6 minute/mile pace";
     final String PART_SEVEN_SECONDARY_TITLE = "12 minute/mile pace";
 
     // Secondary abbreviated titles for "next" title
-    final String PART_ONE_NEXT_TITLE   = "6:00 min/mile";
-    final String PART_TWO_NEXT_TITLE   = "12:00 min/mile";
+    final String PART_ONE_NEXT_TITLE = "6:00 min/mile";
+    final String PART_TWO_NEXT_TITLE = "12:00 min/mile";
     final String PART_THREE_NEXT_TITLE = "6:00 min/mile";
-    final String PART_FOUR_NEXT_TITLE  = "12:00 min/mile";
-    final String PART_FIVE_NEXT_TITLE  = "6:00 min/mile";
-    final String PART_SIX_NEXT_TITLE   = "12:00 min/mile";
+    final String PART_FOUR_NEXT_TITLE = "12:00 min/mile";
+    final String PART_FIVE_NEXT_TITLE = "6:00 min/mile";
+    final String PART_SIX_NEXT_TITLE = "12:00 min/mile";
     final String PART_SEVEN_NEXT_TITLE = "Finished";
 
     public SpeedCalculationService speedCalculator;
@@ -93,22 +93,23 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     boolean isPaused;
 
     // Tracks the start time and elapsed time of individual parts
-    double partOneTimeStart,   partOneTimeElapsed;
-    double partTwoTimeStart,   partTwoTimeElapsed;
-    double partThreeTimeStart, partThreeTimeElapsed;
-    double partFourTimeStart,  partFourTimeElapsed;
-    double partFiveTimeStart,  partFiveTimeElapsed;
-    double partSixTimeStart,   partSixTimeElapsed;
-    double partSevenTimeStart, partSevenTimeElapsed;
+    double partTimeStart, partTimeElapsed;
 
     double currentPartTimeStart;
     int currentPartDuration;
     int currentPart;
 
+    int tickCounter; // Counts the number of ticks on current part
+
     // Value to determine if the part has run for the first time
-    boolean partOneFirstRun,  partTwoFirstRun,  partThreeFirstRun,
+    boolean partOneFirstRun, partTwoFirstRun, partThreeFirstRun,
             partFourFirstRun, partFiveFirstRun, partSixFirstRun,
             partSevenFirstRun;
+
+    // Value to track the first tick of each timer
+    boolean partOneFirstTick, partTwoFirstTick, partThreeFirstTick,
+            partFourFirstTick, partFiveFirstTick, partSixFirstTick,
+            partSevenFirstTick;
 
     String paceText;
     Intent i;
@@ -120,11 +121,19 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_interval_workout);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         i = new Intent(this, SpeedCalculationService.class);
+
+        // Enable values to track the first call to each part to initialize CountDownTimer values
+        partOneFirstRun   = true;
+        partTwoFirstRun   = true;
+        partThreeFirstRun = true;
+        partFourFirstRun  = true;
+        partFiveFirstRun  = true;
+        partSixFirstRun   = true;
+        partSevenFirstRun = true;
 
         isPaused = true;
         pauseButton = (ImageButton) findViewById(R.id.pauseButton);
@@ -132,45 +141,22 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (currentPart) {
-                    case 1:
-                        partOneBegin();
-                        break;
-                    case 2:
-                        partTwoBegin();
-                        break;
-                    case 3:
-                        partThreeBegin();
-                        break;
-                    case 4:
-                        partFourBegin();
-                        break;
-                    case 5:
-                        partFiveBegin();
-                        break;
-                    case 6:
-                        partSixBegin();
-                        break;
-                    case 7:
-                        partSevenBegin();
-                        break;
-                }
+                handlePauseClick();
             }
         });
 
-        mainTitle      = (TextView) findViewById(R.id.mainTitle);
+        mainTitle = (TextView) findViewById(R.id.mainTitle);
         secondaryTitle = (TextView) findViewById(R.id.secondaryTitle);
-        nextTitle      = (TextView) findViewById(R.id.nextTitle);
+        nextTitle = (TextView) findViewById(R.id.nextTitle);
 
         // Starts the service for calculating user's speed
         bindService(i, speedConnection, Context.BIND_AUTO_CREATE);
-
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-
         String paceText = "Waiting for GPS";
         updatePaceText(paceText);
-
         currentPart = 1; // Tracks currently active part
+        timeRemaining = PART_ONE_DURATION;
+        tickCounter = 0;
     }
 
     @Override
@@ -198,7 +184,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             this.finish();
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -262,6 +247,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
     /**
      * Updates pace color according to current pace
+     *
      * @param color color to change the text to
      */
     private void updatePaceColor(String color) {
@@ -271,6 +257,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
     /**
      * Updates curent distance traveled
+     *
      * @param distance The current overall distance traveled
      */
     private void updateDistance(double distance) {
@@ -307,14 +294,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Updates the timer display on current workout to reflect total elapsed time
      */
     private void updateTime() {
-        double currentPartTimeElapsed = System.currentTimeMillis() - currentPartTimeStart;
-        double time = (currentPartDuration - currentPartTimeElapsed) / 1000;
+        double time = timeRemaining / 1000; // Store remaining time in seconds
 
         int minutes = (int) time / 60;
         int seconds = (int) time % 60;
 
         final TextView timeView = (TextView) findViewById(R.id.timeLabel);
-        timeView.setText(String.format("%d:%02d", minutes, seconds));
+        timeView.setText(String.format("%02d:%02d", minutes, seconds));
     }
 
     ServiceConnection speedConnection = new ServiceConnection() {
@@ -324,7 +310,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             isBound = true;
             speedCalculator = binder.getService();
 
-            partOneBegin();
+            waitForService();
         }
 
         @Override
@@ -338,11 +324,21 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     public void waitForService() {
         Timer t = new Timer();
+
         t.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 if (!speedCalculator.searchingForSignal()) {
-                    pauseButton.setEnabled(true);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            pauseButton.setEnabled(true);
+                            pauseButton.setBackgroundResource(R.drawable.play);
+                            final TextView paceText = (TextView) findViewById(R.id.paceView);
+                            updatePaceColor("#3498db");
+                            paceText.setText("GPS Found");
+                        }
+                    });
                     cancel();
                 }
             }
@@ -350,10 +346,52 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     }
 
     /**
+     * Method called when pause/play button is pressed
+     */
+    private void handlePauseClick() {
+        if (isPaused) {
+            pauseButton.setBackgroundResource(R.drawable.pause);
+            switch (currentPart) {
+                case 1:
+                    partOneBegin();
+                    break;
+                case 2:
+                    partTwoBegin();
+                    break;
+                case 3:
+                    partThreeBegin();
+                    break;
+                case 4:
+                    partFourBegin();
+                    break;
+                case 5:
+                    partFiveBegin();
+                    break;
+                case 6:
+                    partSixBegin();
+                    break;
+                case 7:
+                    partSevenBegin();
+                    break;
+            }
+            isPaused = false;
+        } else {
+            pauseButton.setBackgroundResource(R.drawable.play);
+            partTimer.cancel();
+            isPaused = true;
+        }
+    }
+
+    /**
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partOneBegin() {
-        partOneFirstRun = true;
+        if (partOneFirstRun) {
+            timeRemaining = PART_ONE_DURATION;
+            tickCounter = 0;
+            partOneFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 1;
 
@@ -365,87 +403,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton1 = (RadioButton) findViewById(R.id.radioButton1);
         partButton1.setChecked(true);
 
+        partOneFirstTick = true;
+
         partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
             public void onTick(long l) {
+                if (partOneFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
+                    updateTime();
+
+                    goalPace = PART_ONE_GOAL_PACE;
+                    updateGoalPace(goalPace);
+
+                    distance = 0.0;
+                    updateDistance(distance);
+
+                    partOneFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
+
+                timeRemaining = l; // Store remaining time in the current part
+
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
+
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
+
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
+                }
             }
 
             @Override
             public void onFinish() {
-
+                partTwoBegin();
             }
-        }.start();
-//        final Timer partOneTimer = new Timer();
-//        partOneTimer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                if (!speedCalculator.searchingForSignal()) {
-//
-//                    // Forces GUI updates to happen on the Activity UI thread
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            if (partOneFirstRun) {
-//                                timeStart = System.currentTimeMillis();
-//                                partOneTimeStart = System.currentTimeMillis();
-//                                workoutTimeStart = System.currentTimeMillis();
-//                                currentPartTimeStart = partOneTimeStart;
-//                                currentPartDuration = PART_ONE_DURATION;
-//
-//                                updateTime();
-//
-//                                goalPace = PART_ONE_GOAL_PACE;
-//                                updateGoalPace(goalPace);
-//
-//                                distance = 0.0;
-//                                updateDistance(distance);
-//
-//                                partOneFirstRun = false;
-//                            }
-//
-//                            // Tracks the elapsed time since last alert
-//                            timeElapsed = System.currentTimeMillis() - timeStart;
-//                            updateTime();
-//
-//                            // Tracks the total elapsed time of the workout part
-//                            partOneTimeElapsed = System.currentTimeMillis() - partOneTimeStart;
-//
-//                            speed = speedCalculator.getCurrentSpeed();
-//                            //updateSpeed(speed);
-//
-//                            currentPace = 60 / speed;
-//                            updateCurrentPace(currentPace);
-//
-//                            distance = speedCalculator.getCurrentDistance();
-//                            updateDistance(distance);
-//
-//                            if (partOneTimeElapsed >= PART_ONE_DURATION) {
-//                                // Terminate current part and start the next
-//                                partOneTimer.cancel();
-//                                partTwoBegin();
-//                            }
-//
-//                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-//                                paceAlert();
-//                            }
-//                        }
-//                    });
-//
-//                }
-//            }
-//        }, 0, 1000); // Updates every 5 seconds
 
+        }.start();
     }
 
     /**
-     * Method called when part one is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partTwoBegin() {
-        partTwoFirstRun = true;
+        if (partTwoFirstRun) {
+            timeRemaining = PART_TWO_DURATION;
+            tickCounter = 0;
+            partTwoFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 2;
 
+        // Update titles
         mainTitle.setText(PART_TWO_MAIN_TITLE);
         secondaryTitle.setText(PART_TWO_SECONDARY_TITLE);
         nextTitle.setText(PART_TWO_NEXT_TITLE);
@@ -453,63 +475,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton2 = (RadioButton) findViewById(R.id.radioButton2);
         partButton2.setChecked(true);
 
-        final Timer partTwoTimer = new Timer();
-        partTwoTimer.scheduleAtFixedRate(new TimerTask() {
+        partTwoFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partTwoFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partTwoTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partTwoTimeStart;
-                                currentPartDuration = PART_TWO_DURATION;
+            public void onTick(long l) {
+                if (partTwoFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_TWO_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partTwoFirstRun = false;
-                            }
+                    goalPace = PART_TWO_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partTwoTimeElapsed = System.currentTimeMillis() - partTwoTimeStart;
+                    partTwoFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partTwoTimeElapsed >= PART_TWO_DURATION) {
-                                // Terminate current part and start the next
-                                partTwoTimer.cancel();
-                                partThreeBegin();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                partThreeBegin();
+            }
+
+        }.start();
     }
 
     /**
-     * Method called when part two is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partThreeBegin() {
-        partThreeFirstRun = true;
+        if (partThreeFirstRun) {
+            timeRemaining = PART_THREE_DURATION;
+            tickCounter = 0;
+            partThreeFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 3;
 
+        // Update titles
         mainTitle.setText(PART_THREE_MAIN_TITLE);
         secondaryTitle.setText(PART_THREE_SECONDARY_TITLE);
         nextTitle.setText(PART_THREE_NEXT_TITLE);
@@ -517,63 +547,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton3 = (RadioButton) findViewById(R.id.radioButton3);
         partButton3.setChecked(true);
 
-        final Timer partThreeTimer = new Timer();
-        partThreeTimer.scheduleAtFixedRate(new TimerTask() {
+        partThreeFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partThreeFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partThreeTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partThreeTimeStart;
-                                currentPartDuration = PART_THREE_DURATION;
+            public void onTick(long l) {
+                if (partThreeFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_THREE_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partThreeFirstRun = false;
-                            }
+                    goalPace = PART_THREE_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partThreeTimeElapsed = System.currentTimeMillis() - partThreeTimeStart;
+                    partThreeFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partThreeTimeElapsed >= PART_THREE_DURATION) {
-                                // Terminate current part and start the next
-                                partThreeTimer.cancel();
-                                partFourBegin();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                partFourBegin();
+            }
+
+        }.start();
     }
 
     /**
-     * Method called when part three is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partFourBegin() {
-        partFourFirstRun = true;
+        if (partFourFirstRun) {
+            timeRemaining = PART_FOUR_DURATION;
+            tickCounter = 0;
+            partFourFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 4;
 
+        // Update titles
         mainTitle.setText(PART_FOUR_MAIN_TITLE);
         secondaryTitle.setText(PART_FOUR_SECONDARY_TITLE);
         nextTitle.setText(PART_FOUR_NEXT_TITLE);
@@ -581,63 +619,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton4 = (RadioButton) findViewById(R.id.radioButton4);
         partButton4.setChecked(true);
 
-        final Timer partFourTimer = new Timer();
-        partFourTimer.scheduleAtFixedRate(new TimerTask() {
+        partFourFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partFourFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partFourTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partFourTimeStart;
-                                currentPartDuration = PART_FOUR_DURATION;
+            public void onTick(long l) {
+                if (partFourFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_FOUR_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partFourFirstRun = false;
-                            }
+                    goalPace = PART_FOUR_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partFourTimeElapsed = System.currentTimeMillis() - partFourTimeStart;
+                    partFourFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partFourTimeElapsed >= PART_FOUR_DURATION) {
-                                // Terminate current part and start the next
-                                partFourTimer.cancel();
-                                partFiveBegin();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                partFiveBegin();
+            }
+
+        }.start();
     }
 
     /**
-     * Method called when part four is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partFiveBegin() {
-        partFiveFirstRun = true;
+        if (partFiveFirstRun) {
+            timeRemaining = PART_FIVE_DURATION;
+            tickCounter = 0;
+            partFiveFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 5;
 
+        // Update titles
         mainTitle.setText(PART_FIVE_MAIN_TITLE);
         secondaryTitle.setText(PART_FIVE_SECONDARY_TITLE);
         nextTitle.setText(PART_FIVE_NEXT_TITLE);
@@ -645,63 +691,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton5 = (RadioButton) findViewById(R.id.radioButton5);
         partButton5.setChecked(true);
 
-        final Timer partFiveTimer = new Timer();
-        partFiveTimer.scheduleAtFixedRate(new TimerTask() {
+        partFiveFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partFiveFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partFiveTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partFiveTimeStart;
-                                currentPartDuration = PART_FIVE_DURATION;
+            public void onTick(long l) {
+                if (partFiveFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_FIVE_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partFiveFirstRun = false;
-                            }
+                    goalPace = PART_FIVE_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partFiveTimeElapsed = System.currentTimeMillis() - partFiveTimeStart;
+                    partFiveFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partFiveTimeElapsed >= PART_FIVE_DURATION) {
-                                // Terminate current part and start the next
-                                partFiveTimer.cancel();
-                                partSixBegin();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                partSixBegin();
+            }
+
+        }.start();
     }
 
     /**
-     * Method called when part five is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partSixBegin() {
-        partSixFirstRun = true;
+        if (partSixFirstRun) {
+            timeRemaining = PART_SIX_DURATION;
+            tickCounter = 0;
+            partSixFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 6;
 
+        // Update titles
         mainTitle.setText(PART_SIX_MAIN_TITLE);
         secondaryTitle.setText(PART_SIX_SECONDARY_TITLE);
         nextTitle.setText(PART_SIX_NEXT_TITLE);
@@ -709,63 +763,71 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton6 = (RadioButton) findViewById(R.id.radioButton6);
         partButton6.setChecked(true);
 
-        final Timer partSixTimer = new Timer();
-        partSixTimer.scheduleAtFixedRate(new TimerTask() {
+        partSixFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partSixFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partSixTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partSixTimeStart;
-                                currentPartDuration = PART_SIX_DURATION;
+            public void onTick(long l) {
+                if (partSixFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_SIX_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partSixFirstRun = false;
-                            }
+                    goalPace = PART_SIX_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partSixTimeElapsed = System.currentTimeMillis() - partSixTimeStart;
+                    partSixFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partSixTimeElapsed >= PART_SIX_DURATION) {
-                                // Terminate current part and start the next
-                                partSixTimer.cancel();
-                                partSevenBegin();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                partSevenBegin();
+            }
+
+        }.start();
     }
 
     /**
-     * Method called when part six is completed
+     * Method called when Speed Calculation Service is successfully bound
      */
     public void partSevenBegin() {
-        partSevenFirstRun = true;
+        if (partSevenFirstRun) {
+            timeRemaining = PART_SEVEN_DURATION;
+            tickCounter = 0;
+            partSevenFirstRun = false;
+        }
+
         speedCalculator.resetValues();
         currentPart = 7;
 
+        // Update titles
         mainTitle.setText(PART_SEVEN_MAIN_TITLE);
         secondaryTitle.setText(PART_SEVEN_SECONDARY_TITLE);
         nextTitle.setText(PART_SEVEN_NEXT_TITLE);
@@ -773,53 +835,56 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         final RadioButton partButton7 = (RadioButton) findViewById(R.id.radioButton7);
         partButton7.setChecked(true);
 
-        final Timer partSevenTimer = new Timer();
-        partSevenTimer.scheduleAtFixedRate(new TimerTask() {
+        partSevenFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 500) {
             @Override
-            public void run() {
-                if (!speedCalculator.searchingForSignal()) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (partSevenFirstRun) {
-                                timeStart = System.currentTimeMillis();
-                                partSevenTimeStart = System.currentTimeMillis();
-                                currentPartTimeStart = partSevenTimeStart;
-                                currentPartDuration = PART_SEVEN_DURATION;
+            public void onTick(long l) {
+                if (partSevenFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
 
-                                goalPace = PART_SEVEN_GOAL_PACE;
-                                updateGoalPace(goalPace);
+                    updateTime();
 
-                                partSevenFirstRun = false;
-                            }
+                    goalPace = PART_SEVEN_GOAL_PACE;
+                    updateGoalPace(goalPace);
 
-                            // Tracks the elapsed time since last alert
-                            timeElapsed = System.currentTimeMillis() - timeStart;
-                            updateTime();
+                    distance = 0.0;
+                    updateDistance(distance);
 
-                            // Tracks the total elapsed time of the workout part
-                            partSevenTimeElapsed = System.currentTimeMillis() - partSevenTimeStart;
+                    partSevenFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
 
-                            speed = speedCalculator.getCurrentSpeed();
-                            //updateSpeed(speed);
+                timeRemaining = l; // Store remaining time in the current part
 
-                            currentPace = 60 / speed;
-                            updateCurrentPace(currentPace);
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
 
-                            if (partSevenTimeElapsed >= PART_SEVEN_DURATION) {
-                                paceText = "Workout Done!";
-                                updatePaceText(paceText);
-                                // Terminate current part and start the next
-                                partSevenTimer.cancel();
-                            }
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-                            if (timeElapsed >= 9750) {// slightly less than 10 second to account for loop intervals
-                                paceAlert();
-                            }
-                        }
-                    });
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                currentPace = 60 / speed;
+                updateCurrentPace(currentPace);
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                    paceAlert();
                 }
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                pauseButton.setEnabled(false);
+                updatePaceColor("#3498db");
+                updatePaceText("Workout Finished!");
+            }
+
+        }.start();
     }
 }
