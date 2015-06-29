@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.os.Vibrator;
 import java.util.Timer;
@@ -34,48 +35,48 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     TextView nextTitle;
 
     // Goal mile times for each part
-    final double PART_ONE_GOAL_PACE = 12.0;
-    final double PART_TWO_GOAL_PACE = 6.0;
+    final double PART_ONE_GOAL_PACE   = 12.0;
+    final double PART_TWO_GOAL_PACE   = 6.0;
     final double PART_THREE_GOAL_PACE = 12.0;
-    final double PART_FOUR_GOAL_PACE = 6.0;
-    final double PART_FIVE_GOAL_PACE = 12.0;
-    final double PART_SIX_GOAL_PACE = 6.0;
+    final double PART_FOUR_GOAL_PACE  = 6.0;
+    final double PART_FIVE_GOAL_PACE  = 12.0;
+    final double PART_SIX_GOAL_PACE   = 6.0;
     final double PART_SEVEN_GOAL_PACE = 12.0;
 
     // Duration for each part in milliseconds
-    final int PART_ONE_DURATION = 60000;
-    final int PART_TWO_DURATION = 120000;
+    final int PART_ONE_DURATION   = 60000;
+    final int PART_TWO_DURATION   = 120000;
     final int PART_THREE_DURATION = 60000;
-    final int PART_FOUR_DURATION = 120000;
-    final int PART_FIVE_DURATION = 60000;
-    final int PART_SIX_DURATION = 120000;
+    final int PART_FOUR_DURATION  = 120000;
+    final int PART_FIVE_DURATION  = 60000;
+    final int PART_SIX_DURATION   = 120000;
     final int PART_SEVEN_DURATION = 60000;
 
     // Main titles for actionbar to set at each part
-    final String PART_ONE_MAIN_TITLE = "Part 1: Run 1 minute";
-    final String PART_TWO_MAIN_TITLE = "Part 2: Run 2 minutes";
+    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
+    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
     final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
-    final String PART_FOUR_MAIN_TITLE = "Part 4: Run 2 minutes";
-    final String PART_FIVE_MAIN_TITLE = "Part 1: Run 1 minute";
-    final String PART_SIX_MAIN_TITLE = "Part 2: Run 2 minutes";
-    final String PART_SEVEN_MAIN_TITLE = "Part 3: Run 1 minute";
+    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
+    final String PART_FIVE_MAIN_TITLE  = "Part 5: Run 1 minute";
+    final String PART_SIX_MAIN_TITLE   = "Part 6: Run 2 minutes";
+    final String PART_SEVEN_MAIN_TITLE = "Part 7: Run 1 minute";
 
     // Secondary titles for actionbar to set at each part
-    final String PART_ONE_SECONDARY_TITLE = "12 minute/mile pace";
-    final String PART_TWO_SECONDARY_TITLE = "6 minute/mile pace";
-    final String PART_THREE_SECONDARY_TITLE = "12 minute/mile pace";
-    final String PART_FOUR_SECONDARY_TITLE = "6 minute/mile pace";
-    final String PART_FIVE_SECONDARY_TITLE = "12 minute/mile pace";
-    final String PART_SIX_SECONDARY_TITLE = "6 minute/mile pace";
-    final String PART_SEVEN_SECONDARY_TITLE = "12 minute/mile pace";
+    final String PART_ONE_SECONDARY_TITLE   = "12:00 minute/mile pace";
+    final String PART_TWO_SECONDARY_TITLE   = "6:00 minute/mile pace";
+    final String PART_THREE_SECONDARY_TITLE = "12:00 minute/mile pace";
+    final String PART_FOUR_SECONDARY_TITLE  = "6:00 minute/mile pace";
+    final String PART_FIVE_SECONDARY_TITLE  = "12:00 minute/mile pace";
+    final String PART_SIX_SECONDARY_TITLE   = "6:00 minute/mile pace";
+    final String PART_SEVEN_SECONDARY_TITLE = "12:00 minute/mile pace";
 
     // Secondary abbreviated titles for "next" title
-    final String PART_ONE_NEXT_TITLE = "6:00 min/mile";
-    final String PART_TWO_NEXT_TITLE = "12:00 min/mile";
+    final String PART_ONE_NEXT_TITLE   = "6:00 min/mile";
+    final String PART_TWO_NEXT_TITLE   = "12:00 min/mile";
     final String PART_THREE_NEXT_TITLE = "6:00 min/mile";
-    final String PART_FOUR_NEXT_TITLE = "12:00 min/mile";
-    final String PART_FIVE_NEXT_TITLE = "6:00 min/mile";
-    final String PART_SIX_NEXT_TITLE = "12:00 min/mile";
+    final String PART_FOUR_NEXT_TITLE  = "12:00 min/mile";
+    final String PART_FIVE_NEXT_TITLE  = "6:00 min/mile";
+    final String PART_SIX_NEXT_TITLE   = "12:00 min/mile";
     final String PART_SEVEN_NEXT_TITLE = "Finished";
 
     public SpeedCalculationService speedCalculator;
@@ -95,8 +96,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     // Tracks the start time and elapsed time of individual parts
     double partTimeStart, partTimeElapsed;
 
-    double currentPartTimeStart;
-    int currentPartDuration;
     int currentPart;
 
     int tickCounter; // Counts the number of ticks on current part
@@ -117,6 +116,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     Vibrator vibrator;
 
     ImageButton pauseButton;
+    ImageButton backButton, nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,9 +145,30 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             }
         });
 
+        backButton = (ImageButton) findViewById(R.id.partLeftButton);
+        backButton.setEnabled(false);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleBackButtonClick();
+            }
+        });
+
+        nextButton = (ImageButton) findViewById(R.id.partRightButton);
+        nextButton.setEnabled(false);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleNextButtonClick();
+            }
+        });
+
         mainTitle = (TextView) findViewById(R.id.mainTitle);
+        mainTitle.setText(PART_ONE_MAIN_TITLE);
         secondaryTitle = (TextView) findViewById(R.id.secondaryTitle);
+        secondaryTitle.setText(PART_ONE_SECONDARY_TITLE);
         nextTitle = (TextView) findViewById(R.id.nextTitle);
+        nextTitle.setText(PART_ONE_NEXT_TITLE);
 
         // Starts the service for calculating user's speed
         bindService(i, speedConnection, Context.BIND_AUTO_CREATE);
@@ -220,7 +241,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             seconds = 0;
         }
         final TextView emtVal = (TextView) findViewById(R.id.emtVal);
-        emtVal.setText(String.format("%d:%02d", minutes, seconds));
+        emtVal.setText(String.format("%02d:%02d", minutes, seconds));
     }
 
     /**
@@ -377,8 +398,98 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             isPaused = false;
         } else {
             pauseButton.setBackgroundResource(R.drawable.play);
+            backButton.setEnabled(false); // Disable part skipping when app is paused
+            nextButton.setEnabled(false); // Disaple part skipping when app is paused
             partTimer.cancel();
             isPaused = true;
+        }
+    }
+
+    /**
+     * Method called when "back" button is clicked
+     */
+    private void handleBackButtonClick() {
+
+        partTimer.cancel();
+
+        switch (currentPart) {
+            case 1:
+                // Do nothing
+                break;
+            case 2:
+                partOneFirstRun = true;
+                timeRemaining = PART_ONE_DURATION;
+                partOneBegin();
+                break;
+            case 3:
+                partTwoFirstRun = true;
+                timeRemaining = PART_TWO_DURATION;
+                partTwoBegin();
+                break;
+            case 4:
+                partThreeFirstRun = true;
+                timeRemaining = PART_THREE_DURATION;
+                partThreeBegin();
+                break;
+            case 5:
+                partFourFirstRun = true;
+                timeRemaining = PART_FOUR_DURATION;
+                partFourBegin();
+                break;
+            case 6:
+                partFiveFirstRun = true;
+                timeRemaining = PART_FIVE_DURATION;
+                partFiveBegin();
+                break;
+            case 7:
+                partSixFirstRun = true;
+                timeRemaining = PART_SIX_DURATION;
+                partSixBegin();
+                break;
+        }
+    }
+
+    /**
+     * Method called when "next" button is clicked
+     */
+    private void handleNextButtonClick() {
+
+        partTimer.cancel();
+
+        switch (currentPart) {
+            case 1:
+                partTwoFirstRun = true;
+                timeRemaining = PART_TWO_DURATION;
+                partTwoBegin();
+                break;
+            case 2:
+                partThreeFirstRun = true;
+                timeRemaining = PART_THREE_DURATION;
+                partThreeBegin();
+                break;
+            case 3:
+                partFourFirstRun = true;
+                timeRemaining = PART_FOUR_DURATION;
+                partFourBegin();
+                break;
+            case 4:
+                partFiveFirstRun = true;
+                timeRemaining = PART_FIVE_DURATION;
+                partFiveBegin();
+                break;
+            case 5:
+                partSixFirstRun = true;
+                timeRemaining = PART_SIX_DURATION;
+                partSixBegin();
+                break;
+            case 6:
+                partSevenFirstRun = true;
+                timeRemaining = PART_SEVEN_DURATION;
+                partSevenBegin();
+                break;
+            case 7:
+                // Do nothing
+                break;
         }
     }
 
@@ -386,6 +497,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partOneBegin() {
+
+        backButton.setEnabled(false); // Disable back button when first part begins
+        nextButton.setEnabled(true); // Enable next button when first part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_1);
+
         if (partOneFirstRun) {
             timeRemaining = PART_ONE_DURATION;
             tickCounter = 0;
@@ -458,6 +576,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partTwoBegin() {
+
+        backButton.setEnabled(true); // Enable back button when second part begins
+        nextButton.setEnabled(true); // Enable next button when second part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_2);
+
         if (partTwoFirstRun) {
             timeRemaining = PART_TWO_DURATION;
             tickCounter = 0;
@@ -530,6 +655,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partThreeBegin() {
+
+        backButton.setEnabled(true); // Enable back button when third part begins
+        nextButton.setEnabled(true); // Enable next button when third part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_3);
+
         if (partThreeFirstRun) {
             timeRemaining = PART_THREE_DURATION;
             tickCounter = 0;
@@ -602,6 +734,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partFourBegin() {
+
+        backButton.setEnabled(true); // Enable back button when fourth part begins
+        nextButton.setEnabled(true); // Enable next button when fourth part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_4);
+
         if (partFourFirstRun) {
             timeRemaining = PART_FOUR_DURATION;
             tickCounter = 0;
@@ -674,6 +813,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partFiveBegin() {
+
+        backButton.setEnabled(true); // Enable back button when fifth part begins
+        nextButton.setEnabled(true); // Enable next button when fifth part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_1);
+
         if (partFiveFirstRun) {
             timeRemaining = PART_FIVE_DURATION;
             tickCounter = 0;
@@ -746,6 +892,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partSixBegin() {
+
+        backButton.setEnabled(true); // Enable back button when sixth part begins
+        nextButton.setEnabled(true); // Enable next button when sixth part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_2);
+
         if (partSixFirstRun) {
             timeRemaining = PART_SIX_DURATION;
             tickCounter = 0;
@@ -818,6 +971,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Method called when Speed Calculation Service is successfully bound
      */
     public void partSevenBegin() {
+
+        backButton.setEnabled(true); // Enable back button when last part begins
+        nextButton.setEnabled(false); // Disable next button when last part begins
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+        layout.setBackgroundResource(R.drawable.background_3);
+
         if (partSevenFirstRun) {
             timeRemaining = PART_SEVEN_DURATION;
             tickCounter = 0;

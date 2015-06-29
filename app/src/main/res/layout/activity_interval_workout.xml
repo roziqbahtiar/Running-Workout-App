@@ -418,7 +418,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Part 1: Run Literally Forever"
+        android:text="Part 1:"
         android:id="@+id/mainTitle"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/topBar"
@@ -449,16 +449,18 @@
         android:layout_alignEnd="@+id/topBar"
         android:paddingTop="10dp"
         android:paddingRight="30dp"
-        android:textColor="#ff8f8f8f" />
+        android:textColor="#ff8f8f8f"
+        android:layout_alignLeft="@+id/nextTitle"
+        android:layout_alignStart="@+id/nextTitle" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0:00 min/mle"
+        android:text="00:00 min/mle"
         android:id="@+id/nextTitle"
         android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:textColor="#ff777777" />
+        android:textColor="#ff777777"
+        android:layout_alignLeft="@+id/calorieSuffix"
+        android:layout_alignStart="@+id/calorieSuffix" />
 
 </RelativeLayout>
