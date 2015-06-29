@@ -377,7 +377,8 @@
         android:layout_below="@+id/bottomOpacity"
         android:baselineAlignBottom="false"
         android:src="@drawable/arrows_main_left"
-        android:background="@drawable/backgroundstate" />
+        android:background="@drawable/backgroundstate"
+        android:visibility="invisible" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -388,7 +389,8 @@
         android:layout_alignEnd="@+id/bottomBar"
         android:layout_below="@+id/bottomOpacity"
         android:src="@drawable/arrows_main_right"
-        android:background="@drawable/backgroundstate" />
+        android:background="@drawable/backgroundstate"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"

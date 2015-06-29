@@ -83,6 +83,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     boolean isBound = false;
 
     double currentPace, goalPace;
+    double paceSum, paceAverage;
     double speed;
     double distance = 0;
 
@@ -134,6 +135,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         partFiveFirstRun  = true;
         partSixFirstRun   = true;
         partSevenFirstRun = true;
+
+        paceSum = 0.0;
 
         isPaused = true;
         pauseButton = (ImageButton) findViewById(R.id.pauseButton);
@@ -236,7 +239,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     private void updateCurrentPace(double currentPace) {
         int minutes = (int) currentPace;
         int seconds = (int) (((currentPace * 100) % 100) * 0.6);
-        if (minutes > 25) {
+        if (minutes > 30) {
             minutes = 0;
             seconds = 0;
         }
@@ -324,6 +327,28 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         timeView.setText(String.format("%02d:%02d", minutes, seconds));
     }
 
+    /**
+     * Updates the timer display specifically for initial countdown timer
+     */
+    private void updateCountdownTime() {
+        double time = timeRemaining / 1000;
+
+        int minutes = (int) (time / 60);
+        int seconds;
+
+        if (timeRemaining > 2000) {
+            seconds = 3;
+        } else if (timeRemaining > 1000) {
+            seconds = 2;
+        } else {
+            seconds = 1;
+        }
+
+
+        final TextView timeView = (TextView) findViewById(R.id.timeLabel);
+        timeView.setText(String.format("%02d:%02d", minutes, seconds));
+    }
+
     ServiceConnection speedConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -374,7 +399,11 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             pauseButton.setBackgroundResource(R.drawable.pause);
             switch (currentPart) {
                 case 1:
-                    partOneBegin();
+                    if (partOneFirstRun) {
+                        initialCountdownBegin();
+                    } else {
+                        partOneBegin();
+                    }
                     break;
                 case 2:
                     partTwoBegin();
@@ -493,6 +522,25 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         }
     }
 
+    public void initialCountdownBegin() {
+        pauseButton.setEnabled(false);
+        timeRemaining = 3000;
+        partTimer = new CountDownTimer(timeRemaining, 500) {
+            @Override
+            public void onTick(long l) {
+                timeRemaining = l;
+                updateCountdownTime();
+            }
+
+            @Override
+            public void onFinish() {
+                pauseButton.setEnabled(true);
+                partOneBegin();
+            }
+        }.start();
+
+    }
+
     /**
      * Method called when Speed Calculation Service is successfully bound
      */
@@ -523,7 +571,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partOneFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partOneFirstTick) {
@@ -533,6 +581,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_ONE_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -553,13 +603,24 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % 5 == 0) {
+                    updateCurrentPace(paceAverage);
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -602,7 +663,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partTwoFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partTwoFirstTick) {
@@ -612,6 +673,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_TWO_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -632,13 +695,20 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -681,7 +751,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partThreeFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partThreeFirstTick) {
@@ -691,6 +761,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_THREE_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -711,13 +783,20 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -760,7 +839,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partFourFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partFourFirstTick) {
@@ -770,6 +849,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_FOUR_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -790,13 +871,20 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -839,7 +927,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partFiveFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partFiveFirstTick) {
@@ -849,6 +937,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_FIVE_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -869,13 +959,20 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -918,7 +1015,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partSixFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partSixFirstTick) {
@@ -928,6 +1025,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_SIX_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -948,13 +1047,20 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
@@ -997,7 +1103,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
         partSevenFirstTick = true;
 
-        partTimer = new CountDownTimer(timeRemaining, 500) {
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
             @Override
             public void onTick(long l) {
                 if (partSevenFirstTick) {
@@ -1007,6 +1113,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
 
                     goalPace = PART_SEVEN_GOAL_PACE;
                     updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
 
                     distance = 0.0;
                     updateDistance(distance);
@@ -1027,13 +1135,21 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
-                currentPace = 60 / speed;
-                updateCurrentPace(currentPace);
+                currentPace = 60.0 / speed;
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    if (Double.compare(paceSum, Double.NaN) == 0) {
+                        paceSum = 0.0;
+                    }
+                    paceAverage = paceSum / tickCounter;
+                }
+
 
                 distance = speedCalculator.getCurrentDistance();
                 updateDistance(distance);
 
-                if (tickCounter % 20 == 0) {// calls pace alert every 10 seconds (20 loop ticks)
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
                     paceAlert();
                 }
             }
