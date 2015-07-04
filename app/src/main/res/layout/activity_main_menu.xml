@@ -1,71 +1,183 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.stropheum.speedcalculatortest.MainMenu">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.example.stropheum.speedcalculatortest.MainMenu"
+    android:paddingBottom="0dp"
+    android:background="#ffffff">
 
-    <HorizontalScrollView
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blueTop"
+        android:src="@drawable/blue_bg"
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="false"
+        android:scaleType="fitXY" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" >
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_alignRight="@+id/blueTop"
+        android:layout_alignEnd="@+id/blueTop"
+        android:adjustViewBounds="true"
+        android:layout_alignTop="@+id/blueTop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/blueTop" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/blueTop"
+        android:layout_alignRight="@+id/blueTop"
+        android:layout_alignEnd="@+id/blueTop"
+        android:layout_alignLeft="@+id/blueTop"
+        android:layout_alignStart="@+id/blueTop"
+        android:layout_alignParentTop="false" >
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/workoutButton1"
-                android:src="@drawable/runningman"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_1">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/workoutButton2"
-                android:src="@drawable/runningman" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_1_image"
+                    android:src="@drawable/running_parts"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/workoutButton3"
-                android:src="@drawable/runningman" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout 1"
+                    android:id="@+id/row_1_text"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/workoutButton4"
-                android:src="@drawable/runningman" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_2">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/workoutButton5"
-                android:src="@drawable/runningman" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_2_image"
+                    android:src="@drawable/running_parts"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout 2"
+                    android:id="@+id/row_2_text"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_3">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_3_image"
+                    android:src="@drawable/running_parts"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout 3"
+                    android:id="@+id/row_3_text"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_4">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_4_image"
+                    android:src="@drawable/running_parts"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout 4"
+                    android:id="@+id/row_4_text"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/row_5">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/row_5_image"
+                    android:src="@drawable/running_parts"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workout 5"
+                    android:id="@+id/row_5_text"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
-    </HorizontalScrollView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select a Workout"
-        android:id="@+id/textView"
-        android:editable="false"
-        android:clickable="false"
-        android:layout_above="@+id/horizontalScrollView"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textSize="42dp" />
+    </ScrollView>
 
 </RelativeLayout>

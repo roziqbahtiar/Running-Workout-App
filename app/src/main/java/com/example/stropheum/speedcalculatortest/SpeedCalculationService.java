@@ -24,6 +24,7 @@ public class SpeedCalculationService extends Service {
     // Tracks distance traveled between location calls
     double distanceTraveled = 0;
     double speed = 0;
+    double dopplerSpeed = 0; // Testing for accuracy of getSpeed()
 
     // Tracks the longitude and latitude of the previous and current location calls
     double lonNew, lonOld;
@@ -49,7 +50,6 @@ public class SpeedCalculationService extends Service {
 
             public void onLocationChanged(Location location) {
                 ticks++;
-
                 if (!signalFound) {
                     // Prime old locations for first distance calculation
                     latOld = Math.toRadians(location.getLatitude());
@@ -80,6 +80,8 @@ public class SpeedCalculationService extends Service {
                 lonOld = lonNew;
 
                 startTime = currentTime;
+
+                dopplerSpeed = location.getSpeed();
             }
 
             public void onStatusChanged(String Provider, int status, Bundle extras) {}

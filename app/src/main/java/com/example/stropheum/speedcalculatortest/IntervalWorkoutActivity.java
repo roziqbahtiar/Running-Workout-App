@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -241,7 +242,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     private void updateCurrentPace(double currentPace) {
         int minutes = (int) currentPace;
         int seconds = (int) (((currentPace * 100) % 100) * 0.6);
-        if (minutes > 30) {
+        if (minutes > 99) {
             minutes = 0;
             seconds = 0;
         }
@@ -298,13 +299,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         timeStart = System.currentTimeMillis(); // Reset alert interval
         String paceColor;
 
-        if (currentPace > goalPace + MILE_TIME_ERROR) {
+        if (paceAverage > goalPace + MILE_TIME_ERROR) {
             paceText = "Speed up";
             paceColor = "#52be7f";//Green
             long[] pattern = {0, 200, 200, 200, 200, 200};
             vibrator.vibrate(pattern, -1);
 
-        } else if (currentPace < goalPace - MILE_TIME_ERROR) {
+        } else if (paceAverage < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
             paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
@@ -524,6 +525,270 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Plays a sound file associated with the number passed in
+     * @param n the number associated with the sound file played
+     */
+    private void sayNumber(int n) {
+        final MediaPlayer sound;
+        switch (n) {
+            case 0:
+                sound = MediaPlayer.create(this, R.raw.zero);
+                break;
+            case 1:
+                sound = MediaPlayer.create(this, R.raw.one);
+                break;
+            case 2:
+                sound = MediaPlayer.create(this, R.raw.two);
+                break;
+            case 3:
+                sound = MediaPlayer.create(this, R.raw.three);
+                break;
+            case 4:
+                sound = MediaPlayer.create(this, R.raw.four);
+                break;
+            case 5:
+                sound = MediaPlayer.create(this, R.raw.five);
+                break;
+            case 6:
+                sound = MediaPlayer.create(this, R.raw.six);
+                break;
+            case 7:
+                sound = MediaPlayer.create(this, R.raw.seven);
+                break;
+            case 8:
+                sound = MediaPlayer.create(this, R.raw.eight);
+                break;
+            case 9:
+                sound = MediaPlayer.create(this, R.raw.nine);
+                break;
+            case 10:
+                sound = MediaPlayer.create(this, R.raw.ten);
+                break;
+            case 11:
+                sound = MediaPlayer.create(this, R.raw.eleven);
+                break;
+            case 12:
+                sound = MediaPlayer.create(this, R.raw.twelve);
+                break;
+            case 13:
+                sound = MediaPlayer.create(this, R.raw.thirteen);
+                break;
+            case 14:
+                sound = MediaPlayer.create(this, R.raw.fourteen);
+                break;
+            case 15:
+                sound = MediaPlayer.create(this, R.raw.fifteen);
+                break;
+            case 16:
+                sound = MediaPlayer.create(this, R.raw.sixteen);
+                break;
+            case 17:
+                sound = MediaPlayer.create(this, R.raw.seventeen);
+                break;
+            case 18:
+                sound = MediaPlayer.create(this, R.raw.eighteen);
+                break;
+            case 19:
+                sound = MediaPlayer.create(this, R.raw.nineteen);
+                break;
+            case 20:
+                sound = MediaPlayer.create(this, R.raw.twenty);
+                break;
+            case 21:
+                sound = MediaPlayer.create(this, R.raw.twenty_one);
+                break;
+            case 22:
+                sound = MediaPlayer.create(this, R.raw.twenty_two);
+                break;
+            case 23:
+                sound = MediaPlayer.create(this, R.raw.twenty_three);
+                break;
+            case 24:
+                sound = MediaPlayer.create(this, R.raw.twenty_four);
+                break;
+            case 25:
+                sound = MediaPlayer.create(this, R.raw.twenty_five);
+                break;
+            case 26:
+                sound = MediaPlayer.create(this, R.raw.twenty_six);
+                break;
+            case 27:
+                sound = MediaPlayer.create(this, R.raw.twenty_seven);
+                break;
+            case 28:
+                sound = MediaPlayer.create(this, R.raw.twenty_eight);
+                break;
+            case 29:
+                sound = MediaPlayer.create(this, R.raw.twenty_nine);
+                break;
+            case 30:
+                sound = MediaPlayer.create(this, R.raw.thirty);
+                break;
+            case 31:
+                sound = MediaPlayer.create(this, R.raw.thirty_one);
+                break;
+            case 32:
+                sound = MediaPlayer.create(this, R.raw.thirty_two);
+                break;
+            case 33:
+                sound = MediaPlayer.create(this, R.raw.thirty_three);
+                break;
+            case 34:
+                sound = MediaPlayer.create(this, R.raw.thirty_four);
+                break;
+            case 35:
+                sound = MediaPlayer.create(this, R.raw.thirty_five);
+                break;
+            case 36:
+                sound = MediaPlayer.create(this, R.raw.thirty_six);
+                break;
+            case 37:
+                sound = MediaPlayer.create(this, R.raw.thirty_seven);
+                break;
+            case 38:
+                sound = MediaPlayer.create(this, R.raw.thirty_eight);
+                break;
+            case 39:
+                sound = MediaPlayer.create(this, R.raw.thirty_nine);
+                break;
+            case 40:
+                sound = MediaPlayer.create(this, R.raw.fourty);
+                break;
+            case 41:
+                sound = MediaPlayer.create(this, R.raw.fourty_one);
+                break;
+            case 42:
+                sound = MediaPlayer.create(this, R.raw.fourty_two);
+                break;
+            case 43:
+                sound = MediaPlayer.create(this, R.raw.fourty_three);
+                break;
+            case 44:
+                sound = MediaPlayer.create(this, R.raw.fourty_four);
+                break;
+            case 45:
+                sound = MediaPlayer.create(this, R.raw.fourty_five);
+                break;
+            case 46:
+                sound = MediaPlayer.create(this, R.raw.fourty_six);
+                break;
+            case 47:
+                sound = MediaPlayer.create(this, R.raw.fourty_seven);
+                break;
+            case 48:
+                sound = MediaPlayer.create(this, R.raw.fourty_eight);
+                break;
+            case 49:
+                sound = MediaPlayer.create(this, R.raw.fourty_nine);
+                break;
+            case 50:
+                sound = MediaPlayer.create(this, R.raw.fifty);
+                break;
+            case 51:
+                sound = MediaPlayer.create(this, R.raw.fifty_one);
+                break;
+            case 52:
+                sound = MediaPlayer.create(this, R.raw.fifty_two);
+                break;
+            case 53:
+                sound = MediaPlayer.create(this, R.raw.fifty_three);
+                break;
+            case 54:
+                sound = MediaPlayer.create(this, R.raw.fifty_four);
+                break;
+            case 55:
+                sound = MediaPlayer.create(this, R.raw.fifty_five);
+                break;
+            case 56:
+                sound = MediaPlayer.create(this, R.raw.fifty_six);
+                break;
+            case 57:
+                sound = MediaPlayer.create(this, R.raw.fifty_seven);
+                break;
+            case 58:
+                sound = MediaPlayer.create(this, R.raw.fifty_eight);
+                break;
+            case 59:
+                sound = MediaPlayer.create(this, R.raw.fifty_nine);
+                break;
+            case 60:
+                sound = MediaPlayer.create(this, R.raw.sixty);
+                break;
+            default:
+                sound = MediaPlayer.create(this, R.raw.zero);
+                break;
+        }
+        sound.start();
+    }
+
+    /**
+     * Plays the word "minute"
+     */
+    private void sayMinute() {
+        final MediaPlayer player = MediaPlayer.create(this, R.raw.minute);
+        player.start();
+    }
+
+    /**
+     * plays the word "minutes"
+     */
+    private void sayMinutes() {
+        final MediaPlayer player = MediaPlayer.create(this, R.raw.minutes);
+        player.start();
+    }
+
+    /**
+     * plays the word "second"
+     */
+    private void saySecond() {
+        final MediaPlayer player = MediaPlayer.create(this, R.raw.second);
+        player.start();
+    }
+
+    /**
+     * plays the word "seconds"
+     */
+    private void saySeconds() {
+        final MediaPlayer player = MediaPlayer.create(this, R.raw.seconds);
+        player.start();
+    }
+
+    /**
+     * plays the word "pace"
+     */
+    private void sayPace() {
+        final MediaPlayer player = MediaPlayer.create(this, R.raw.pace);
+        player.start();
+    }
+
+    /**
+     * Tells user what pace to run
+     */
+    private void announcePace(double pace) {
+        int minute = (int) pace;
+        int second = (int) ((pace - minute) * 60);
+
+        if (minute > 1) {
+            sayNumber(minute);
+            sayMinutes();
+        } else if (minute == 1) {
+            sayNumber(minute);
+            sayMinute();
+        }
+
+        if (second > 1) {
+            sayNumber(second);
+            saySeconds();
+        } else if (second == 1) {
+            sayNumber(second);
+            saySecond();
+        }
+
+        sayPace();
+
+    }
+
     public void initialCountdownBegin() {
         pauseButton.setEnabled(false);
         timeRemaining = 3000;
@@ -557,6 +822,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partOneFirstRun) {
             timeRemaining = PART_ONE_DURATION;
             tickCounter = 0;
+            //announcePace(PART_ONE_GOAL_PACE);
             partOneFirstRun = false;
         }
 
@@ -649,6 +915,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partTwoFirstRun) {
             timeRemaining = PART_TWO_DURATION;
             tickCounter = 0;
+//            announcePace(PART_TWO_GOAL_PACE);
             partTwoFirstRun = false;
         }
 
@@ -742,6 +1009,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partThreeFirstRun) {
             timeRemaining = PART_THREE_DURATION;
             tickCounter = 0;
+//            announcePace(PART_THREE_GOAL_PACE);
             partThreeFirstRun = false;
         }
 
@@ -835,6 +1103,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partFourFirstRun) {
             timeRemaining = PART_FOUR_DURATION;
             tickCounter = 0;
+//            announcePace(PART_FOUR_GOAL_PACE);
             partFourFirstRun = false;
         }
 
@@ -928,6 +1197,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partFiveFirstRun) {
             timeRemaining = PART_FIVE_DURATION;
             tickCounter = 0;
+//            announcePace(PART_FIVE_GOAL_PACE);
             partFiveFirstRun = false;
         }
 
@@ -1021,6 +1291,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partSixFirstRun) {
             timeRemaining = PART_SIX_DURATION;
             tickCounter = 0;
+//            announcePace(PART_SIX_GOAL_PACE);
             partSixFirstRun = false;
         }
 
@@ -1114,6 +1385,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partSevenFirstRun) {
             timeRemaining = PART_SEVEN_DURATION;
             tickCounter = 0;
+//            announcePace(PART_SEVEN_GOAL_PACE);
             partSevenFirstRun = false;
         }
 

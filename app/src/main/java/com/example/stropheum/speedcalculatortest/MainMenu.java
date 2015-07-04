@@ -1,20 +1,27 @@
 package com.example.stropheum.speedcalculatortest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 
 public class MainMenu extends ActionBarActivity {
+    LinearLayout[] layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        layout = new LinearLayout[5];
 
         // Initialize click listeners for workout buttons
         configureWorkoutButtonOne();
@@ -50,11 +57,34 @@ public class MainMenu extends ActionBarActivity {
      * Configures the click listener for workout button one
      */
     private void configureWorkoutButtonOne() {
-        ImageButton wb1 = (ImageButton) findViewById(R.id.workoutButton1);
-        wb1.setOnClickListener(new OnClickListener() {
+        layout[0] = (LinearLayout) findViewById(R.id.row_1);
+
+//        layout[0].setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+//            }
+//        });
+
+        layout[0].setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[0].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[0].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[0].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
             }
         });
     }
@@ -63,11 +93,34 @@ public class MainMenu extends ActionBarActivity {
      * Configures the click listener for workout button two
      */
     private void configureWorkoutButtonTwo() {
-        ImageButton wb2 = (ImageButton) findViewById(R.id.workoutButton2);
-        wb2.setOnClickListener(new OnClickListener() {
+        layout[1] = (LinearLayout) findViewById(R.id.row_2);
+
+//        layout[1].setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+//            }
+//        });
+
+        layout[1].setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CrossCountrySpeed.class));
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[1].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[1].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[1].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
             }
         });
     }
@@ -76,11 +129,34 @@ public class MainMenu extends ActionBarActivity {
      * Configures the click listener for workout button three
      */
     private void configureWorkoutButtonThree() {
-        ImageButton wb3 = (ImageButton) findViewById(R.id.workoutButton3);
-        wb3.setOnClickListener(new OnClickListener() {
+        layout[2] = (LinearLayout) findViewById(R.id.row_3);
+
+//        layout[2].setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+//            }
+//        });
+
+        layout[2].setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CrossCountryEndurance.class));
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[2].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[2].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[2].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
             }
         });
     }
@@ -89,11 +165,33 @@ public class MainMenu extends ActionBarActivity {
      * Configures the click listener for workout button four
      */
     private void configureWorkoutButtonFour() {
-        ImageButton wb4 = (ImageButton) findViewById(R.id.workoutButton4);
-        wb4.setOnClickListener(new OnClickListener() {
+        layout[3] = (LinearLayout) findViewById(R.id.row_4);
+
+//        layout[3].setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+//            }
+//        });
+
+        layout[3].setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3].setBackgroundColor(0xFFe1e1e1);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        layout[3].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
             }
         });
     }
@@ -102,11 +200,34 @@ public class MainMenu extends ActionBarActivity {
      * Configures the click listener for workout button five
      */
     private void configureWorkoutButtonFive() {
-        ImageButton wb5 = (ImageButton) findViewById(R.id.workoutButton5);
-        wb5.setOnClickListener(new OnClickListener() {
+        layout[4] = (LinearLayout) findViewById(R.id.row_5);
+
+//        layout[4].setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+//            }
+//        });
+
+        layout[4].setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[4].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[4].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[4].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
             }
         });
     }
