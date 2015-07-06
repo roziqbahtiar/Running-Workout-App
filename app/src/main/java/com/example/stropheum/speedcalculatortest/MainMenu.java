@@ -2,6 +2,7 @@ package com.example.stropheum.speedcalculatortest;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -20,6 +21,9 @@ public class MainMenu extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.abs_layout);
 
         layout = new LinearLayout[5];
 
@@ -51,6 +55,12 @@ public class MainMenu extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_settings).setVisible(false);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     /**

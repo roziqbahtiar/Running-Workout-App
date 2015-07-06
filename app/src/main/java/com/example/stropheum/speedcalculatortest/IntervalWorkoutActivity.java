@@ -56,22 +56,22 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     final int PART_SEVEN_DURATION = 60000;
 
     // Main titles for actionbar to set at each part
-    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
-    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
-    final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
-    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
-    final String PART_FIVE_MAIN_TITLE  = "Part 5: Run 1 minute";
-    final String PART_SIX_MAIN_TITLE   = "Part 6: Run 2 minutes";
-    final String PART_SEVEN_MAIN_TITLE = "Part 7: Run 1 minute";
+//    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
+//    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
+//    final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
+//    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
+//    final String PART_FIVE_MAIN_TITLE  = "Part 5: Run 1 minute";
+//    final String PART_SIX_MAIN_TITLE   = "Part 6: Run 2 minutes";
+//    final String PART_SEVEN_MAIN_TITLE = "Part 7: Run 1 minute";
 
     // Secondary titles for actionbar to set at each part
-    final String PART_ONE_SECONDARY_TITLE   = "12:00 minute/mile pace";
-    final String PART_TWO_SECONDARY_TITLE   = "6:00 minute/mile pace";
-    final String PART_THREE_SECONDARY_TITLE = "12:00 minute/mile pace";
-    final String PART_FOUR_SECONDARY_TITLE  = "6:00 minute/mile pace";
-    final String PART_FIVE_SECONDARY_TITLE  = "12:00 minute/mile pace";
-    final String PART_SIX_SECONDARY_TITLE   = "6:00 minute/mile pace";
-    final String PART_SEVEN_SECONDARY_TITLE = "12:00 minute/mile pace";
+    final String PART_ONE_SECONDARY_TITLE   = "12:00 min/mile";
+    final String PART_TWO_SECONDARY_TITLE   = "6:00 min/mile";
+    final String PART_THREE_SECONDARY_TITLE = "12:00 min/mile";
+    final String PART_FOUR_SECONDARY_TITLE  = "6:00 min/mile";
+    final String PART_FIVE_SECONDARY_TITLE  = "12:00 min/mile";
+    final String PART_SIX_SECONDARY_TITLE   = "6:00 min/mile";
+    final String PART_SEVEN_SECONDARY_TITLE = "12:00 min/mile";
 
     // Secondary abbreviated titles for "next" title
     final String PART_ONE_NEXT_TITLE   = "6:00 min/mile";
@@ -170,11 +170,11 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         });
 
         mainTitle = (TextView) findViewById(R.id.mainTitle);
-        mainTitle.setText(PART_ONE_MAIN_TITLE);
+//        mainTitle.setText(PART_ONE_MAIN_TITLE);
         secondaryTitle = (TextView) findViewById(R.id.secondaryTitle);
         secondaryTitle.setText(PART_ONE_SECONDARY_TITLE);
-        nextTitle = (TextView) findViewById(R.id.nextTitle);
-        nextTitle.setText(PART_ONE_NEXT_TITLE);
+//        nextTitle = (TextView) findViewById(R.id.nextTitle);
+//        nextTitle.setText(PART_ONE_NEXT_TITLE);
 
         // Starts the service for calculating user's speed
         bindService(i, speedConnection, Context.BIND_AUTO_CREATE);
@@ -213,6 +213,12 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_settings).setVisible(false);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -289,7 +295,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     private void updateDistance(double distance) {
         final TextView distanceText = (TextView) findViewById(R.id.distanceVal);
-        distanceText.setText(String.format("%.3f", distance));
+        distanceText.setText(String.format("%.2f", distance));
     }
 
     /**
@@ -382,7 +388,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                         @Override
                         public void run() {
                             pauseButton.setEnabled(true);
-                            pauseButton.setBackgroundResource(R.drawable.play);
+                            pauseButton.setBackgroundResource(R.drawable.play_button);
                             final TextView paceText = (TextView) findViewById(R.id.paceView);
                             updatePaceColor("#3498db");
                             paceText.setText("GPS Found");
@@ -399,7 +405,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     private void handlePauseClick() {
         if (isPaused) {
-            pauseButton.setBackgroundResource(R.drawable.pause);
+            pauseButton.setBackgroundResource(R.drawable.pause_button);
             switch (currentPart) {
                 case 1:
                     if (partOneFirstRun) {
@@ -429,7 +435,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             }
             isPaused = false;
         } else {
-            pauseButton.setBackgroundResource(R.drawable.play);
+            pauseButton.setBackgroundResource(R.drawable.play_button);
             backButton.setEnabled(false); // Disable part skipping when app is paused
             nextButton.setEnabled(false); // Disaple part skipping when app is paused
             partTimer.cancel();
@@ -816,8 +822,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(false); // Disable back button when first part begins
         nextButton.setEnabled(true); // Enable next button when first part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_1);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_1);
 
         if (partOneFirstRun) {
             timeRemaining = PART_ONE_DURATION;
@@ -830,9 +836,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 1;
 
         // Update titles
-        mainTitle.setText(PART_ONE_MAIN_TITLE);
+//        mainTitle.setText(PART_ONE_MAIN_TITLE);
         secondaryTitle.setText(PART_ONE_SECONDARY_TITLE);
-        nextTitle.setText(PART_ONE_NEXT_TITLE);
+//        nextTitle.setText(PART_ONE_NEXT_TITLE);
 
         final RadioButton partButton1 = (RadioButton) findViewById(R.id.radioButton1);
         partButton1.setChecked(true);
@@ -909,8 +915,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when second part begins
         nextButton.setEnabled(true); // Enable next button when second part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_2);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_2);
 
         if (partTwoFirstRun) {
             timeRemaining = PART_TWO_DURATION;
@@ -923,9 +929,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 2;
 
         // Update titles
-        mainTitle.setText(PART_TWO_MAIN_TITLE);
+//        mainTitle.setText(PART_TWO_MAIN_TITLE);
         secondaryTitle.setText(PART_TWO_SECONDARY_TITLE);
-        nextTitle.setText(PART_TWO_NEXT_TITLE);
+//        nextTitle.setText(PART_TWO_NEXT_TITLE);
 
         final RadioButton partButton2 = (RadioButton) findViewById(R.id.radioButton2);
         partButton2.setChecked(true);
@@ -1003,8 +1009,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when third part begins
         nextButton.setEnabled(true); // Enable next button when third part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_3);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_3);
 
         if (partThreeFirstRun) {
             timeRemaining = PART_THREE_DURATION;
@@ -1017,9 +1023,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 3;
 
         // Update titles
-        mainTitle.setText(PART_THREE_MAIN_TITLE);
+//        mainTitle.setText(PART_THREE_MAIN_TITLE);
         secondaryTitle.setText(PART_THREE_SECONDARY_TITLE);
-        nextTitle.setText(PART_THREE_NEXT_TITLE);
+//        nextTitle.setText(PART_THREE_NEXT_TITLE);
 
         final RadioButton partButton3 = (RadioButton) findViewById(R.id.radioButton3);
         partButton3.setChecked(true);
@@ -1097,8 +1103,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when fourth part begins
         nextButton.setEnabled(true); // Enable next button when fourth part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_4);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_4);
 
         if (partFourFirstRun) {
             timeRemaining = PART_FOUR_DURATION;
@@ -1111,9 +1117,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 4;
 
         // Update titles
-        mainTitle.setText(PART_FOUR_MAIN_TITLE);
+//        mainTitle.setText(PART_FOUR_MAIN_TITLE);
         secondaryTitle.setText(PART_FOUR_SECONDARY_TITLE);
-        nextTitle.setText(PART_FOUR_NEXT_TITLE);
+//        nextTitle.setText(PART_FOUR_NEXT_TITLE);
 
         final RadioButton partButton4 = (RadioButton) findViewById(R.id.radioButton4);
         partButton4.setChecked(true);
@@ -1191,8 +1197,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when fifth part begins
         nextButton.setEnabled(true); // Enable next button when fifth part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_1);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_1);
 
         if (partFiveFirstRun) {
             timeRemaining = PART_FIVE_DURATION;
@@ -1205,9 +1211,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 5;
 
         // Update titles
-        mainTitle.setText(PART_FIVE_MAIN_TITLE);
+//        mainTitle.setText(PART_FIVE_MAIN_TITLE);
         secondaryTitle.setText(PART_FIVE_SECONDARY_TITLE);
-        nextTitle.setText(PART_FIVE_NEXT_TITLE);
+//        nextTitle.setText(PART_FIVE_NEXT_TITLE);
 
         final RadioButton partButton5 = (RadioButton) findViewById(R.id.radioButton5);
         partButton5.setChecked(true);
@@ -1285,8 +1291,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when sixth part begins
         nextButton.setEnabled(true); // Enable next button when sixth part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_2);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_2);
 
         if (partSixFirstRun) {
             timeRemaining = PART_SIX_DURATION;
@@ -1299,9 +1305,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 6;
 
         // Update titles
-        mainTitle.setText(PART_SIX_MAIN_TITLE);
+//        mainTitle.setText(PART_SIX_MAIN_TITLE);
         secondaryTitle.setText(PART_SIX_SECONDARY_TITLE);
-        nextTitle.setText(PART_SIX_NEXT_TITLE);
+//        nextTitle.setText(PART_SIX_NEXT_TITLE);
 
         final RadioButton partButton6 = (RadioButton) findViewById(R.id.radioButton6);
         partButton6.setChecked(true);
@@ -1379,8 +1385,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         backButton.setEnabled(true); // Enable back button when last part begins
         nextButton.setEnabled(false); // Disable next button when last part begins
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
-        layout.setBackgroundResource(R.drawable.background_3);
+//        RelativeLayout layout = (RelativeLayout) findViewById(R.id.mainLayout);
+//        layout.setBackgroundResource(R.drawable.background_3);
 
         if (partSevenFirstRun) {
             timeRemaining = PART_SEVEN_DURATION;
@@ -1393,9 +1399,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         currentPart = 7;
 
         // Update titles
-        mainTitle.setText(PART_SEVEN_MAIN_TITLE);
+//        mainTitle.setText(PART_SEVEN_MAIN_TITLE);
         secondaryTitle.setText(PART_SEVEN_SECONDARY_TITLE);
-        nextTitle.setText(PART_SEVEN_NEXT_TITLE);
+//        nextTitle.setText(PART_SEVEN_NEXT_TITLE);
 
         final RadioButton partButton7 = (RadioButton) findViewById(R.id.radioButton7);
         partButton7.setChecked(true);

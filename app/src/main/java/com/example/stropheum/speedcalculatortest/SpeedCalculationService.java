@@ -36,6 +36,8 @@ public class SpeedCalculationService extends Service {
     double speedSum = 0; // Sums speed calculations between speed update requests
     int ticks = 0;      // Tracks number of location reqeuests in between speed update requests
 
+    boolean distanceWasReset;
+
     public SpeedCalculationService() {
     }
 
@@ -60,7 +62,16 @@ public class SpeedCalculationService extends Service {
                     startLatitude  = Math.toRadians(location.getLatitude());
                     startLongitude = Math.toRadians(location.getLongitude());
 
+                    distanceWasReset = false;
+
                     signalFound = true;
+                }
+
+                // Resets distance if part was switched
+                if (distanceWasReset) {
+                    startLatitude  = Math.toRadians(location.getLatitude());
+                    startLongitude = Math.toRadians(location.getLongitude());
+                    distanceWasReset = false;
                 }
 
                 latNew = Math.toRadians(location.getLatitude());
@@ -148,6 +159,10 @@ public class SpeedCalculationService extends Service {
     public double getCurrentDistance() {
         double result = haversine(startLatitude, startLongitude, latNew, lonNew);
         return result;
+    }
+
+    public void resetDistance() {
+        distanceWasReset = true;
     }
 
     /**

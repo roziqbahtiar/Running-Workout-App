@@ -1,38 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    android:paddingBottom="0dp" tools:context=".IntervalWorkoutActivity"
+    tools:context=".IntervalWorkoutActivity"
     android:visibility="visible"
-    android:background="@drawable/background_1"
-    android:id="@+id/mainLayout">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topBar"
-        android:background="@drawable/opacity_top"
-        android:scaleType="fitXY"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottomBar"
-        android:background="@drawable/bottom_bar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/topBar"
-        android:layout_alignEnd="@+id/topBar"
-        android:layout_alignLeft="@+id/topBar"
-        android:layout_alignStart="@+id/topBar" />
+    android:background="#FFFFFFFF"
+    android:id="@+id/mainLayout"
+    android:paddingBottom="0dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,16 +28,165 @@
         android:layout_alignBaseline="@+id/timeLabel"
         android:visibility="gone" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/paceView"
+        android:gravity="center"
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:editable="false"
+        android:clickable="false"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="#FF424242"
+        android:text="Waiting for GPS"
+        android:visibility="visible"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:id="@+id/timeLabel"
+        android:textSize="40dp"
+        android:textColor="#FF424242"
+        android:visibility="visible"
+        android:typeface="sans"
+        android:paddingRight="10dp"
+        android:layout_above="@+id/horizontalLine"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emtVal"
+        android:editable="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:textSize="40dp"
+        android:textIsSelectable="false"
+        android:textColor="#FF424242"
+        android:text="00:00"
+        android:gravity="center_horizontal"
+        android:visibility="visible"
+        android:paddingLeft="15dp"
+        android:layout_alignTop="@+id/verticalLine"
+        android:layout_alignLeft="@+id/verticalLine"
+        android:layout_alignStart="@+id/verticalLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Duration"
+        android:id="@+id/textView4"
+        android:gravity="center_horizontal"
+        android:textColor="#AA000000"
+        android:textSize="20dp"
+        android:visibility="visible"
+        android:layout_above="@+id/timeLabel"
+        android:layout_alignRight="@+id/timeLabel"
+        android:layout_alignEnd="@+id/timeLabel"
+        android:layout_alignLeft="@+id/timeLabel"
+        android:layout_alignStart="@+id/timeLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="min/mile"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/emtVal"
+        android:layout_alignRight="@+id/emtVal"
+        android:layout_alignEnd="@+id/emtVal"
+        android:textColor="#ff7d7d7d"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
+        android:visibility="visible"
+        android:layout_toRightOf="@+id/verticalLine"
+        android:layout_toEndOf="@+id/verticalLine"
+        android:paddingLeft="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="miles"
+        android:id="@+id/mileSuffix"
+        android:textColor="#FF7D7D7D"
+        android:textSize="18dp"
+        android:visibility="visible"
+        android:layout_below="@+id/distanceVal"
+        android:layout_alignLeft="@+id/distanceVal"
+        android:layout_alignStart="@+id/distanceVal"
+        android:paddingLeft="20dp"
+        android:layout_toLeftOf="@+id/pauseButton"
+        android:layout_toStartOf="@+id/pauseButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:id="@+id/distanceVal"
+        android:textColor="#FF424242"
+        android:textSize="40dp"
+        android:paddingRight="25dp"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/verticalLine"
+        android:layout_toLeftOf="@+id/verticalLine"
+        android:layout_toStartOf="@+id/verticalLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Running Workout"
+        android:id="@+id/workoutLabel"
+        android:layout_toRightOf="@+id/partLeftButton"
+        android:layout_toEndOf="@+id/partLeftButton"
+        android:textSize="20dp"
+        android:textColor="#ffe1e1e1"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalLine"
+        android:src="@drawable/vert_line"
+        android:paddingBottom="0dp"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomTriangle"
+        android:src="@drawable/bottom_triangle"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <RadioGroup
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:id="@+id/partIndicatorGroup"
         android:orientation="horizontal"
         android:gravity="center_vertical|center_horizontal"
         android:visibility="visible"
-        android:layout_above="@+id/bottomOpacity2"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/partRightButton"
         android:layout_toRightOf="@+id/partLeftButton"
-        android:layout_toLeftOf="@+id/partRightButton">
+        android:layout_toEndOf="@+id/partLeftButton">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -127,342 +253,99 @@
             android:button="@drawable/radio" />
     </RadioGroup>
 
-    <ImageView
-        android:layout_width="fill_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomOpacity"
-        android:layout_above="@+id/bottomBar"
+        android:id="@+id/pauseButton"
+        android:background="@drawable/play_button"
+        android:visibility="visible"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:paddingRight="0dp"
+        android:paddingLeft="0dp"
+        android:scaleType="center"
+        android:adjustViewBounds="false"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentEnd="false"
-        android:background="@drawable/opacity_bottom"
-        android:layout_alignParentStart="false" />
+        android:layout_marginBottom="93dp" />
 
     <ImageView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomOpacity2"
-        android:layout_above="@+id/bottomOpacity"
+        android:id="@+id/horizontalLine"
+        android:layout_above="@+id/verticalLine"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/opacity_bottom" />
-
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/circle"
-        android:layout_below="@+id/topBar"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/circle_main"
-        android:layout_above="@+id/partIndicatorGroup"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:src="@drawable/horiz_line" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/partLeftButton"
+        android:adjustViewBounds="true"
+        android:baselineAlignBottom="false"
+        android:src="@drawable/arrows_main_left"
+        android:background="@drawable/backgroundstate"
+        android:visibility="visible"
         android:layout_alignTop="@+id/partIndicatorGroup"
-        android:layout_alignLeft="@+id/bottomOpacity2"
-        android:layout_alignStart="@+id/bottomOpacity2"
-        android:background="@drawable/arrows_parts_left"
-        android:layout_above="@+id/bottomOpacity2" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/partRightButton"
-        android:layout_alignRight="@+id/bottomOpacity2"
-        android:layout_alignEnd="@+id/bottomOpacity2"
-        android:background="@drawable/arrows_parts_right"
-        android:layout_above="@+id/bottomOpacity2"
-        android:layout_alignTop="@+id/partIndicatorGroup" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RUN INFORMATION"
-        android:id="@+id/textView3"
-        android:textColor="#ffa1a1a1"
-        android:layout_below="@+id/partIndicatorGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/totalDistanceLabel"
-        android:gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calories Burned"
-        android:id="@+id/calorieLabel"
-        android:textColor="#ffa1a1a1"
-        android:textSize="18dp"
-        android:layout_above="@+id/bottomBar"
-        android:layout_alignLeft="@+id/totalDistanceLabel"
-        android:layout_alignStart="@+id/totalDistanceLabel"
-        android:layout_below="@+id/bottomOpacity2"
-        android:gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Distance"
-        android:id="@+id/totalDistanceLabel"
-        android:layout_above="@+id/bottomOpacity"
-        android:layout_toRightOf="@+id/partLeftButton"
-        android:layout_toEndOf="@+id/partLeftButton"
-        android:textColor="#ffa1a1a1"
-        android:textSize="18dp" />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/partIndicatorGroup"
-        android:layout_below="@+id/topBar">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/paceView"
-            android:gravity="center"
-            android:textIsSelectable="false"
-            android:focusable="false"
-            android:editable="false"
-            android:clickable="false"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:textColor="#ffffffff"
-            android:text="Waiting for GPS"
-            android:visibility="visible"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="00:00"
-            android:id="@+id/timeLabel"
-            android:textSize="30dp"
-            android:textColor="#ffffffff"
-            android:visibility="visible"
-            android:typeface="sans"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_toLeftOf="@+id/imageView"
-            android:layout_toStartOf="@+id/imageView"
-            android:paddingRight="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/emtVal"
-            android:editable="false"
-            android:clickable="false"
-            android:focusable="false"
-            android:textSize="30dp"
-            android:textIsSelectable="false"
-            android:textColor="#ffffffff"
-            android:text="00:00"
-            android:gravity="center_horizontal"
-            android:visibility="visible"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_toEndOf="@+id/imageView"
-            android:paddingLeft="10dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/separator_line"
-            android:paddingBottom="25dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="remaining"
-            android:id="@+id/textView4"
-            android:layout_below="@+id/timeLabel"
-            android:layout_alignLeft="@+id/timeLabel"
-            android:layout_alignStart="@+id/timeLabel"
-            android:layout_toLeftOf="@+id/imageView"
-            android:layout_toStartOf="@+id/imageView"
-            android:gravity="center_horizontal"
-            android:textColor="#FFFFFFFF"
-            android:textSize="13dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="min/mile"
-            android:id="@+id/textView5"
-            android:layout_below="@+id/emtVal"
-            android:layout_toRightOf="@+id/imageView"
-            android:layout_alignRight="@+id/emtVal"
-            android:layout_alignEnd="@+id/emtVal"
-            android:textColor="#ffffffff"
-            android:gravity="center_horizontal"
-            android:textSize="13dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/pauseButton"
-            android:background="@drawable/play"
-            android:layout_below="@+id/paceView"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="miles"
-        android:id="@+id/mileSuffix"
-        android:textColor="#ffa1a1a1"
-        android:textSize="18dp"
-        android:layout_above="@+id/bottomOpacity"
-        android:layout_toLeftOf="@+id/partRightButton"
-        android:layout_toStartOf="@+id/partRightButton" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="calories"
-        android:id="@+id/calorieSuffix"
-        android:layout_above="@+id/bottomBar"
-        android:layout_alignRight="@+id/mileSuffix"
-        android:layout_alignEnd="@+id/mileSuffix"
-        android:layout_alignTop="@+id/bottomOpacity"
-        android:textSize="18dp"
-        android:textColor="#ffa1a1a1"
-        android:gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:id="@+id/calorieVal"
-        android:layout_above="@+id/bottomBar"
-        android:layout_toLeftOf="@+id/calorieSuffix"
-        android:layout_toStartOf="@+id/calorieSuffix"
-        android:layout_alignTop="@+id/bottomOpacity"
-        android:paddingRight="5dp"
-        android:textColor="#ffa1a1a1"
-        android:textSize="18dp"
-        android:gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0.0"
-        android:id="@+id/distanceVal"
-        android:layout_below="@+id/textView3"
-        android:layout_toLeftOf="@+id/mileSuffix"
-        android:layout_toStartOf="@+id/mileSuffix"
-        android:textColor="#ffa1a1a1"
-        android:textSize="18dp"
-        android:paddingRight="5dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/bottomBar"
-        android:layout_alignParentStart="false"
-        android:adjustViewBounds="true"
-        android:layout_below="@+id/bottomOpacity"
-        android:baselineAlignBottom="false"
-        android:src="@drawable/arrows_main_left"
-        android:background="@drawable/backgroundstate"
-        android:visibility="invisible" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:layout_alignBottom="@+id/bottomBar"
-        android:layout_alignRight="@+id/bottomBar"
-        android:layout_alignEnd="@+id/bottomBar"
-        android:layout_below="@+id/bottomOpacity"
         android:src="@drawable/arrows_main_right"
         android:background="@drawable/backgroundstate"
-        android:visibility="invisible" />
+        android:visibility="visible"
+        android:layout_alignTop="@+id/partIndicatorGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Running Workout"
-        android:id="@+id/workoutLabel"
-        android:layout_below="@+id/bottomOpacity"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:textSize="20dp"
-        android:textColor="#ffe1e1e1"
-        android:paddingTop="10dp"
-        android:paddingLeft="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7 parts"
-        android:id="@+id/textView6"
-        android:layout_alignBottom="@+id/bottomBar"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
-        android:paddingBottom="10dp"
-        android:textColor="#ffe1e1e1"
-        android:paddingLeft="15dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Part 1:"
-        android:id="@+id/mainTitle"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/topBar"
-        android:layout_alignStart="@+id/topBar"
-        android:paddingLeft="15dp"
-        android:paddingTop="5dp"
-        android:textColor="#ffc5c5c5"
-        android:textSize="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0:00 min/mile pace"
-        android:id="@+id/secondaryTitle"
-        android:layout_below="@+id/mainTitle"
-        android:layout_alignLeft="@+id/topBar"
-        android:layout_alignStart="@+id/topBar"
-        android:paddingLeft="15dp"
-        android:textColor="#ffc5c5c5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next Part:"
-        android:id="@+id/textView9"
+        android:id="@+id/imageView"
+        android:src="@drawable/goal_pace_bg"
         android:layout_below="@+id/gmtVal"
-        android:layout_alignRight="@+id/topBar"
-        android:layout_alignEnd="@+id/topBar"
-        android:paddingTop="10dp"
-        android:paddingRight="30dp"
-        android:textColor="#ff8f8f8f"
-        android:layout_alignLeft="@+id/nextTitle"
-        android:layout_alignStart="@+id/nextTitle" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/gmtVal"
+        android:scaleType="fitXY"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00:00 min/mle"
-        android:id="@+id/nextTitle"
-        android:layout_below="@+id/textView9"
-        android:textColor="#ff777777"
-        android:layout_alignLeft="@+id/calorieSuffix"
-        android:layout_alignStart="@+id/calorieSuffix" />
+        android:text="Goal Pace:"
+        android:id="@+id/mainTitle"
+        android:paddingLeft="35dp"
+        android:paddingTop="15dp"
+        android:textColor="#ffffffff"
+        android:textSize="20dp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/gmtVal"
+        android:layout_toEndOf="@+id/gmtVal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00 min/mile"
+        android:id="@+id/secondaryTitle"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffffff"
+        android:visibility="visible"
+        android:layout_alignBottom="@+id/mainTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp"
+        android:paddingRight="38dp"
+        android:paddingBottom="0dp" />
 
 </RelativeLayout>
