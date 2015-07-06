@@ -22,6 +22,8 @@ public class MainMenu extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
 
@@ -69,17 +71,9 @@ public class MainMenu extends ActionBarActivity {
     private void configureWorkoutButtonOne() {
         layout[0] = (LinearLayout) findViewById(R.id.row_1);
 
-//        layout[0].setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
-//            }
-//        });
-
         layout[0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         layout[0].setBackgroundColor(0xFFe1e1e1);
@@ -105,17 +99,9 @@ public class MainMenu extends ActionBarActivity {
     private void configureWorkoutButtonTwo() {
         layout[1] = (LinearLayout) findViewById(R.id.row_2);
 
-//        layout[1].setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
-//            }
-//        });
-
         layout[1].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         layout[1].setBackgroundColor(0xFFe1e1e1);
@@ -141,17 +127,9 @@ public class MainMenu extends ActionBarActivity {
     private void configureWorkoutButtonThree() {
         layout[2] = (LinearLayout) findViewById(R.id.row_3);
 
-//        layout[2].setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
-//            }
-//        });
-
         layout[2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         layout[2].setBackgroundColor(0xFFe1e1e1);
@@ -177,17 +155,9 @@ public class MainMenu extends ActionBarActivity {
     private void configureWorkoutButtonFour() {
         layout[3] = (LinearLayout) findViewById(R.id.row_4);
 
-//        layout[3].setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
-//            }
-//        });
-
         layout[3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         layout[3].setBackgroundColor(0xFFe1e1e1);
@@ -212,17 +182,9 @@ public class MainMenu extends ActionBarActivity {
     private void configureWorkoutButtonFive() {
         layout[4] = (LinearLayout) findViewById(R.id.row_5);
 
-//        layout[4].setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
-//            }
-//        });
-
         layout[4].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         layout[4].setBackgroundColor(0xFFe1e1e1);
