@@ -257,7 +257,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pauseButton"
-        android:background="@drawable/play_button"
+        android:background="@drawable/play_blank"
         android:visibility="visible"
         android:paddingTop="0dp"
         android:paddingBottom="0dp"
@@ -347,5 +347,14 @@
         android:textSize="20dp"
         android:paddingRight="38dp"
         android:paddingBottom="0dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_alignBottom="@+id/pauseButton"
+        android:layout_alignRight="@+id/pauseButton"
+        android:layout_alignEnd="@+id/pauseButton" />
 
 </RelativeLayout>

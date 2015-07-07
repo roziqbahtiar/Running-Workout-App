@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -122,6 +123,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     ImageButton pauseButton;
     ImageButton backButton, nextButton;
 
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,6 +143,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         partSevenFirstRun = true;
 
         paceSum = 0.0;
+
+        // Initialize loading image
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         isPaused = true;
         pauseButton = (ImageButton) findViewById(R.id.pauseButton);
@@ -389,6 +395,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            progressBar.setVisibility(View.GONE); // Disable progress bar
                             pauseButton.setEnabled(true);
                             pauseButton.setBackgroundResource(R.drawable.play_button);
                             final TextView paceText = (TextView) findViewById(R.id.paceView);
@@ -810,6 +817,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             @Override
             public void onFinish() {
                 pauseButton.setEnabled(true);
+                updatePaceText("Begin!");
                 partOneBegin();
             }
         }.start();
