@@ -7,10 +7,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageButton;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 public class MainMenu extends ActionBarActivity {
@@ -21,8 +19,6 @@ public class MainMenu extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-        this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
@@ -82,6 +78,7 @@ public class MainMenu extends ActionBarActivity {
                     case MotionEvent.ACTION_UP:
                         layout[0].setBackgroundColor(Color.WHITE);
                         startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
                     case MotionEvent.ACTION_CANCEL:
@@ -110,6 +107,7 @@ public class MainMenu extends ActionBarActivity {
                     case MotionEvent.ACTION_UP:
                         layout[1].setBackgroundColor(Color.WHITE);
                         startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
                     case MotionEvent.ACTION_CANCEL:
@@ -138,6 +136,7 @@ public class MainMenu extends ActionBarActivity {
                     case MotionEvent.ACTION_UP:
                         layout[2].setBackgroundColor(Color.WHITE);
                         startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
                     case MotionEvent.ACTION_CANCEL:
@@ -165,6 +164,7 @@ public class MainMenu extends ActionBarActivity {
                     case MotionEvent.ACTION_UP:
                         layout[3].setBackgroundColor(Color.WHITE);
                         startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
                     case MotionEvent.ACTION_CANCEL:
@@ -193,6 +193,7 @@ public class MainMenu extends ActionBarActivity {
                     case MotionEvent.ACTION_UP:
                         layout[4].setBackgroundColor(Color.WHITE);
                         startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
                     case MotionEvent.ACTION_CANCEL:

@@ -128,8 +128,6 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_interval_workout);
 
-        this.overridePendingTransition(R.anim.right_to_left, R.anim.left_to_right);
-
         i = new Intent(this, SpeedCalculationService.class);
 
         // Enable values to track the first call to each part to initialize CountDownTimer values
@@ -211,6 +209,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             stopService(new Intent(IntervalWorkoutActivity.this, SpeedCalculationService.class));
             unbindService(speedConnection);
             this.finish();
+            overridePendingTransition(R.anim.slide_out_to_right, R.anim.slide_in_from_left);
             return true;
         }
 
@@ -229,6 +228,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         stopService(new Intent(IntervalWorkoutActivity.this, SpeedCalculationService.class));
         unbindService(speedConnection);
         finish();
+        overridePendingTransition(R.anim.slide_out_to_right, R.anim.slide_in_from_left);
         return;
     }
 
