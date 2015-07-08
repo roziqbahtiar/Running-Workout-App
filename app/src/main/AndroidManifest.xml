@@ -41,16 +41,76 @@
         </service>
 
         <activity
-            android:name=".CrossCountrySpeed"
-            android:label="@string/title_activity_cross_country_speed" >
-        </activity>
-        <activity
-            android:name=".CrossCountryEndurance"
-            android:label="@string/title_activity_cross_country_endurance" >
-        </activity>
-        <activity
             android:name=".RestDayActivity"
             android:label="@string/title_activity_rest_day" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_1"
+            android:label="@string/title_activity_week_1__day_1" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_2"
+            android:label="@string/title_activity_week_1_day_2" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_3"
+            android:label="@string/title_activity_week_1__day_3" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_4"
+            android:label="@string/title_activity_week_1__day_4" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_5"
+            android:label="@string/title_activity_week_1__day_5" >
+        </activity>
+        <activity
+            android:name=".Week_1_Day_7"
+            android:label="@string/title_activity_week_1__day_7" >
+        </activity>
+        <activity
+            android:name=".Week_2_Day_2"
+            android:label="@string/title_activity_week_2__day_2" >
+        </activity>
+        <activity
+            android:name=".Week_2_Day_3"
+            android:label="@string/title_activity_week_2__day_3" >
+        </activity>
+        <activity
+            android:name=".Week_2_Day_4"
+            android:label="@string/title_activity_week_2__day_4" >
+        </activity>
+        <activity
+            android:name=".Week_2_Day_5"
+            android:label="@string/title_activity_week_2__day_5" >
+        </activity>
+        <activity
+            android:name=".Week_2_Day_7"
+            android:label="@string/title_activity_week_2__day_7" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_2"
+            android:label="@string/title_activity_week_3__day_2" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_3"
+            android:label="@string/title_activity_week_3__day_3" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_4"
+            android:label="@string/title_activity_week_3__day_4" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_5"
+            android:label="@string/title_activity_week_3__day_5" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_6"
+            android:label="@string/title_activity_week_3__day_6" >
+        </activity>
+        <activity
+            android:name=".Week_3_Day_7"
+            android:label="@string/title_activity_week_3__day_7" >
         </activity>
     </application>
 

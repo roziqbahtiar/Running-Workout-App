@@ -8,4 +8,22 @@
     <string name="title_activity_rest_day"></string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_week_1_day_1">Week 1 - Day 1</string>
+    <string name="title_activity_week_1__day_1">Week_1_Day_1</string>
+    <string name="title_activity_week_1_day_2">Week_1_day_2</string>
+    <string name="title_activity_week_1__day_3">Week_1_Day_3</string>
+    <string name="title_activity_week_1__day_4">Week_1_Day_4</string>
+    <string name="title_activity_week_1__day_5">Week_1_Day_5</string>
+    <string name="title_activity_week_1__day_7">Week_1_Day_7</string>
+    <string name="title_activity_week_2__day_2">Week_2_Day_2</string>
+    <string name="title_activity_week_2__day_3">Week_2_Day_3</string>
+    <string name="title_activity_week_2__day_4">Week_2_Day_4</string>
+    <string name="title_activity_week_2__day_5">Week_2_Day_5</string>
+    <string name="title_activity_week_2__day_7">Week_2_Day_7</string>
+    <string name="title_activity_week_3__day_2">Week_3_Day_2</string>
+    <string name="title_activity_week_3__day_3">Week_3_Day_3</string>
+    <string name="title_activity_week_3__day_4">Week_3_Day_4</string>
+    <string name="title_activity_week_3__day_5">Week_3_Day_5</string>
+    <string name="title_activity_week_3__day_6">Week_3_Day_6</string>
+    <string name="title_activity_week_3__day_7">Week_3_Day_7</string>
 </resources>
