@@ -38,6 +38,13 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     TextView secondaryTitle;
     TextView nextTitle;
 
+    private final int MINUTE           = 61;
+    private final int MINUTES          = 62;
+    private final int SECOND           = 63;
+    private final int SECONDS          = 64;
+    private final int MINUTE_PER_MILE  = 65;
+    private final int PACE             = 66;
+
     // Goal mile times for each part
     final double PART_ONE_GOAL_PACE   = 12.0;
     final double PART_TWO_GOAL_PACE   = 6.0;
@@ -312,17 +319,21 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     private void paceAlert() {
         timeStart = System.currentTimeMillis(); // Reset alert interval
         String paceColor;
+        MediaPlayer player;
 
         if (paceAverage > goalPace + MILE_TIME_ERROR) {
             paceText = "Speed up";
             paceColor = "#52be7f";//Green
             long[] pattern = {0, 200, 200, 200, 200, 200};
             vibrator.vibrate(pattern, -1);
-
+            player = MediaPlayer.create(this, R.raw.speed_up);
+            player.start();
         } else if (paceAverage < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
             paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
+            player = MediaPlayer.create(this, R.raw.slow_down);
+            player.start();
         } else {
             paceText = "Perfect Pace!";
             paceColor = "#3498db";//Blue
@@ -544,8 +555,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      * Plays a sound file associated with the number passed in
      * @param n the number associated with the sound file played
      */
-    private void sayNumber(int n) {
-        final MediaPlayer sound;
+    private MediaPlayer setSound(int n) {
+        MediaPlayer sound;
         switch (n) {
             case 0:
                 sound = MediaPlayer.create(this, R.raw.zero);
@@ -730,80 +741,66 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             case 60:
                 sound = MediaPlayer.create(this, R.raw.sixty);
                 break;
+            case MINUTE:
+                sound = MediaPlayer.create(this, R.raw.minute);
+                break;
+            case MINUTES:
+                sound = MediaPlayer.create(this, R.raw.minutes);
+                break;
+            case SECOND:
+                sound = MediaPlayer.create(this, R.raw.second);
+                break;
+            case SECONDS:
+                sound = MediaPlayer.create(this, R.raw.seconds);
+                break;
+            case MINUTE_PER_MILE:
+                sound = MediaPlayer.create(this, R.raw.minute_per_mile);
+                break;
+            case PACE:
+                sound = MediaPlayer.create(this, R.raw.pace);
+                break;
             default:
                 sound = MediaPlayer.create(this, R.raw.zero);
                 break;
         }
-        sound.start();
-    }
-
-    /**
-     * Plays the word "minute"
-     */
-    private void sayMinute() {
-        final MediaPlayer player = MediaPlayer.create(this, R.raw.minute);
-        player.start();
-    }
-
-    /**
-     * plays the word "minutes"
-     */
-    private void sayMinutes() {
-        final MediaPlayer player = MediaPlayer.create(this, R.raw.minutes);
-        player.start();
-    }
-
-    /**
-     * plays the word "second"
-     */
-    private void saySecond() {
-        final MediaPlayer player = MediaPlayer.create(this, R.raw.second);
-        player.start();
-    }
-
-    /**
-     * plays the word "seconds"
-     */
-    private void saySeconds() {
-        final MediaPlayer player = MediaPlayer.create(this, R.raw.seconds);
-        player.start();
-    }
-
-    /**
-     * plays the word "pace"
-     */
-    private void sayPace() {
-        final MediaPlayer player = MediaPlayer.create(this, R.raw.pace);
-        player.start();
+        return sound;
     }
 
     /**
      * Tells user what pace to run
      */
     private void announcePace(double pace) {
+        MediaPlayer phrase[] = new MediaPlayer[5];
+        for (int i = 0; i < phrase.length; i++) {
+            phrase[i] = null;
+        }
+
         int minute = (int) pace;
         int second = (int) ((pace - minute) * 60);
 
-        if (minute > 1) {
-            sayNumber(minute);
-            sayMinutes();
-        } else if (minute == 1) {
-            sayNumber(minute);
-            sayMinute();
+        // Initialize minute portion of phrase
+        phrase[0] = setSound(minute);
+        phrase[1] = setSound(MINUTE);
+
+        // Initialize second portion of phrase
+        phrase[2] = setSound(second);
+        phrase[3] = setSound(SECOND);
+
+        // Initialize final portion of phrase
+        phrase[4] = setSound(PACE);
+
+        // Set sound files in phrase to play concurrently
+        for (int i = 0; i < phrase.length - 1; i++) {
+            phrase[i].setNextMediaPlayer(phrase[i + 1]);
         }
 
-        if (second > 1) {
-            sayNumber(second);
-            saySeconds();
-        } else if (second == 1) {
-            sayNumber(second);
-            saySecond();
-        }
-
-        sayPace();
+        phrase[0].start();
 
     }
 
+    /**
+     * Begins initial countdown for workout
+     */
     public void initialCountdownBegin() {
         pauseButton.setEnabled(false);
         timeRemaining = 3000;
@@ -837,7 +834,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partOneFirstRun) {
             timeRemaining = PART_ONE_DURATION;
             tickCounter = 0;
-            //announcePace(PART_ONE_GOAL_PACE);
+            announcePace(PART_ONE_GOAL_PACE);
             partOneFirstRun = false;
         }
 
@@ -927,7 +924,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partTwoFirstRun) {
             timeRemaining = PART_TWO_DURATION;
             tickCounter = 0;
-//            announcePace(PART_TWO_GOAL_PACE);
+            announcePace(PART_TWO_GOAL_PACE);
             partTwoFirstRun = false;
         }
 
@@ -1018,7 +1015,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partThreeFirstRun) {
             timeRemaining = PART_THREE_DURATION;
             tickCounter = 0;
-//            announcePace(PART_THREE_GOAL_PACE);
+            announcePace(PART_THREE_GOAL_PACE);
             partThreeFirstRun = false;
         }
 
@@ -1109,7 +1106,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partFourFirstRun) {
             timeRemaining = PART_FOUR_DURATION;
             tickCounter = 0;
-//            announcePace(PART_FOUR_GOAL_PACE);
+            announcePace(PART_FOUR_GOAL_PACE);
             partFourFirstRun = false;
         }
 
@@ -1200,7 +1197,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partFiveFirstRun) {
             timeRemaining = PART_FIVE_DURATION;
             tickCounter = 0;
-//            announcePace(PART_FIVE_GOAL_PACE);
+            announcePace(PART_FIVE_GOAL_PACE);
             partFiveFirstRun = false;
         }
 
@@ -1291,7 +1288,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partSixFirstRun) {
             timeRemaining = PART_SIX_DURATION;
             tickCounter = 0;
-//            announcePace(PART_SIX_GOAL_PACE);
+            announcePace(PART_SIX_GOAL_PACE);
             partSixFirstRun = false;
         }
 
@@ -1382,7 +1379,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         if (partSevenFirstRun) {
             timeRemaining = PART_SEVEN_DURATION;
             tickCounter = 0;
-//            announcePace(PART_SEVEN_GOAL_PACE);
+            announcePace(PART_SEVEN_GOAL_PACE);
             partSevenFirstRun = false;
         }
 
