@@ -312,6 +312,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/gmtVal"
+        android:layout_toRightOf="@+id/gmtVal"
         android:scaleType="fitXY"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

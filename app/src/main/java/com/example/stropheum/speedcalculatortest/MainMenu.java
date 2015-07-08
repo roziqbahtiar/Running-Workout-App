@@ -106,7 +106,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -163,7 +163,7 @@ public class MainMenu extends ActionBarActivity {
                         break;
                     case MotionEvent.ACTION_UP:
                         layout[3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), IntervalWorkoutActivity.class));
+                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 

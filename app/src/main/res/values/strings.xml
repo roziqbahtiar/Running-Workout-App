@@ -5,4 +5,7 @@
     <string name="title_activity_main_menu"></string>
     <string name="title_activity_cross_country_speed">Cross Country Speed Training</string>
     <string name="title_activity_cross_country_endurance">X-Country Endurance Training</string>
+    <string name="title_activity_rest_day">RestDayActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

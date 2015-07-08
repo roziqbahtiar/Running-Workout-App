@@ -48,6 +48,10 @@
             android:name=".CrossCountryEndurance"
             android:label="@string/title_activity_cross_country_endurance" >
         </activity>
+        <activity
+            android:name=".RestDayActivity"
+            android:label="@string/title_activity_rest_day" >
+        </activity>
     </application>
 
 </manifest>
