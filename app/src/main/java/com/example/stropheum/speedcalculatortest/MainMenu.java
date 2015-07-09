@@ -49,6 +49,14 @@ public class MainMenu extends ActionBarActivity {
         configureButton_3_5();
         configureButton_3_6();
         configureButton_3_7();
+
+        configureButton_4_1();
+        configureButton_4_2();
+        configureButton_4_3();
+        configureButton_4_4();
+        configureButton_4_5();
+        configureButton_4_6();
+        configureButton_4_7();
     }
 
     @Override
@@ -659,7 +667,7 @@ public class MainMenu extends ActionBarActivity {
     }
 
     /**
-     * Configures the click listener for workout button 2_7
+     * Configures the click listener for workout button 3_7
      */
     private void configureButton_3_7() {
         layout[2][6] = (LinearLayout) findViewById(R.id.row_3_7);
@@ -680,6 +688,209 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_CANCEL:
                         layout[2][6].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 4_1
+     */
+    private void configureButton_4_1() {
+        layout[3][0] = (LinearLayout) findViewById(R.id.row_4_1);
+
+        layout[3][0].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][0].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][0].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][0].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 3_2
+     */
+    private void configureButton_4_2() {
+        layout[3][1] = (LinearLayout) findViewById(R.id.row_4_2);
+
+        layout[3][1].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][1].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][1].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), Week_4_Day_2.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][1].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 4_3
+     */
+    private void configureButton_4_3() {
+        layout[3][2] = (LinearLayout) findViewById(R.id.row_4_3);
+
+        layout[3][2].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][2].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][2].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), Week_4_Day_3.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][2].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 3_4
+     */
+    private void configureButton_4_4() {
+        layout[3][3] = (LinearLayout) findViewById(R.id.row_4_4);
+
+        layout[3][3].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][3].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][3].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][3].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 2_5
+     */
+    private void configureButton_4_5() {
+        layout[3][4] = (LinearLayout) findViewById(R.id.row_4_5);
+
+        layout[3][4].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][4].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][4].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), Week_4_Day_5.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][4].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 2_6
+     */
+    private void configureButton_4_6() {
+        layout[3][5] = (LinearLayout) findViewById(R.id.row_4_6);
+
+        layout[3][5].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][5].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][5].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), Week_4_Day_6.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][5].setBackgroundColor(Color.WHITE);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * Configures the click listener for workout button 4_7
+     */
+    private void configureButton_4_7() {
+        layout[3][6] = (LinearLayout) findViewById(R.id.row_4_7);
+
+        layout[3][6].setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        layout[3][6].setBackgroundColor(0xFFe1e1e1);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        layout[3][6].setBackgroundColor(Color.WHITE);
+                        startActivity(new Intent(getApplicationContext(), Week_4_Day_7.class));
+                        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+                        break;
+
+                    case MotionEvent.ACTION_CANCEL:
+                        layout[3][6].setBackgroundColor(Color.WHITE);
                         break;
                 }
                 return true;

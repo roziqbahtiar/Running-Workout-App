@@ -26,4 +26,9 @@
     <string name="title_activity_week_3__day_5">Week_3_Day_5</string>
     <string name="title_activity_week_3__day_6">Week_3_Day_6</string>
     <string name="title_activity_week_3__day_7">Week_3_Day_7</string>
+    <string name="title_activity_week_4__day_2">Week_4_Day_2</string>
+    <string name="title_activity_week_4__day_3">Week_4_Day_3</string>
+    <string name="title_activity_week_4__day_5">Week_4_Day_5</string>
+    <string name="title_activity_week_4__day_6">Week_4_Day_6</string>
+    <string name="title_activity_week_4__day_7">Week_4_Day_7</string>
 </resources>
