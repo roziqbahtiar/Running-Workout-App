@@ -5,7 +5,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".Week_4_Day_6"
+    tools:context=".Week_6_Day_7"
     android:visibility="visible"
     android:background="#FFFFFFFF"
     android:id="@+id/mainLayout"

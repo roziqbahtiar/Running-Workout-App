@@ -48,7 +48,7 @@ public class Week_4_Day_6 extends ActionBarActivity {
 
     // Goal mile times for each part
     final double PART_ONE_GOAL_PACE   = 18.0;
-    final double PART_TWO_GOAL_PACE   = 6.0;
+    final double PART_TWO_GOAL_PACE   = 8.0;
     final double PART_THREE_GOAL_PACE = 12.0;
     final double PART_FOUR_GOAL_PACE  = 6.0;
     final double PART_FIVE_GOAL_PACE  = 12.0;
@@ -57,7 +57,7 @@ public class Week_4_Day_6 extends ActionBarActivity {
 
     // Duration for each part in milliseconds
     final int PART_ONE_DURATION   = 3600 * 1000;
-    final int PART_TWO_DURATION   = 120000;
+    final int PART_TWO_DURATION   = 600 * 1000;
     final int PART_THREE_DURATION = 60000;
     final int PART_FOUR_DURATION  = 120000;
     final int PART_FIVE_DURATION  = 60000;
@@ -75,7 +75,7 @@ public class Week_4_Day_6 extends ActionBarActivity {
 
     // Secondary titles for actionbar to set at each part
     final String PART_ONE_SECONDARY_TITLE   = "18:00 min/mile";
-    final String PART_TWO_SECONDARY_TITLE   = "6:00 min/mile";
+    final String PART_TWO_SECONDARY_TITLE   = "8:00 min/mile";
     final String PART_THREE_SECONDARY_TITLE = "12:00 min/mile";
     final String PART_FOUR_SECONDARY_TITLE  = "6:00 min/mile";
     final String PART_FIVE_SECONDARY_TITLE  = "12:00 min/mile";
@@ -473,18 +473,18 @@ public class Week_4_Day_6 extends ActionBarActivity {
      * Method called when "back" button is clicked
      */
     private void handleBackButtonClick() {
-//
-//        partTimer.cancel();
-//
-//        switch (currentPart) {
-//            case 1:
-//                // Do nothing
-//                break;
-//            case 2:
-//                partOneFirstRun = true;
-//                timeRemaining = PART_ONE_DURATION;
-//                partOneBegin();
-//                break;
+
+        partTimer.cancel();
+
+        switch (currentPart) {
+            case 1:
+                // Do nothing
+                break;
+            case 2:
+                partOneFirstRun = true;
+                timeRemaining = PART_ONE_DURATION;
+                partOneBegin();
+                break;
 //            case 3:
 //                partTwoFirstRun = true;
 //                timeRemaining = PART_TWO_DURATION;
@@ -510,22 +510,22 @@ public class Week_4_Day_6 extends ActionBarActivity {
 //                timeRemaining = PART_SIX_DURATION;
 //                partSixBegin();
 //                break;
-//        }
+        }
     }
 
     /**
      * Method called when "next" button is clicked
      */
     private void handleNextButtonClick() {
-//
-//        partTimer.cancel();
-//
-//        switch (currentPart) {
-//            case 1:
-//                partTwoFirstRun = true;
-//                timeRemaining = PART_TWO_DURATION;
-//                partTwoBegin();
-//                break;
+
+        partTimer.cancel();
+
+        switch (currentPart) {
+            case 1:
+                partTwoFirstRun = true;
+                timeRemaining = PART_TWO_DURATION;
+                partTwoBegin();
+                break;
 //            case 2:
 //                partThreeFirstRun = true;
 //                timeRemaining = PART_THREE_DURATION;
@@ -554,7 +554,7 @@ public class Week_4_Day_6 extends ActionBarActivity {
 //            case 7:
 //                // Do nothing
 //                break;
-//        }
+        }
     }
 
     /**
@@ -911,9 +911,101 @@ public class Week_4_Day_6 extends ActionBarActivity {
 
             @Override
             public void onFinish() {
+                partTwoBegin();
+            }
+
+        }.start();
+    }
+
+    /**
+     * Method called when Speed Calculation Service is successfully bound
+     */
+    public void partTwoBegin() {
+
+        backButton.setEnabled(true); // Enable back button when second part begins
+        nextButton.setEnabled(true); // Enable next button when second part begins
+
+        speedCalculator.resetDistance();
+
+        if (partTwoFirstRun) {
+            timeRemaining = PART_TWO_DURATION;
+            tickCounter = 0;
+            announcePace(PART_TWO_GOAL_PACE);
+            partTwoFirstRun = false;
+        }
+
+        speedCalculator.resetValues();
+        currentPart = 2;
+
+        // Update titles
+        secondaryTitle.setText(PART_TWO_SECONDARY_TITLE);
+
+        final RadioButton partButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        partButton2.setChecked(true);
+
+        partTwoFirstTick = true;
+
+        partTimer = new CountDownTimer(timeRemaining, 1000) {
+            @Override
+            public void onTick(long l) {
+                if (partTwoFirstTick) {
+                    partTimeStart = System.currentTimeMillis();
+
+                    updateTime();
+
+                    goalPace = PART_TWO_GOAL_PACE;
+                    updateGoalPace(goalPace);
+                    paceSum = 0.0;
+                    paceAverage = 0.0;
+
+                    distance = 0.0;
+                    updateDistance(distance);
+
+                    partTwoFirstTick = false;
+                }
+                tickCounter++; // Track number of ticks on current part
+
+                timeRemaining = l; // Store remaining time in the current part
+
+                // Tracks the elapsed time since last alert
+                timeElapsed = System.currentTimeMillis() - timeStart;
+                updateTime();
+
+                // Tracks the total elapsed time of the workout part
+                partTimeElapsed = System.currentTimeMillis() - partTimeStart;
+
+                speed = speedCalculator.getCurrentSpeed();
+                //updateSpeed(speed);
+
+                double lastPace = currentPace;
+                currentPace = 60.0 / speed;
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
+                }
+                // Average current pace to current average
+                if (Double.compare(currentPace, Double.NaN) != 0) {
+                    paceSum += currentPace;
+                    paceAverage = paceSum / tickCounter;
+                }
+
+                if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
+                    updateCurrentPace(paceAverage);
+                }
+
+                distance = speedCalculator.getCurrentDistance();
+                updateDistance(distance);
+
+                if (tickCounter % 10 == 0) {// calls pace alert every 10 seconds
+                    paceAlert();
+                }
+            }
+
+            @Override
+            public void onFinish() {
                 pauseButton.setEnabled(false);
                 updatePaceColor("#3498db");
-                updatePaceText("Workout Finished!");            }
+                updatePaceText("Workout Finished!");
+            }
 
         }.start();
     }

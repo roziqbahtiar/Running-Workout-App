@@ -132,6 +132,50 @@
             android:name=".Week_4_Day_7"
             android:label="@string/title_activity_week_4__day_7" >
         </activity>
+        <activity
+            android:name=".Week_5_Day_2"
+            android:label="@string/title_activity_week_5__day_2" >
+        </activity>
+        <activity
+            android:name=".Week_5_Day_3"
+            android:label="@string/title_activity_week_5__day_3" >
+        </activity>
+        <activity
+            android:name=".Week_5_Day_4"
+            android:label="@string/title_activity_week_5__day_4" >
+        </activity>
+        <activity
+            android:name=".Week_5_Day_5"
+            android:label="@string/title_activity_week_5__day_5" >
+        </activity>
+        <activity
+            android:name=".Week_5_Day_6"
+            android:label="@string/title_activity_week_5__day_6" >
+        </activity>
+        <activity
+            android:name=".Week_5_Day_7"
+            android:label="@string/title_activity_week_5__day_7" >
+        </activity>
+        <activity
+            android:name=".Week_6_Day_2"
+            android:label="@string/title_activity_week_6__day_2" >
+        </activity>
+        <activity
+            android:name=".Week_6_Day_3"
+            android:label="@string/title_activity_week_6__day_3" >
+        </activity>
+        <activity
+            android:name=".Week_6_Day_4"
+            android:label="@string/title_activity_week_6__day_4" >
+        </activity>
+        <activity
+            android:name=".Week_6_Day_5"
+            android:label="@string/title_activity_week_6__day_5" >
+        </activity>
+        <activity
+            android:name=".Week_6_Day_7"
+            android:label="@string/title_activity_week_6__day_7" >
+        </activity>
     </application>
 
 </manifest>

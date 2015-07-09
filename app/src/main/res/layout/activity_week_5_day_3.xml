@@ -5,11 +5,11 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".Week_4_Day_6"
     android:visibility="visible"
     android:background="#FFFFFFFF"
     android:id="@+id/mainLayout"
-    android:paddingBottom="0dp">
+    android:paddingBottom="0dp"
+    tools:context="com.example.stropheum.speedcalculatortest.Week_5_Day_3">
 
     <TextView
         android:layout_width="wrap_content"
@@ -196,15 +196,6 @@
             android:buttonTint="#ffffffff"
             android:clickable="false"
             android:checked="true"
-            android:button="@drawable/radio" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radioButton2"
-            android:textColor="#ffffffff"
-            android:buttonTint="#ffffffff"
-            android:clickable="false"
             android:button="@drawable/radio" />
 
     </RadioGroup>
