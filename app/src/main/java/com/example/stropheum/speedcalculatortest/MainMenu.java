@@ -1389,7 +1389,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][1].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_7_Day_2.class));
+                        startActivity(new Intent(getApplicationContext(), Week_7_Day_2.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1418,7 +1418,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][2].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_7_Day_3.class));
+                        startActivity(new Intent(getApplicationContext(), Week_7_Day_3.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1447,7 +1447,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][3].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_7_Day_4.class));
+                        startActivity(new Intent(getApplicationContext(), Week_7_Day_4.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1476,7 +1476,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][4].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_7_Day_5.class));
+                        startActivity(new Intent(getApplicationContext(), Week_7_Day_5.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1534,7 +1534,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][6].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_7_Day_7.class));
+                        startActivity(new Intent(getApplicationContext(), Week_7_Day_7.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1592,7 +1592,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][1].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_8_Day_2.class));
+                        startActivity(new Intent(getApplicationContext(), Week_8_Day_2.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1650,7 +1650,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][3].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_8_Day_4.class));
+                        startActivity(new Intent(getApplicationContext(), Week_8_Day_4.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1679,7 +1679,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][4].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_8_Day_5.class));
+                        startActivity(new Intent(getApplicationContext(), Week_8_Day_5.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1737,7 +1737,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][6].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_8_Day_7.class));
+                        startActivity(new Intent(getApplicationContext(), Week_8_Day_7.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1795,7 +1795,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][1].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_9_Day_2.class));
+                        startActivity(new Intent(getApplicationContext(), Week_9_Day_2.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1824,7 +1824,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][2].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_9_Day_3.class));
+                        startActivity(new Intent(getApplicationContext(), Week_9_Day_3.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1853,7 +1853,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][3].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_9_Day_4.class));
+                        startActivity(new Intent(getApplicationContext(), Week_9_Day_4.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 

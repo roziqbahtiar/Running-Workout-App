@@ -246,7 +246,7 @@ public class Week_3_Day_2 extends ActionBarActivity {
         // Terminate the speed calculation service
         stopService(new Intent(Week_3_Day_2.this, SpeedCalculationService.class));
         unbindService(speedConnection);
-        finish();
+        this.finish();
         overridePendingTransition(R.anim.slide_out_to_right, R.anim.slide_in_from_left);
         return;
     }

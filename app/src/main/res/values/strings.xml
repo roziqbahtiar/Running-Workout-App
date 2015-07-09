@@ -42,4 +42,16 @@
     <string name="title_activity_week_6__day_4">Week_6_Day_4</string>
     <string name="title_activity_week_6__day_7">Week_6_Day_7</string>
     <string name="title_activity_week_6__day_5">Week_6_Day_5</string>
+    <string name="title_activity_week_7__day_2">Week_7_Day_2</string>
+    <string name="title_activity_week_7__day_3">Week_7_Day_3</string>
+    <string name="title_activity_week_7__day_4">Week_7_Day_4</string>
+    <string name="title_activity_week_7__day_5">Week_7_Day_5</string>
+    <string name="title_activity_week_7__day_7">Week_7_Day_7</string>
+    <string name="title_activity_week_8__day_2">Week_8_Day_2</string>
+    <string name="title_activity_week_8__day_4">Week_8_Day_4</string>
+    <string name="title_activity_week_8__day_5">Week_8_Day_5</string>
+    <string name="title_activity_week_8__day_7">Week_8_Day_7</string>
+    <string name="title_activity_week_9__day_2">Week_9_Day_2</string>
+    <string name="title_activity_week_9__day_3">Week_9_Day_3</string>
+    <string name="title_activity_week_9__day_4">Week_9_Day_4</string>
 </resources>
