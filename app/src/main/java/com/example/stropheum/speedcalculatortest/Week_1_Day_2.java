@@ -249,6 +249,14 @@ public class Week_1_Day_2 extends ActionBarActivity {
         return;
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (partTimer != null) {
+            partTimer.cancel();
+        }
+    }
+
     /**
      * Updates the display to show the current speed
      *

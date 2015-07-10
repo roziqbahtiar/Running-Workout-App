@@ -250,6 +250,14 @@ public class Week_6_Day_7 extends ActionBarActivity {
         return;
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (partTimer != null) {
+            partTimer.cancel();
+        }
+    }
+
     /**
      * Updates the display to show the current speed
      *
