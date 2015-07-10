@@ -122,6 +122,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             partFourFirstTick, partFiveFirstTick, partSixFirstTick,
             partSevenFirstTick;
 
+    // Tracks if "perfect pace" was said once so it doesn't repeat
+    boolean saidPerfectOnce;
+
     String paceText;
     Intent i;
 
@@ -152,6 +155,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         partFiveFirstRun  = true;
         partSixFirstRun   = true;
         partSevenFirstRun = true;
+
+        saidPerfectOnce = false;
 
         paceSum = 0.0;
 
@@ -341,15 +346,22 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
             vibrator.vibrate(pattern, -1);
             player = MediaPlayer.create(this, R.raw.speed_up);
             player.start();
+            saidPerfectOnce = false; // Reset perfect alert
         } else if (paceAverage < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
             paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
             player = MediaPlayer.create(this, R.raw.slow_down);
             player.start();
+            saidPerfectOnce = false; // Reset perfect alert
         } else {
             paceText = "Perfect Pace!";
             paceColor = "#3498db";//Blue
+            player = MediaPlayer.create(this, R.raw.perfect_pace);
+            if (!saidPerfectOnce) {
+                player.start();
+            }
+            saidPerfectOnce = true; // Don't repeat multiple consecutive perfect pace alerts
         }
         updatePaceText(paceText);
         updatePaceColor(paceColor);

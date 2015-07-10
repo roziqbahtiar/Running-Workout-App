@@ -27,7 +27,7 @@ import java.util.TimerTask;
 public class Week_7_Day_5 extends ActionBarActivity {
 
     // Allow 15 seconds of error for time calculations
-    final double MILE_TIME_ERROR = 0.25;
+    final double MILE_TIME_ERROR = 0.5;
 
     final int PACE_UPDATE_INTERVAL = 1;
 
@@ -46,7 +46,7 @@ public class Week_7_Day_5 extends ActionBarActivity {
     private final int PACE = 66;
 
     // Goal mile times for each part
-    final double PART_ONE_GOAL_PACE   = 8.0;
+    final double PART_ONE_GOAL_PACE   = 10.0;
     final double PART_TWO_GOAL_PACE   = 18.0;
     final double PART_THREE_GOAL_PACE = 12.0;
     final double PART_FOUR_GOAL_PACE  = 6.0;
@@ -73,7 +73,7 @@ public class Week_7_Day_5 extends ActionBarActivity {
 //    final String PART_SEVEN_MAIN_TITLE = "Part 7: Run 1 minute";
 
     // Secondary titles for actionbar to set at each part
-    final String PART_ONE_SECONDARY_TITLE   = "8:00 min/mile";
+    final String PART_ONE_SECONDARY_TITLE   = "10:00 min/mile";
     final String PART_TWO_SECONDARY_TITLE   = "18:00 min/mile";
     final String PART_THREE_SECONDARY_TITLE = "12:00 min/mile";
     final String PART_FOUR_SECONDARY_TITLE  = "6:00 min/mile";
@@ -122,6 +122,9 @@ public class Week_7_Day_5 extends ActionBarActivity {
             partFourFirstTick, partFiveFirstTick, partSixFirstTick,
             partSevenFirstTick;
 
+    // Tracks if "perfect pace" was said once so it doesn't repeat
+    boolean saidPerfectOnce;
+
     String paceText;
     Intent i;
 
@@ -152,6 +155,8 @@ public class Week_7_Day_5 extends ActionBarActivity {
         partFiveFirstRun = true;
         partSixFirstRun = true;
         partSevenFirstRun = true;
+
+        saidPerfectOnce = false;
 
         paceSum = 0.0;
 
@@ -341,15 +346,22 @@ public class Week_7_Day_5 extends ActionBarActivity {
             vibrator.vibrate(pattern, -1);
             player = MediaPlayer.create(this, R.raw.speed_up);
             player.start();
+            saidPerfectOnce = false; // Reset perfect alert
         } else if (paceAverage < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
             paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
             player = MediaPlayer.create(this, R.raw.slow_down);
             player.start();
+            saidPerfectOnce = false; // Reset perfect alert
         } else {
             paceText = "Perfect Pace!";
             paceColor = "#3498db";//Blue
+            player = MediaPlayer.create(this, R.raw.perfect_pace);
+            if (!saidPerfectOnce) {
+                player.start();
+            }
+            saidPerfectOnce = true; // Don't repeat multiple consecutive perfect pace alerts
         }
         updatePaceText(paceText);
         updatePaceColor(paceColor);
