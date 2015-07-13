@@ -455,6 +455,7 @@ public class Week_3_Day_2 extends ActionBarActivity {
      */
     private void handlePauseClick() {
         if (isPaused) {
+            tickCounter--; // handle off-by-one error with pausing
             pauseButton.setBackgroundResource(R.drawable.pause_button);
             switch (currentPart) {
                 case 1:
