@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 public class MainMenu extends ActionBarActivity {
@@ -22,6 +23,9 @@ public class MainMenu extends ActionBarActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
+
+        // Disable screen timeout while workout is active
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         layout = new LinearLayout[9][7];
 

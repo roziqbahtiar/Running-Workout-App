@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 
 public class RestDayActivity extends ActionBarActivity {
@@ -14,6 +15,8 @@ public class RestDayActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rest_day);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Disable screen timeout while workout is active
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override

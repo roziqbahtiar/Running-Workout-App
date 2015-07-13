@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -144,7 +145,8 @@ public class Week_8_Day_7 extends ActionBarActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar_8_7);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Disable screen timeout while workout is active
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         i = new Intent(this, SpeedCalculationService.class);
 

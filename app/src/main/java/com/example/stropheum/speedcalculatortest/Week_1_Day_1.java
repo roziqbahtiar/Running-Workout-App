@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -144,6 +145,9 @@ public class Week_1_Day_1 extends ActionBarActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.action_bar_1_1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Disable screen timeout while workout is active
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         i = new Intent(this, SpeedCalculationService.class);
 
@@ -450,6 +454,7 @@ public class Week_1_Day_1 extends ActionBarActivity {
      */
     private void handlePauseClick() {
         if (isPaused) {
+            tickCounter--; // handle off-by-one error with pausing
             pauseButton.setBackgroundResource(R.drawable.pause_button);
             switch (currentPart) {
                 case 1:

@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -144,6 +145,9 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayOptions(android.support.v7.app.ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.activity_interval_workout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Disable screen timeout while workout is active
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         i = new Intent(this, SpeedCalculationService.class);
 
@@ -450,6 +454,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
      */
     private void handlePauseClick() {
         if (isPaused) {
+            tickCounter--; // handle off-by-one error with pausing
             pauseButton.setBackgroundResource(R.drawable.pause_button);
             switch (currentPart) {
                 case 1:
