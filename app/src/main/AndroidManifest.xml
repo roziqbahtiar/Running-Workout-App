@@ -224,6 +224,10 @@
             android:name=".Week_9_Day_4"
             android:label="@string/title_activity_week_9__day_4" >
         </activity>
+        <activity
+            android:name=".SevenPartActivity"
+            android:label="@string/title_activity_seven_part" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,31 +1,31 @@
 package com.example.stropheum.speedcalculatortest;
 
-import android.app.ActionBar;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
+import android.os.IBinder;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.os.Vibrator;
+
+import com.example.stropheum.speedcalculatortest.R;
+
 import java.util.Timer;
 import java.util.TimerTask;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.view.Menu;
-import android.view.MenuItem;
-import com.example.stropheum.speedcalculatortest.SpeedCalculationService.SpeedCalculationBinder;
 
-public class IntervalWorkoutActivity extends ActionBarActivity {
+public abstract class SevenPartActivity extends ActionBarActivity {
 
     // Allow 15 seconds of error for time calculations
     final double MILE_TIME_ERROR = 0.5;
@@ -39,111 +39,94 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     TextView secondaryTitle;
     TextView nextTitle;
 
-    private final int MINUTE           = 61;
-    private final int MINUTES          = 62;
-    private final int SECOND           = 63;
-    private final int SECONDS          = 64;
-    private final int MINUTE_PER_MILE  = 65;
-    private final int PACE             = 66;
+    protected final int MINUTE           = 61;
+    protected final int MINUTES          = 62;
+    protected final int SECOND           = 63;
+    protected final int SECONDS          = 64;
+    protected final int MINUTE_PER_MILE  = 65;
+    protected final int PACE             = 66;
 
     // Goal mile times for each part
-    final double PART_ONE_GOAL_PACE   = 12.0;
-    final double PART_TWO_GOAL_PACE   = 6.0;
-    final double PART_THREE_GOAL_PACE = 12.0;
-    final double PART_FOUR_GOAL_PACE  = 6.0;
-    final double PART_FIVE_GOAL_PACE  = 12.0;
-    final double PART_SIX_GOAL_PACE   = 6.0;
-    final double PART_SEVEN_GOAL_PACE = 12.0;
+    protected double PART_ONE_GOAL_PACE;
+    protected double PART_TWO_GOAL_PACE;
+    protected double PART_THREE_GOAL_PACE;
+    protected double PART_FOUR_GOAL_PACE;
+    protected double PART_FIVE_GOAL_PACE;
+    protected double PART_SIX_GOAL_PACE;
+    protected double PART_SEVEN_GOAL_PACE;
 
     // Duration for each part in milliseconds
-    final int PART_ONE_DURATION   = 60000;
-    final int PART_TWO_DURATION   = 120000;
-    final int PART_THREE_DURATION = 60000;
-    final int PART_FOUR_DURATION  = 120000;
-    final int PART_FIVE_DURATION  = 60000;
-    final int PART_SIX_DURATION   = 120000;
-    final int PART_SEVEN_DURATION = 60000;
-
-    // Main titles for actionbar to set at each part
-//    final String PART_ONE_MAIN_TITLE   = "Part 1: Run 1 minute";
-//    final String PART_TWO_MAIN_TITLE   = "Part 2: Run 2 minutes";
-//    final String PART_THREE_MAIN_TITLE = "Part 3: Run 1 minute";
-//    final String PART_FOUR_MAIN_TITLE  = "Part 4: Run 2 minutes";
-//    final String PART_FIVE_MAIN_TITLE  = "Part 5: Run 1 minute";
-//    final String PART_SIX_MAIN_TITLE   = "Part 6: Run 2 minutes";
-//    final String PART_SEVEN_MAIN_TITLE = "Part 7: Run 1 minute";
+    protected int PART_ONE_DURATION;
+    protected int PART_TWO_DURATION;
+    protected int PART_THREE_DURATION;
+    protected int PART_FOUR_DURATION;
+    protected int PART_FIVE_DURATION;
+    protected int PART_SIX_DURATION;
+    protected int PART_SEVEN_DURATION;
 
     // Secondary titles for actionbar to set at each part
-    final String PART_ONE_SECONDARY_TITLE   = "12:00 min/mile";
-    final String PART_TWO_SECONDARY_TITLE   = "6:00 min/mile";
-    final String PART_THREE_SECONDARY_TITLE = "12:00 min/mile";
-    final String PART_FOUR_SECONDARY_TITLE  = "6:00 min/mile";
-    final String PART_FIVE_SECONDARY_TITLE  = "12:00 min/mile";
-    final String PART_SIX_SECONDARY_TITLE   = "6:00 min/mile";
-    final String PART_SEVEN_SECONDARY_TITLE = "12:00 min/mile";
-
-    // Secondary abbreviated titles for "next" title
-    final String PART_ONE_NEXT_TITLE   = "6:00 min/mile";
-    final String PART_TWO_NEXT_TITLE   = "12:00 min/mile";
-    final String PART_THREE_NEXT_TITLE = "6:00 min/mile";
-    final String PART_FOUR_NEXT_TITLE  = "12:00 min/mile";
-    final String PART_FIVE_NEXT_TITLE  = "6:00 min/mile";
-    final String PART_SIX_NEXT_TITLE   = "12:00 min/mile";
-    final String PART_SEVEN_NEXT_TITLE = "Finished";
+    // Format: "00:00 min/mile"
+    protected String PART_ONE_SECONDARY_TITLE;
+    protected String PART_TWO_SECONDARY_TITLE;
+    protected String PART_THREE_SECONDARY_TITLE;
+    protected String PART_FOUR_SECONDARY_TITLE;
+    protected String PART_FIVE_SECONDARY_TITLE;
+    protected String PART_SIX_SECONDARY_TITLE;
+    protected String PART_SEVEN_SECONDARY_TITLE;
 
     public SpeedCalculationService speedCalculator;
-    boolean isBound = false;
+    protected boolean isBound = false;
 
-    double currentPace, goalPace;
-    double paceSum, paceAverage;
-    double speed;
-    double distance = 0;
+    protected double currentPace, goalPace;
+    protected double paceSum, paceAverage;
+    protected double speed;
+    protected double distance = 0;
 
     // Tracks the time a part starts and how long it has been running for
-    double timeStart, timeElapsed;
+    protected double timeStart, timeElapsed;
 
-    CountDownTimer partTimer;
-    long timeRemaining;
-    boolean isPaused;
+    protected CountDownTimer partTimer;
+    protected long timeRemaining;
+    protected boolean isPaused;
 
     // Tracks the start time and elapsed time of individual parts
-    double partTimeStart, partTimeElapsed;
+    protected double partTimeStart, partTimeElapsed;
 
-    int currentPart;
+    protected int currentPart;
 
-    int tickCounter; // Counts the number of ticks on current part
+    protected int tickCounter; // Counts the number of ticks on current part
 
     // Value to determine if the part has run for the first time
-    boolean partOneFirstRun, partTwoFirstRun, partThreeFirstRun,
+    protected boolean partOneFirstRun, partTwoFirstRun, partThreeFirstRun,
             partFourFirstRun, partFiveFirstRun, partSixFirstRun,
             partSevenFirstRun;
 
     // Value to track the first tick of each timer
-    boolean partOneFirstTick, partTwoFirstTick, partThreeFirstTick,
+    protected boolean partOneFirstTick, partTwoFirstTick, partThreeFirstTick,
             partFourFirstTick, partFiveFirstTick, partSixFirstTick,
             partSevenFirstTick;
 
     // Tracks if "perfect pace" was said once so it doesn't repeat
-    boolean saidPerfectOnce;
+    protected boolean saidPerfectOnce;
 
-    String paceText;
-    Intent i;
+    protected String paceText;
+    protected Intent i;
 
-    Vibrator vibrator;
+    protected Vibrator vibrator;
 
-    ImageButton pauseButton;
-    ImageButton backButton, nextButton;
+    protected ImageButton pauseButton;
+    protected ImageButton backButton, nextButton;
 
-    ProgressBar progressBar;
+    protected ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_interval_workout);
+        setContentView(R.layout.activity_seven_part);
 
         getSupportActionBar().setDisplayOptions(android.support.v7.app.ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.activity_interval_workout);
+        getSupportActionBar().setCustomView(R.layout.activity_seven_part);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Disable screen timeout while workout is active
@@ -196,11 +179,8 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         });
 
         mainTitle = (TextView) findViewById(R.id.mainTitle);
-//        mainTitle.setText(PART_ONE_MAIN_TITLE);
         secondaryTitle = (TextView) findViewById(R.id.secondaryTitle);
         secondaryTitle.setText(PART_ONE_SECONDARY_TITLE);
-//        nextTitle = (TextView) findViewById(R.id.nextTitle);
-//        nextTitle.setText(PART_ONE_NEXT_TITLE);
 
         // Starts the service for calculating user's speed
         bindService(i, speedConnection, Context.BIND_AUTO_CREATE);
@@ -215,7 +195,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_interval_workout, menu);
+        getMenuInflater().inflate(R.menu.menu_seven_part, menu);
         return true;
     }
 
@@ -232,7 +212,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
         }
 
         if (id == 16908332) {
-            stopService(new Intent(IntervalWorkoutActivity.this, SpeedCalculationService.class));
+            stopService(new Intent(SevenPartActivity.this, SpeedCalculationService.class));
             stopService(i);
             unbindService(speedConnection);
             this.finish();
@@ -252,7 +232,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         // Terminate the speed calculation service
-        stopService(new Intent(IntervalWorkoutActivity.this, SpeedCalculationService.class));
+        stopService(new Intent(SevenPartActivity.this, SpeedCalculationService.class));
         unbindService(speedConnection);
         finish();
         overridePendingTransition(R.anim.slide_out_to_right, R.anim.slide_in_from_left);
@@ -409,7 +389,7 @@ public class IntervalWorkoutActivity extends ActionBarActivity {
     ServiceConnection speedConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            SpeedCalculationBinder binder = (SpeedCalculationBinder) service;
+            SpeedCalculationService.SpeedCalculationBinder binder = (SpeedCalculationService.SpeedCalculationBinder) service;
             isBound = true;
             speedCalculator = binder.getService();
 
