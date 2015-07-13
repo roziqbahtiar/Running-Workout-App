@@ -228,6 +228,42 @@
             android:name=".SevenPartActivity"
             android:label="@string/title_activity_seven_part" >
         </activity>
+        <activity
+            android:name=".SevenPartTest"
+            android:label="@string/title_activity_seven_part_test" >
+        </activity>
+        <activity
+            android:name=".SixPartActivity"
+            android:label="@string/title_activity_six_part" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.FivePartActivity"
+            android:label="@string/title_activity_five_part" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.FourPartActivity"
+            android:label="@string/title_activity_four_part" >
+        </activity>
+        <activity
+            android:name=".FivePartActivity"
+            android:label="@string/title_activity_five_part" >
+        </activity>
+        <activity
+            android:name=".FourPartActivity"
+            android:label="@string/title_activity_four_part" >
+        </activity>
+        <activity
+            android:name=".ThreePartActivity"
+            android:label="@string/title_activity_three_part" >
+        </activity>
+        <activity
+            android:name=".TwoPartActivity"
+            android:label="@string/title_activity_two_part" >
+        </activity>
+        <activity
+            android:name=".OnePartActivity"
+            android:label="@string/title_activity_one_part" >
+        </activity>
     </application>
 
 </manifest>

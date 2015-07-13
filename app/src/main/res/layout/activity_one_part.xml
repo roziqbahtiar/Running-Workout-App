@@ -1,0 +1,308 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".OnePartActivity"
+    android:visibility="visible"
+    android:background="#FFFFFFFF"
+    android:id="@+id/mainLayout"
+    android:paddingBottom="0dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gmtVal"
+        android:editable="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:textSize="@dimen/abc_dropdownitem_icon_width"
+        android:textIsSelectable="false"
+        android:textColor="#ff6ce8ff"
+        android:layout_alignLeft="@+id/emtVal"
+        android:layout_alignStart="@+id/emtVal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBaseline="@+id/timeLabel"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/paceView"
+        android:gravity="center"
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:editable="false"
+        android:clickable="false"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="#FF424242"
+        android:text="Waiting for GPS"
+        android:visibility="visible"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:id="@+id/timeLabel"
+        android:textSize="40dp"
+        android:textColor="#FF424242"
+        android:visibility="visible"
+        android:typeface="sans"
+        android:paddingRight="10dp"
+        android:layout_above="@+id/horizontalLine"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emtVal"
+        android:editable="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:textSize="40dp"
+        android:textIsSelectable="false"
+        android:textColor="#FF424242"
+        android:text="00:00"
+        android:gravity="center_horizontal"
+        android:visibility="visible"
+        android:paddingLeft="15dp"
+        android:layout_alignTop="@+id/verticalLine"
+        android:layout_alignLeft="@+id/verticalLine"
+        android:layout_alignStart="@+id/verticalLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Duration"
+        android:id="@+id/textView4"
+        android:gravity="center_horizontal"
+        android:textColor="#AA000000"
+        android:textSize="20dp"
+        android:visibility="visible"
+        android:layout_above="@+id/timeLabel"
+        android:layout_alignRight="@+id/timeLabel"
+        android:layout_alignEnd="@+id/timeLabel"
+        android:layout_alignLeft="@+id/timeLabel"
+        android:layout_alignStart="@+id/timeLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="min/mile"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/emtVal"
+        android:layout_alignRight="@+id/emtVal"
+        android:layout_alignEnd="@+id/emtVal"
+        android:textColor="#ff7d7d7d"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
+        android:visibility="visible"
+        android:layout_toRightOf="@+id/verticalLine"
+        android:layout_toEndOf="@+id/verticalLine"
+        android:paddingLeft="12dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="miles"
+        android:id="@+id/mileSuffix"
+        android:textColor="#FF7D7D7D"
+        android:textSize="18dp"
+        android:visibility="visible"
+        android:layout_below="@+id/distanceVal"
+        android:layout_alignLeft="@+id/distanceVal"
+        android:layout_alignStart="@+id/distanceVal"
+        android:paddingLeft="20dp"
+        android:layout_toLeftOf="@+id/pauseButton"
+        android:layout_toStartOf="@+id/pauseButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        android:id="@+id/distanceVal"
+        android:textColor="#FF424242"
+        android:textSize="40dp"
+        android:paddingRight="25dp"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/verticalLine"
+        android:layout_toLeftOf="@+id/verticalLine"
+        android:layout_toStartOf="@+id/verticalLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Running Workout"
+        android:id="@+id/workoutLabel"
+        android:layout_toRightOf="@+id/partLeftButton"
+        android:layout_toEndOf="@+id/partLeftButton"
+        android:textSize="20dp"
+        android:textColor="#ffe1e1e1"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verticalLine"
+        android:src="@drawable/vert_line"
+        android:paddingBottom="0dp"
+        android:layout_above="@+id/pauseButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomTriangle"
+        android:src="@drawable/bottom_triangle"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/partIndicatorGroup"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/partRightButton"
+        android:layout_toRightOf="@+id/partLeftButton"
+        android:layout_toEndOf="@+id/partLeftButton">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton1"
+            android:textColor="#ffffffff"
+            android:buttonTint="#ffffffff"
+            android:clickable="false"
+            android:checked="true"
+            android:button="@drawable/radio" />
+
+    </RadioGroup>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pauseButton"
+        android:background="@drawable/play_blank"
+        android:visibility="visible"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:paddingRight="0dp"
+        android:paddingLeft="0dp"
+        android:scaleType="center"
+        android:adjustViewBounds="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="93dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalLine"
+        android:layout_above="@+id/verticalLine"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/horiz_line" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/partLeftButton"
+        android:adjustViewBounds="true"
+        android:baselineAlignBottom="false"
+        android:src="@drawable/arrows_main_left"
+        android:background="@drawable/backgroundstate"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/partIndicatorGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/partRightButton"
+        android:src="@drawable/arrows_main_right"
+        android:background="@drawable/backgroundstate"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/partIndicatorGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/goal_pace_bg"
+        android:layout_below="@+id/gmtVal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/gmtVal"
+        android:layout_toRightOf="@+id/gmtVal"
+        android:scaleType="fitXY"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="20dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goal Pace:"
+        android:id="@+id/mainTitle"
+        android:paddingLeft="35dp"
+        android:paddingTop="15dp"
+        android:textColor="#ffffffff"
+        android:textSize="20dp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/gmtVal"
+        android:layout_toEndOf="@+id/gmtVal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:00 min/mile"
+        android:id="@+id/secondaryTitle"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffffff"
+        android:visibility="visible"
+        android:layout_alignBottom="@+id/mainTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp"
+        android:paddingRight="38dp"
+        android:paddingBottom="0dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_alignBottom="@+id/pauseButton"
+        android:layout_alignRight="@+id/pauseButton"
+        android:layout_alignEnd="@+id/pauseButton" />
+
+</RelativeLayout>

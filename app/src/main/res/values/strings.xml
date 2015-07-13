@@ -56,4 +56,10 @@
     <string name="title_activity_week_9__day_4">Week_9_Day_4</string>
     <string name="title_activity_one_part">OnePartActivity</string>
     <string name="title_activity_seven_part">SevenPartActivity</string>
+    <string name="title_activity_seven_part_test">SevenPartTest</string>
+    <string name="title_activity_six_part">SixPartActivity</string>
+    <string name="title_activity_five_part">FivePartActivity</string>
+    <string name="title_activity_four_part">FourPartActivity</string>
+    <string name="title_activity_three_part">ThreePartActivity</string>
+    <string name="title_activity_two_part">TwoPartActivity</string>
 </resources>
