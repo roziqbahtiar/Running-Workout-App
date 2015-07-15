@@ -782,8 +782,8 @@ public abstract class OnePartActivity extends ActionBarActivity {
                 // Tracks the total elapsed time of the workout part
                 partTimeElapsed = System.currentTimeMillis() - partTimeStart;
 
-//                speed = speedCalculator.getCurrentSpeed();
-                speed = speedCalculator.getDopplerSpeed();
+                speed = speedCalculator.getCurrentSpeed();
+//                speed = speedCalculator.getDopplerSpeed();
                 //updateSpeed(speed);
 
                 double lastPace = currentPace;
