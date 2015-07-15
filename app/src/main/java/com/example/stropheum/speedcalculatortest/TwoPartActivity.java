@@ -298,7 +298,7 @@ public abstract class TwoPartActivity extends ActionBarActivity {
         String paceColor;
         MediaPlayer player;
 
-        if (paceAverage > goalPace + MILE_TIME_ERROR) {
+        if (currentPace > goalPace + MILE_TIME_ERROR) {
             paceText = "Speed up";
             paceColor = "#52be7f";//Green
             long[] pattern = {0, 200, 200, 200, 200, 200};
@@ -306,7 +306,7 @@ public abstract class TwoPartActivity extends ActionBarActivity {
             player = MediaPlayer.create(this, R.raw.speed_up);
             player.start();
             saidPerfectOnce = false; // Reset perfect alert
-        } else if (paceAverage < goalPace - MILE_TIME_ERROR) {
+        } else if (currentPace < goalPace - MILE_TIME_ERROR) {
             paceText = "Slow Down";
             paceColor = "#e74c3c";//Red
             vibrator.vibrate(1000);
@@ -801,18 +801,24 @@ public abstract class TwoPartActivity extends ActionBarActivity {
                 speed = speedCalculator.getCurrentSpeed();
                 //updateSpeed(speed);
 
+                double lastPace = currentPace;
                 currentPace = 60.0 / speed;
-                // Average current pace to current average
-                if (Double.compare(currentPace, Double.NaN) != 0) {
-                    paceSum += currentPace;
-                    if (Double.compare(paceSum, Double.NaN) == 0) {
-                        paceSum = 0.0;
-                    }
-                    paceAverage = paceSum / tickCounter;
+
+                if (currentPace > 30.0) {
+                    currentPace = lastPace;
                 }
 
+                // Average current pace to current average
+//                if (Double.compare(currentPace, Double.NaN) != 0) {
+//                    paceSum += currentPace;
+//                    if (Double.compare(paceSum, Double.NaN) == 0) {
+//                        paceSum = 0.0;
+//                    }
+//                    paceAverage = paceSum / tickCounter;
+//                }
+
                 if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
-                    updateCurrentPace(paceAverage);
+                    updateCurrentPace(currentPace);
                 }
 
                 distance = speedCalculator.getCurrentDistance();
@@ -893,17 +899,22 @@ public abstract class TwoPartActivity extends ActionBarActivity {
 
                 double lastPace = currentPace;
                 currentPace = 60.0 / speed;
+
                 if (currentPace > 30.0) {
                     currentPace = lastPace;
                 }
+
                 // Average current pace to current average
-                if (Double.compare(currentPace, Double.NaN) != 0) {
-                    paceSum += currentPace;
-                    paceAverage = paceSum / tickCounter;
-                }
+//                if (Double.compare(currentPace, Double.NaN) != 0) {
+//                    paceSum += currentPace;
+//                    if (Double.compare(paceSum, Double.NaN) == 0) {
+//                        paceSum = 0.0;
+//                    }
+//                    paceAverage = paceSum / tickCounter;
+//                }
 
                 if (tickCounter % PACE_UPDATE_INTERVAL == 0) {
-                    updateCurrentPace(paceAverage);
+                    updateCurrentPace(currentPace);
                 }
 
                 distance = speedCalculator.getCurrentDistance();

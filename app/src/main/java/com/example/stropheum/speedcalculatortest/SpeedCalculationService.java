@@ -24,7 +24,7 @@ public class SpeedCalculationService extends Service {
     // Tracks distance traveled between location calls
     double distanceTraveled = 0;
     double speed = 0;
-    double dopplerSpeed = 0; // Testing for accuracy of getSpeed()
+    float dopplerSpeed = 0; // Testing for accuracy of getSpeed()
 
     // Tracks the longitude and latitude of the previous and current location calls
     double lonNew, lonOld;
@@ -150,6 +150,15 @@ public class SpeedCalculationService extends Service {
         ticks = 0;
 
         return speed;
+    }
+
+    /**
+     * Returns the speed calculated by doppler shift
+     * @return the current speed in mph format
+     */
+    public float getDopplerSpeed() {
+        // Converts meters/sec value to miles/hour
+        return dopplerSpeed * 2.236936F;
     }
 
     /**
