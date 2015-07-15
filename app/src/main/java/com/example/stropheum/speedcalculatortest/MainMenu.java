@@ -147,8 +147,8 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][0].setBackgroundColor(Color.WHITE);
-//                        startActivity(new Intent(getApplicationContext(), Week_1_Day_1.class));
-                        startActivity(new Intent(getApplicationContext(), SevenPartTest.class));
+                        startActivity(new Intent(getApplicationContext(), Week_1_Day_1.class));
+//                        startActivity(new Intent(getApplicationContext(), SevenPartTest.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
