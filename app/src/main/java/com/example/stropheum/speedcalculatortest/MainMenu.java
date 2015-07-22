@@ -1,6 +1,8 @@
 package com.example.stropheum.speedcalculatortest;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -12,14 +14,6 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class MainMenu extends ActionBarActivity {
     LinearLayout[][] layout;
@@ -142,6 +136,34 @@ public class MainMenu extends ActionBarActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_settings).setVisible(false);
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        for (int i = 0; i < checkBoxArray.length; i++) {
+            save(i + "", checkBoxArray[i].isChecked());
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        for (int i = 0; i < checkBoxArray.length; i++) {
+            checkBoxArray[i].setChecked(load(i + ""));
+        }
+    }
+
+    private void save(final String key, final boolean isChecked) {
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, isChecked);
+        editor.commit();
+    }
+
+    private boolean load(final String key) {
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(key, false);
     }
 
     /**
