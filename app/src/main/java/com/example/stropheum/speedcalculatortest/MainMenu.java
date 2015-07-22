@@ -10,10 +10,20 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class MainMenu extends ActionBarActivity {
     LinearLayout[][] layout;
+    CheckBox[] checkBoxArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,8 @@ public class MainMenu extends ActionBarActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         layout = new LinearLayout[9][7];
+        checkBoxArray = new CheckBox[63];
+        getCheckBoxStates();
 
         // Initialize click listeners for workout buttons
         configureButton_1_1();
@@ -101,6 +113,7 @@ public class MainMenu extends ActionBarActivity {
         configureButton_9_5();
         configureButton_9_6();
         configureButton_9_7();
+
     }
 
     @Override
@@ -129,6 +142,75 @@ public class MainMenu extends ActionBarActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.action_settings).setVisible(false);
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    /**
+     * Retrieve the states of all check boxes and stores them in an array
+     */
+    private void getCheckBoxStates() {
+        checkBoxArray[0]  = (CheckBox) findViewById(R.id.box_1_1);
+        checkBoxArray[1]  = (CheckBox) findViewById(R.id.box_1_2);
+        checkBoxArray[2]  = (CheckBox) findViewById(R.id.box_1_3);
+        checkBoxArray[3]  = (CheckBox) findViewById(R.id.box_1_4);
+        checkBoxArray[4]  = (CheckBox) findViewById(R.id.box_1_5);
+        checkBoxArray[5]  = (CheckBox) findViewById(R.id.box_1_6);
+        checkBoxArray[6]  = (CheckBox) findViewById(R.id.box_1_7);
+        checkBoxArray[7]  = (CheckBox) findViewById(R.id.box_2_1);
+        checkBoxArray[8]  = (CheckBox) findViewById(R.id.box_2_2);
+        checkBoxArray[9]  = (CheckBox) findViewById(R.id.box_2_3);
+        checkBoxArray[10] = (CheckBox) findViewById(R.id.box_2_4);
+        checkBoxArray[11] = (CheckBox) findViewById(R.id.box_2_5);
+        checkBoxArray[12] = (CheckBox) findViewById(R.id.box_2_6);
+        checkBoxArray[13] = (CheckBox) findViewById(R.id.box_2_7);
+        checkBoxArray[14] = (CheckBox) findViewById(R.id.box_3_1);
+        checkBoxArray[15] = (CheckBox) findViewById(R.id.box_3_2);
+        checkBoxArray[16] = (CheckBox) findViewById(R.id.box_3_3);
+        checkBoxArray[17] = (CheckBox) findViewById(R.id.box_3_4);
+        checkBoxArray[18] = (CheckBox) findViewById(R.id.box_3_5);
+        checkBoxArray[19] = (CheckBox) findViewById(R.id.box_3_6);
+        checkBoxArray[20] = (CheckBox) findViewById(R.id.box_3_7);
+        checkBoxArray[21] = (CheckBox) findViewById(R.id.box_4_1);
+        checkBoxArray[22] = (CheckBox) findViewById(R.id.box_4_2);
+        checkBoxArray[23] = (CheckBox) findViewById(R.id.box_4_3);
+        checkBoxArray[24] = (CheckBox) findViewById(R.id.box_4_4);
+        checkBoxArray[25] = (CheckBox) findViewById(R.id.box_4_5);
+        checkBoxArray[26] = (CheckBox) findViewById(R.id.box_4_6);
+        checkBoxArray[27] = (CheckBox) findViewById(R.id.box_4_7);
+        checkBoxArray[28] = (CheckBox) findViewById(R.id.box_5_1);
+        checkBoxArray[29] = (CheckBox) findViewById(R.id.box_5_2);
+        checkBoxArray[30] = (CheckBox) findViewById(R.id.box_5_3);
+        checkBoxArray[31] = (CheckBox) findViewById(R.id.box_5_4);
+        checkBoxArray[32] = (CheckBox) findViewById(R.id.box_5_5);
+        checkBoxArray[33] = (CheckBox) findViewById(R.id.box_5_6);
+        checkBoxArray[34] = (CheckBox) findViewById(R.id.box_5_7);
+        checkBoxArray[35] = (CheckBox) findViewById(R.id.box_6_1);
+        checkBoxArray[36] = (CheckBox) findViewById(R.id.box_6_2);
+        checkBoxArray[37] = (CheckBox) findViewById(R.id.box_6_3);
+        checkBoxArray[38] = (CheckBox) findViewById(R.id.box_6_4);
+        checkBoxArray[39] = (CheckBox) findViewById(R.id.box_6_5);
+        checkBoxArray[40] = (CheckBox) findViewById(R.id.box_6_6);
+        checkBoxArray[41] = (CheckBox) findViewById(R.id.box_6_7);
+        checkBoxArray[42] = (CheckBox) findViewById(R.id.box_7_1);
+        checkBoxArray[43] = (CheckBox) findViewById(R.id.box_7_2);
+        checkBoxArray[44] = (CheckBox) findViewById(R.id.box_7_3);
+        checkBoxArray[45] = (CheckBox) findViewById(R.id.box_7_4);
+        checkBoxArray[46] = (CheckBox) findViewById(R.id.box_7_5);
+        checkBoxArray[47] = (CheckBox) findViewById(R.id.box_7_6);
+        checkBoxArray[48] = (CheckBox) findViewById(R.id.box_7_7);
+        checkBoxArray[49] = (CheckBox) findViewById(R.id.box_8_1);
+        checkBoxArray[50] = (CheckBox) findViewById(R.id.box_8_2);
+        checkBoxArray[51] = (CheckBox) findViewById(R.id.box_8_3);
+        checkBoxArray[52] = (CheckBox) findViewById(R.id.box_8_4);
+        checkBoxArray[53] = (CheckBox) findViewById(R.id.box_8_5);
+        checkBoxArray[54] = (CheckBox) findViewById(R.id.box_8_6);
+        checkBoxArray[55] = (CheckBox) findViewById(R.id.box_8_7);
+        checkBoxArray[56] = (CheckBox) findViewById(R.id.box_9_1);
+        checkBoxArray[57] = (CheckBox) findViewById(R.id.box_9_2);
+        checkBoxArray[58] = (CheckBox) findViewById(R.id.box_9_3);
+        checkBoxArray[59] = (CheckBox) findViewById(R.id.box_9_4);
+        checkBoxArray[60] = (CheckBox) findViewById(R.id.box_9_5);
+        checkBoxArray[61] = (CheckBox) findViewById(R.id.box_9_6);
+        checkBoxArray[62] = (CheckBox) findViewById(R.id.box_9_7);
     }
 
     /**
