@@ -264,6 +264,10 @@
             android:name=".OnePartActivity"
             android:label="@string/title_activity_one_part" >
         </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.RaceDayActivity"
+            android:label="@string/title_activity_race_day" >
+        </activity>
     </application>
 
 </manifest>

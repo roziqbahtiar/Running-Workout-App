@@ -15,6 +15,8 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
+import com.fitivity.fivek_training.RaceDayActivity;
+
 public class MainMenu extends ActionBarActivity {
     LinearLayout[][] layout;
     CheckBox[] checkBoxArray;
@@ -2049,7 +2051,7 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        startActivity(new Intent(getApplicationContext(), RaceDayActivity.class));
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 

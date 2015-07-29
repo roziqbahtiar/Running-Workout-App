@@ -62,4 +62,5 @@
     <string name="title_activity_four_part">FourPartActivity</string>
     <string name="title_activity_three_part">ThreePartActivity</string>
     <string name="title_activity_two_part">TwoPartActivity</string>
+    <string name="title_activity_race_day">RaceDayActivity</string>
 </resources>
