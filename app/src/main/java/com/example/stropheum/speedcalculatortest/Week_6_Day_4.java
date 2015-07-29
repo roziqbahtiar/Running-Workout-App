@@ -30,22 +30,22 @@ public class Week_6_Day_4 extends FourPartActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Goal mile times for each part
-         PART_ONE_GOAL_PACE = 9.5;
-         PART_TWO_GOAL_PACE = 18.0;
+         PART_ONE_GOAL_PACE   = 9.5;
+         PART_TWO_GOAL_PACE   = 18.0;
          PART_THREE_GOAL_PACE = 9.5;
-         PART_FOUR_GOAL_PACE = 13.0;
+         PART_FOUR_GOAL_PACE  = 13.0;
 
         // Duration for each part in milliseconds
-         PART_ONE_DURATION = 900 * 1000;
-         PART_TWO_DURATION = 360 * 1000;
+         PART_ONE_DURATION   = 900 * 1000;
+         PART_TWO_DURATION   = 360 * 1000;
          PART_THREE_DURATION = 900 * 1000;
-         PART_FOUR_DURATION = 300 * 1000;
+         PART_FOUR_DURATION  = 300 * 1000;
 
         // Secondary titles for actionbar to set at each part
-         PART_ONE_SECONDARY_TITLE = "9:30 min/mile";
-         PART_TWO_SECONDARY_TITLE = "18:00 min/mile";
+         PART_ONE_SECONDARY_TITLE   = "9:30 min/mile";
+         PART_TWO_SECONDARY_TITLE   = "18:00 min/mile";
          PART_THREE_SECONDARY_TITLE = "9:30 min/mile";
-         PART_FOUR_SECONDARY_TITLE = "13:00 min/mile";
+         PART_FOUR_SECONDARY_TITLE  = "13:00 min/mile";
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setCustomView(R.layout.action_bar_6_4);

@@ -30,13 +30,13 @@ public class Week_9_Day_4 extends OnePartActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Goal mile times for each part
-        PART_ONE_GOAL_PACE   = 7.0;
+        PART_ONE_GOAL_PACE = 7.0;
 
         // Duration for each part in milliseconds
-        PART_ONE_DURATION   = 1200 * 1000;
+        PART_ONE_DURATION = 1200 * 1000;
 
         // Secondary titles for actionbar to set at each part
-        PART_ONE_SECONDARY_TITLE   = "7:00 min/mile";
+        PART_ONE_SECONDARY_TITLE = "7:00 min/mile";
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setCustomView(R.layout.action_bar_9_4);

@@ -30,16 +30,16 @@ public class Week_7_Day_5 extends TwoPartActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Goal mile times for each part
-        PART_ONE_GOAL_PACE   = 10.0;
-        PART_TWO_GOAL_PACE   = 18.0;
+        PART_ONE_GOAL_PACE = 10.0;
+        PART_TWO_GOAL_PACE = 18.0;
 
         // Duration for each part in milliseconds
         PART_ONE_DURATION = 1800 * 1000;
         PART_TWO_DURATION = 600 * 1000;
 
         // Secondary titles for actionbar to set at each part
-        PART_ONE_SECONDARY_TITLE   = "10:00 min/mile";
-        PART_TWO_SECONDARY_TITLE   = "18:00 min/mile";
+        PART_ONE_SECONDARY_TITLE = "10:00 min/mile";
+        PART_TWO_SECONDARY_TITLE = "18:00 min/mile";
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().setCustomView(R.layout.action_bar_7_5);
