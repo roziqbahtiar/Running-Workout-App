@@ -7,19 +7,33 @@ import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.fitivity.fivek_training.RaceDayActivity;
 
 public class MainMenu extends ActionBarActivity {
     LinearLayout[][] layout;
     CheckBox[] checkBoxArray;
+    boolean[] difficulty;
+
+    final int BEGINNER = 0;
+    final int INTERMEDIATE = 1;
+    final int COMPETITIVE = 2;
+    final int ADVANCED = 3;
+    final int ELITE = 4;
+    final int SET = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +50,26 @@ public class MainMenu extends ActionBarActivity {
         layout = new LinearLayout[9][7];
         checkBoxArray = new CheckBox[63];
         getCheckBoxStates();
+
+        difficulty = new boolean[6];
+        for (int i = 0; i < difficulty.length - 1; i++) {
+            difficulty[i] = false;
+        }
+
+        difficulty[SET] = load("difficulty " + SET);
+
+
+        configureSettingsButton();
+
+        if (!difficulty[SET]) {
+            findViewById(R.id.menu_main_layout).post(new Runnable() {
+                public void run() {
+                    ImageView difficultyButton = (ImageView) findViewById(R.id.difficultyButton);
+                    difficultyButton.performClick();
+                }
+            });
+
+        }
 
         // Initialize click listeners for workout buttons
         configureButton_1_1();
@@ -143,16 +177,26 @@ public class MainMenu extends ActionBarActivity {
     @Override
     public void onPause() {
         super.onPause();
+
         for (int i = 0; i < checkBoxArray.length; i++) {
             save(i + "", checkBoxArray[i].isChecked());
+        }
+
+        for (int i = 0; i < difficulty.length; i++) {
+            save("difficulty " + i, difficulty[i]);
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        for (int i = 0; i < checkBoxArray.length; i++) {
+
+        for (int i = 0; i < checkBoxArray.length-2; i++) {
             checkBoxArray[i].setChecked(load(i + ""));
+        }
+
+        for (int i = 0; i < difficulty.length; i++) {
+            difficulty[i] = load("difficulty " + i);
         }
     }
 
@@ -235,6 +279,127 @@ public class MainMenu extends ActionBarActivity {
         checkBoxArray[60] = (CheckBox) findViewById(R.id.box_9_5);
         checkBoxArray[61] = (CheckBox) findViewById(R.id.box_9_6);
         checkBoxArray[62] = (CheckBox) findViewById(R.id.box_9_7);
+    }
+
+    /**
+     * Configure action listener for settings button to open difficulty dialogue
+     */
+    private void configureSettingsButton() {
+        ImageView difficultyButton = (ImageView) findViewById(R.id.difficultyButton);
+        difficultyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+
+                final View popupView = inflater.inflate(R.layout.difficulty_selection_menu, null);
+                final PopupWindow popup = new PopupWindow(popupView,
+                        android.app.ActionBar.LayoutParams.WRAP_CONTENT,
+                        android.app.ActionBar.LayoutParams.WRAP_CONTENT);
+                popup.setBackgroundDrawable(null);
+                popup.showAtLocation(findViewById(R.id.logo), Gravity.CENTER, 0, 0);
+
+                // Load saved radio button states
+                RadioButton[] radioGroup = new RadioButton[5];
+                radioGroup[0] = (RadioButton) popupView.findViewById(R.id.beginner_button);
+                radioGroup[1] = (RadioButton) popupView.findViewById(R.id.intermediate_button);
+                radioGroup[2] = (RadioButton) popupView.findViewById(R.id.competitive_button);
+                radioGroup[3] = (RadioButton) popupView.findViewById(R.id.advanced_button);
+                radioGroup[4] = (RadioButton) popupView.findViewById(R.id.elite_button);
+
+                for (int i = 0; i < radioGroup.length; i++) {
+                    if (difficulty[i]) {
+                        radioGroup[i].setChecked(true);
+                    }
+                }
+
+                // Dim background on click
+                WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+                WindowManager.LayoutParams p = (WindowManager.LayoutParams) popupView.getLayoutParams();
+                p.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+                p.dimAmount = 0.7f;
+                wm.updateViewLayout(popupView, p);
+
+                // Configure text to trigger radio clicks
+                LinearLayout bRow = (LinearLayout) popupView.findViewById(R.id.beginner_row);
+                bRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        RadioButton button = (RadioButton) popupView.findViewById(R.id.beginner_button);
+                        button.setChecked(true);
+                        for (int i = 0; i < difficulty.length; i++) {
+                            difficulty[i] = false;
+                        }
+                        difficulty[BEGINNER] = true;
+                        difficulty[SET] = true;
+                    }
+                });
+
+                LinearLayout iRow = (LinearLayout) popupView.findViewById(R.id.intermediate_row);
+                iRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        RadioButton button = (RadioButton) popupView.findViewById(R.id.intermediate_button);
+                        button.setChecked(true);
+                        for (int i = 0; i < difficulty.length; i++) {
+                            difficulty[i] = false;
+                        }
+                        difficulty[INTERMEDIATE] = true;
+                        difficulty[SET] = true;
+                    }
+                });
+
+                LinearLayout cRow = (LinearLayout) popupView.findViewById(R.id.competitive_row);
+                cRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        RadioButton button = (RadioButton) popupView.findViewById(R.id.competitive_button);
+                        button.setChecked(true);
+                        for (int i = 0; i < difficulty.length; i++) {
+                            difficulty[i] = false;
+                        }
+                        difficulty[COMPETITIVE] = true;
+                        difficulty[SET] = true;
+                    }
+                });
+
+                LinearLayout aRow = (LinearLayout) popupView.findViewById(R.id.advanced_row);
+                aRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        RadioButton button = (RadioButton) popupView.findViewById(R.id.advanced_button);
+                        button.setChecked(true);
+                        for (int i = 0; i < difficulty.length; i++) {
+                            difficulty[i] = false;
+                        }
+                        difficulty[ADVANCED] = true;
+                        difficulty[SET] = true;
+                    }
+                });
+
+                LinearLayout eRow = (LinearLayout) popupView.findViewById(R.id.elite_row);
+                eRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        RadioButton button = (RadioButton) popupView.findViewById(R.id.elite_button);
+                        button.setChecked(true);
+                        for (int i = 0; i < difficulty.length; i++) {
+                            difficulty[i] = false;
+                        }
+                        difficulty[ELITE] = true;
+                        difficulty[SET] = true;
+                    }
+                });
+
+                // Configure Choose button
+                TextView chooseButton = (TextView) popupView.findViewById(R.id.chooseButton);
+                chooseButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popup.dismiss();
+                    }
+                });
+            }
+        });
     }
 
     /**

@@ -2,15 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:layout_gravity="center"
+    android:orientation="horizontal" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingLeft="100dp"
+        android:paddingRight="65dp"
         android:text="Select a workout"
         android:textColor="#ffffff"
         android:id="@+id/mytext"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:id="@+id/difficultyButton"
+        android:src="@drawable/level_selection"
+        android:scaleType="fitXY" />
 
 </LinearLayout>
