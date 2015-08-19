@@ -415,6 +415,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_1_1() {
         layout[0][0] = (LinearLayout) findViewById(R.id.row_1_1);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_1_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[0][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -451,6 +460,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_1_2() {
         layout[0][1] = (LinearLayout) findViewById(R.id.row_1_2);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_2_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[0][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -489,6 +507,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_1_3() {
         layout[0][2] = (LinearLayout) findViewById(R.id.row_1_3);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_3_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[0][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -526,6 +553,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_1_4() {
         layout[0][3] = (LinearLayout) findViewById(R.id.row_1_4);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_4_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[0][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -561,6 +597,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_1_5() {
         layout[0][4] = (LinearLayout) findViewById(R.id.row_1_5);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_5_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[0][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -600,6 +645,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_1_6() {
         layout[0][5] = (LinearLayout) findViewById(R.id.row_1_6);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_6_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[0][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -636,6 +690,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_1_7() {
         layout[0][6] = (LinearLayout) findViewById(R.id.row_1_7);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_7_image);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[0][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -674,6 +737,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_2_1() {
         layout[1][0] = (LinearLayout) findViewById(R.id.row_2_1);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[1][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -710,6 +782,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_2_2() {
         layout[1][1] = (LinearLayout) findViewById(R.id.row_2_2);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[1][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -748,6 +829,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_2_3() {
         layout[1][2] = (LinearLayout) findViewById(R.id.row_2_3);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[1][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -784,6 +874,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_2_4() {
         layout[1][3] = (LinearLayout) findViewById(R.id.row_2_4);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[1][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -822,6 +921,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_2_5() {
         layout[1][4] = (LinearLayout) findViewById(R.id.row_2_5);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[1][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -858,6 +966,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_2_6() {
         layout[1][5] = (LinearLayout) findViewById(R.id.row_2_6);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[1][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -896,6 +1013,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_2_7() {
         layout[1][6] = (LinearLayout) findViewById(R.id.row_2_7);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[1][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -932,6 +1058,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_3_1() {
         layout[2][0] = (LinearLayout) findViewById(R.id.row_3_1);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[2][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -970,6 +1105,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_3_2() {
         layout[2][1] = (LinearLayout) findViewById(R.id.row_3_2);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[2][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1006,6 +1150,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_3_3() {
         layout[2][2] = (LinearLayout) findViewById(R.id.row_3_3);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[2][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1044,6 +1197,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_3_4() {
         layout[2][3] = (LinearLayout) findViewById(R.id.row_3_4);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[2][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1080,6 +1242,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_3_5() {
         layout[2][4] = (LinearLayout) findViewById(R.id.row_3_5);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[2][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1118,6 +1289,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_3_6() {
         layout[2][5] = (LinearLayout) findViewById(R.id.row_3_6);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[2][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1154,6 +1334,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_3_7() {
         layout[2][6] = (LinearLayout) findViewById(R.id.row_3_7);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[2][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1192,6 +1381,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_4_1() {
         layout[3][0] = (LinearLayout) findViewById(R.id.row_4_1);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[3][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1228,6 +1426,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_4_2() {
         layout[3][1] = (LinearLayout) findViewById(R.id.row_4_2);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[3][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1266,6 +1473,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_4_3() {
         layout[3][2] = (LinearLayout) findViewById(R.id.row_4_3);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[3][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1302,6 +1518,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_4_4() {
         layout[3][3] = (LinearLayout) findViewById(R.id.row_4_4);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[3][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1340,6 +1565,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_4_5() {
         layout[3][4] = (LinearLayout) findViewById(R.id.row_4_5);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[3][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1376,6 +1610,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_4_6() {
         layout[3][5] = (LinearLayout) findViewById(R.id.row_4_6);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[3][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1414,6 +1657,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_4_7() {
         layout[3][6] = (LinearLayout) findViewById(R.id.row_4_7);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[3][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1450,6 +1702,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_5_1() {
         layout[4][0] = (LinearLayout) findViewById(R.id.row_5_1);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[4][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1488,6 +1749,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_5_2() {
         layout[4][1] = (LinearLayout) findViewById(R.id.row_5_2);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[4][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1524,6 +1794,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_5_3() {
         layout[4][2] = (LinearLayout) findViewById(R.id.row_5_3);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[4][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1562,6 +1841,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_5_4() {
         layout[4][3] = (LinearLayout) findViewById(R.id.row_5_4);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[4][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1598,6 +1886,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_5_5() {
         layout[4][4] = (LinearLayout) findViewById(R.id.row_5_5);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[4][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1636,6 +1933,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_5_6() {
         layout[4][5] = (LinearLayout) findViewById(R.id.row_5_6);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[4][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1672,6 +1978,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_5_7() {
         layout[4][6] = (LinearLayout) findViewById(R.id.row_5_7);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[4][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1710,6 +2025,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_6_1() {
         layout[5][0] = (LinearLayout) findViewById(R.id.row_6_1);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[5][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1746,6 +2070,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_6_2() {
         layout[5][1] = (LinearLayout) findViewById(R.id.row_6_2);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[5][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1784,6 +2117,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_6_3() {
         layout[5][2] = (LinearLayout) findViewById(R.id.row_6_3);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[5][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1820,6 +2162,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_6_4() {
         layout[5][3] = (LinearLayout) findViewById(R.id.row_6_4);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[5][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1858,6 +2209,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_6_5() {
         layout[5][4] = (LinearLayout) findViewById(R.id.row_6_5);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[5][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1894,6 +2254,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_6_6() {
         layout[5][5] = (LinearLayout) findViewById(R.id.row_6_6);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[5][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -1932,6 +2301,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_6_7() {
         layout[5][6] = (LinearLayout) findViewById(R.id.row_6_7);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[5][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -1968,6 +2346,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_7_1() {
         layout[6][0] = (LinearLayout) findViewById(R.id.row_7_1);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[6][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2006,6 +2393,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_7_2() {
         layout[6][1] = (LinearLayout) findViewById(R.id.row_7_2);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[6][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2042,6 +2438,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_7_3() {
         layout[6][2] = (LinearLayout) findViewById(R.id.row_7_3);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[6][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2080,6 +2485,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_7_4() {
         layout[6][3] = (LinearLayout) findViewById(R.id.row_7_4);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[6][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2116,6 +2530,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_7_5() {
         layout[6][4] = (LinearLayout) findViewById(R.id.row_7_5);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[6][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2154,6 +2577,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_7_6() {
         layout[6][5] = (LinearLayout) findViewById(R.id.row_7_6);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[6][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2190,6 +2622,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_7_7() {
         layout[6][6] = (LinearLayout) findViewById(R.id.row_7_7);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[6][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2228,6 +2669,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_8_1() {
         layout[7][0] = (LinearLayout) findViewById(R.id.row_8_1);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[7][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2264,6 +2714,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_8_2() {
         layout[7][1] = (LinearLayout) findViewById(R.id.row_8_2);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[7][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2302,6 +2761,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_8_3() {
         layout[7][2] = (LinearLayout) findViewById(R.id.row_8_3);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[7][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2338,6 +2806,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_8_4() {
         layout[7][3] = (LinearLayout) findViewById(R.id.row_8_4);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[7][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2376,6 +2853,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_8_5() {
         layout[7][4] = (LinearLayout) findViewById(R.id.row_8_5);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[7][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2412,6 +2898,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_8_6() {
         layout[7][5] = (LinearLayout) findViewById(R.id.row_8_6);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[7][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2450,6 +2945,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_8_7() {
         layout[7][6] = (LinearLayout) findViewById(R.id.row_8_7);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[7][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2486,6 +2990,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_9_1() {
         layout[8][0] = (LinearLayout) findViewById(R.id.row_9_1);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_1);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[8][0].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2524,6 +3037,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_9_2() {
         layout[8][1] = (LinearLayout) findViewById(R.id.row_9_2);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_2);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[8][1].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2560,6 +3082,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_9_3() {
         layout[8][2] = (LinearLayout) findViewById(R.id.row_9_3);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_3);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[8][2].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2598,6 +3129,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_9_4() {
         layout[8][3] = (LinearLayout) findViewById(R.id.row_9_4);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_4);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[8][3].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2634,6 +3174,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_9_5() {
         layout[8][4] = (LinearLayout) findViewById(R.id.row_9_5);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_5);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[8][4].setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -2672,6 +3221,15 @@ public class MainMenu extends ActionBarActivity {
     private void configureButton_9_6() {
         layout[8][5] = (LinearLayout) findViewById(R.id.row_9_6);
 
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_6);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
+
         layout[8][5].setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -2708,6 +3266,15 @@ public class MainMenu extends ActionBarActivity {
      */
     private void configureButton_9_7() {
         layout[8][6] = (LinearLayout) findViewById(R.id.row_9_7);
+
+        ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_7);
+        if (difficulty[BEGINNER]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[INTERMEDIATE]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        } else if (difficulty[ADVANCED]) {
+            difficulty_image.setImageResource(R.drawable.rest_day);
+        }
 
         layout[8][6].setOnTouchListener(new View.OnTouchListener() {
             @Override
