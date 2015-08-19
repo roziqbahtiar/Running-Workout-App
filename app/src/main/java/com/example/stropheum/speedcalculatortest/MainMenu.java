@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.fitivity.fivek_training.*;
 import com.fitivity.fivek_training.RaceDayActivity;
 
 public class MainMenu extends ActionBarActivity {
@@ -30,10 +31,8 @@ public class MainMenu extends ActionBarActivity {
 
     final int BEGINNER = 0;
     final int INTERMEDIATE = 1;
-    final int COMPETITIVE = 2;
-    final int ADVANCED = 3;
-    final int ELITE = 4;
-    final int SET = 5;
+    final int ADVANCED = 2;
+    final int SET = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,77 +71,7 @@ public class MainMenu extends ActionBarActivity {
         }
 
         // Initialize click listeners for workout buttons
-        configureButton_1_1();
-        configureButton_1_2();
-        configureButton_1_3();
-        configureButton_1_4();
-        configureButton_1_5();
-        configureButton_1_6();
-        configureButton_1_7();
-
-        configureButton_2_1();
-        configureButton_2_2();
-        configureButton_2_3();
-        configureButton_2_4();
-        configureButton_2_5();
-        configureButton_2_6();
-        configureButton_2_7();
-
-        configureButton_3_1();
-        configureButton_3_2();
-        configureButton_3_3();
-        configureButton_3_4();
-        configureButton_3_5();
-        configureButton_3_6();
-        configureButton_3_7();
-
-        configureButton_4_1();
-        configureButton_4_2();
-        configureButton_4_3();
-        configureButton_4_4();
-        configureButton_4_5();
-        configureButton_4_6();
-        configureButton_4_7();
-
-        configureButton_5_1();
-        configureButton_5_2();
-        configureButton_5_3();
-        configureButton_5_4();
-        configureButton_5_5();
-        configureButton_5_6();
-        configureButton_5_7();
-
-        configureButton_6_1();
-        configureButton_6_2();
-        configureButton_6_3();
-        configureButton_6_4();
-        configureButton_6_5();
-        configureButton_6_6();
-        configureButton_6_7();
-
-        configureButton_7_1();
-        configureButton_7_2();
-        configureButton_7_3();
-        configureButton_7_4();
-        configureButton_7_5();
-        configureButton_7_6();
-        configureButton_7_7();
-
-        configureButton_8_1();
-        configureButton_8_2();
-        configureButton_8_3();
-        configureButton_8_4();
-        configureButton_8_5();
-        configureButton_8_6();
-        configureButton_8_7();
-
-        configureButton_9_1();
-        configureButton_9_2();
-        configureButton_9_3();
-        configureButton_9_4();
-        configureButton_9_5();
-        configureButton_9_6();
-        configureButton_9_7();
+        configureWorkoutButtons();
 
     }
 
@@ -289,7 +218,7 @@ public class MainMenu extends ActionBarActivity {
         difficultyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LayoutInflater inflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 
                 final View popupView = inflater.inflate(R.layout.difficulty_selection_menu, null);
                 final PopupWindow popup = new PopupWindow(popupView,
@@ -299,12 +228,10 @@ public class MainMenu extends ActionBarActivity {
                 popup.showAtLocation(findViewById(R.id.logo), Gravity.CENTER, 0, 0);
 
                 // Load saved radio button states
-                RadioButton[] radioGroup = new RadioButton[5];
+                RadioButton[] radioGroup = new RadioButton[3];
                 radioGroup[0] = (RadioButton) popupView.findViewById(R.id.beginner_button);
                 radioGroup[1] = (RadioButton) popupView.findViewById(R.id.intermediate_button);
-                radioGroup[2] = (RadioButton) popupView.findViewById(R.id.competitive_button);
-                radioGroup[3] = (RadioButton) popupView.findViewById(R.id.advanced_button);
-                radioGroup[4] = (RadioButton) popupView.findViewById(R.id.elite_button);
+                radioGroup[2] = (RadioButton) popupView.findViewById(R.id.advanced_button);
 
                 for (int i = 0; i < radioGroup.length; i++) {
                     if (difficulty[i]) {
@@ -331,6 +258,7 @@ public class MainMenu extends ActionBarActivity {
                         }
                         difficulty[BEGINNER] = true;
                         difficulty[SET] = true;
+                        configureWorkoutButtons();
                     }
                 });
 
@@ -345,22 +273,23 @@ public class MainMenu extends ActionBarActivity {
                         }
                         difficulty[INTERMEDIATE] = true;
                         difficulty[SET] = true;
+                        configureWorkoutButtons();
                     }
                 });
 
-                LinearLayout cRow = (LinearLayout) popupView.findViewById(R.id.competitive_row);
-                cRow.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        RadioButton button = (RadioButton) popupView.findViewById(R.id.competitive_button);
-                        button.setChecked(true);
-                        for (int i = 0; i < difficulty.length; i++) {
-                            difficulty[i] = false;
-                        }
-                        difficulty[COMPETITIVE] = true;
-                        difficulty[SET] = true;
-                    }
-                });
+//                LinearLayout cRow = (LinearLayout) popupView.findViewById(R.id.competitive_row);
+//                cRow.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        RadioButton button = (RadioButton) popupView.findViewById(R.id.competitive_button);
+//                        button.setChecked(true);
+//                        for (int i = 0; i < difficulty.length; i++) {
+//                            difficulty[i] = false;
+//                        }
+//                        difficulty[COMPETITIVE] = true;
+//                        difficulty[SET] = true;
+//                    }
+//                });
 
                 LinearLayout aRow = (LinearLayout) popupView.findViewById(R.id.advanced_row);
                 aRow.setOnClickListener(new View.OnClickListener() {
@@ -373,22 +302,23 @@ public class MainMenu extends ActionBarActivity {
                         }
                         difficulty[ADVANCED] = true;
                         difficulty[SET] = true;
+                        configureWorkoutButtons();
                     }
                 });
 
-                LinearLayout eRow = (LinearLayout) popupView.findViewById(R.id.elite_row);
-                eRow.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        RadioButton button = (RadioButton) popupView.findViewById(R.id.elite_button);
-                        button.setChecked(true);
-                        for (int i = 0; i < difficulty.length; i++) {
-                            difficulty[i] = false;
-                        }
-                        difficulty[ELITE] = true;
-                        difficulty[SET] = true;
-                    }
-                });
+//                LinearLayout eRow = (LinearLayout) popupView.findViewById(R.id.elite_row);
+//                eRow.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        RadioButton button = (RadioButton) popupView.findViewById(R.id.elite_button);
+//                        button.setChecked(true);
+//                        for (int i = 0; i < difficulty.length; i++) {
+//                            difficulty[i] = false;
+//                        }
+//                        difficulty[ELITE] = true;
+//                        difficulty[SET] = true;
+//                    }
+//                });
 
                 // Configure Choose button
                 TextView chooseButton = (TextView) popupView.findViewById(R.id.chooseButton);
@@ -400,6 +330,83 @@ public class MainMenu extends ActionBarActivity {
                 });
             }
         });
+    }
+
+    /**
+     * Configures all workout buttons to set icons as well as proper transitions
+     */
+    private void configureWorkoutButtons() {
+        configureButton_1_1();
+        configureButton_1_2();
+        configureButton_1_3();
+        configureButton_1_4();
+        configureButton_1_5();
+        configureButton_1_6();
+        configureButton_1_7();
+
+        configureButton_2_1();
+        configureButton_2_2();
+        configureButton_2_3();
+        configureButton_2_4();
+        configureButton_2_5();
+        configureButton_2_6();
+        configureButton_2_7();
+
+        configureButton_3_1();
+        configureButton_3_2();
+        configureButton_3_3();
+        configureButton_3_4();
+        configureButton_3_5();
+        configureButton_3_6();
+        configureButton_3_7();
+
+        configureButton_4_1();
+        configureButton_4_2();
+        configureButton_4_3();
+        configureButton_4_4();
+        configureButton_4_5();
+        configureButton_4_6();
+        configureButton_4_7();
+
+        configureButton_5_1();
+        configureButton_5_2();
+        configureButton_5_3();
+        configureButton_5_4();
+        configureButton_5_5();
+        configureButton_5_6();
+        configureButton_5_7();
+
+        configureButton_6_1();
+        configureButton_6_2();
+        configureButton_6_3();
+        configureButton_6_4();
+        configureButton_6_5();
+        configureButton_6_6();
+        configureButton_6_7();
+
+        configureButton_7_1();
+        configureButton_7_2();
+        configureButton_7_3();
+        configureButton_7_4();
+        configureButton_7_5();
+        configureButton_7_6();
+        configureButton_7_7();
+
+        configureButton_8_1();
+        configureButton_8_2();
+        configureButton_8_3();
+        configureButton_8_4();
+        configureButton_8_5();
+        configureButton_8_6();
+        configureButton_8_7();
+
+        configureButton_9_1();
+        configureButton_9_2();
+        configureButton_9_3();
+        configureButton_9_4();
+        configureButton_9_5();
+        configureButton_9_6();
+        configureButton_9_7();
     }
 
     /**
@@ -418,8 +425,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_1.class));
-//                        startActivity(new Intent(getApplicationContext(), SevenPartTest.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_1.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_1.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_1.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -448,7 +462,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -477,7 +499,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -505,7 +535,15 @@ public class MainMenu extends ActionBarActivity {
                         break;
                     case MotionEvent.ACTION_UP:
                         layout[0][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -534,7 +572,16 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_5.class));
+
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -563,7 +610,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_6.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -592,7 +647,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[0][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_1_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_1_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_1_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_1_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -621,7 +684,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_1.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -650,7 +721,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_2_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_2_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_2_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -679,7 +758,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_2_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_2_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_2_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -708,7 +795,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_2_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_2_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_2_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -737,7 +832,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_2_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_2_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_2_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -766,7 +869,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_6.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -795,7 +906,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[1][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_2_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_2_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_2_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_2_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -824,7 +943,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -853,7 +980,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_3_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_3_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -882,7 +1017,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_3_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_3_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -911,7 +1054,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_3_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_3_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -940,7 +1091,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_3_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_3_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -969,7 +1128,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_6.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_6.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -998,7 +1165,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[2][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_3_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_3_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_3_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_3_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1027,7 +1202,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1056,7 +1239,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_4_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_4_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_4_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_4_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1085,7 +1276,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_4_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_4_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_4_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_4_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1114,7 +1313,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1143,7 +1350,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_4_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_4_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_4_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_4_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1172,7 +1387,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_4_Day_6.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_4_Day_6.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1201,7 +1424,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[3][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_4_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_4_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_4_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_4_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1230,7 +1461,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1259,7 +1498,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_5_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_5_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1288,7 +1535,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_5_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_5_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1317,7 +1572,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_5_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1346,7 +1609,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_5_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_5_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1375,7 +1646,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_6.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_6.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1404,7 +1683,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[4][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_5_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_5_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_5_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_5_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1433,7 +1720,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1462,7 +1757,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_6_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_6_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_6_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_6_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1491,7 +1794,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_6_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_6_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_6_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_6_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1520,7 +1831,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_6_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_6_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_6_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_6_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1549,7 +1868,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_6_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_6_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_6_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1578,7 +1905,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1607,7 +1942,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[5][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_6_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_6_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_6_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_6_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1636,7 +1979,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1665,7 +2016,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_7_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_7_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_7_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_7_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1694,7 +2053,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_7_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_7_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_7_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_7_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1723,7 +2090,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_7_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_7_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_7_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_7_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1752,7 +2127,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_7_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_7_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_7_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_7_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1781,7 +2164,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1810,7 +2201,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[6][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_7_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_7_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_7_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_7_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1839,7 +2238,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1868,7 +2275,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_8_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_8_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_8_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_8_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1897,7 +2312,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_8_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1926,7 +2349,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_8_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_8_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_8_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_8_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1955,7 +2386,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_8_Day_5.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_8_Day_5.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_8_5.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_8_5.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -1984,7 +2423,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2013,7 +2460,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[7][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_8_Day_7.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_8_Day_7.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_8_7.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_8_7.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2042,7 +2497,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][0].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2071,7 +2534,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][1].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_9_Day_2.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_9_Day_2.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_9_2.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_9_2.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2100,7 +2571,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][2].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_9_Day_3.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_9_Day_3.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_9_3.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_9_3.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2129,7 +2608,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][3].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), Week_9_Day_4.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), Week_9_Day_4.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), Int_9_4.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), Adv_9_4.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2158,7 +2645,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][4].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2187,7 +2682,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][5].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RestDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 
@@ -2216,7 +2719,15 @@ public class MainMenu extends ActionBarActivity {
 
                     case MotionEvent.ACTION_UP:
                         layout[8][6].setBackgroundColor(Color.WHITE);
-                        startActivity(new Intent(getApplicationContext(), RaceDayActivity.class));
+
+                        if (difficulty[BEGINNER]) {
+                            startActivity(new Intent(getApplicationContext(), RaceDayActivity.class));
+                        } else if (difficulty[INTERMEDIATE]) {
+                            startActivity(new Intent(getApplicationContext(), RaceDayActivity.class));
+                        } else if (difficulty[ADVANCED]) {
+                            startActivity(new Intent(getApplicationContext(), RaceDayActivity.class));
+                        }
+
                         overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
                         break;
 

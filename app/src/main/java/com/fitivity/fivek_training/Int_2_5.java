@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.stropheum.speedcalculatortest.OnePartActivity;
+import com.example.stropheum.speedcalculatortest.R;
+
 
 public class Int_2_5 extends OnePartActivity {
 
@@ -23,7 +26,7 @@ public class Int_2_5 extends OnePartActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_workout_2_3, menu);
+
         return true;
     }
 

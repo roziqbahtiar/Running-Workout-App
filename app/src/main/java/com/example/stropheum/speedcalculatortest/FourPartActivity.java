@@ -210,7 +210,7 @@ public abstract class FourPartActivity extends ActionBarActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_settings).setVisible(false);
+//        menu.findItem(R.id.action_settings).setVisible(false);
         return super.onPrepareOptionsMenu(menu);
     }
 

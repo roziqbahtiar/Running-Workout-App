@@ -45,7 +45,7 @@ public class Week_9_Day_4 extends OnePartActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_week_9_day_4, menu);
+
         return true;
     }
 

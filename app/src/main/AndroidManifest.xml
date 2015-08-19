@@ -224,6 +224,350 @@
             android:name=".Week_9_Day_4"
             android:label="@string/title_activity_week_9__day_4" >
         </activity>
+
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_1"
+            android:label="@string/title_activity_week_1_day_1" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_2"
+            android:label="@string/title_activity_week_1_day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_3"
+            android:label="@string/title_activity_week_1__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_4"
+            android:label="@string/title_activity_week_1__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_5"
+            android:label="@string/title_activity_week_1__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_1_7"
+            android:label="@string/title_activity_week_1__day_6" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_1"
+            android:label="@string/title_activity_week_2__day_1" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_2"
+            android:label="@string/title_activity_week_2__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_3"
+            android:label="@string/title_activity_week_2__day_1" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_4"
+            android:label="@string/title_activity_week_2__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_5"
+            android:label="@string/title_activity_week_2__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_6"
+            android:label="@string/title_activity_week_2__day_6" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_2_7"
+            android:label="@string/title_activity_week_2__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_3_2"
+            android:label="@string/title_activity_week_3__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_3_3"
+            android:label="@string/title_activity_week_1__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_3_4"
+            android:label="@string/title_activity_week_3__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_3_5"
+            android:label="@string/title_activity_week_3__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_3_7"
+            android:label="@string/title_activity_week_3__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_4_2"
+            android:label="@string/title_activity_week_4__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_4_3"
+            android:label="@string/title_activity_week_4__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_4_5"
+            android:label="@string/title_activity_week_4__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_4_7"
+            android:label="@string/title_activity_week_4__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_5_2"
+            android:label="@string/title_activity_week_5__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_5_3"
+            android:label="@string/title_activity_week_5__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_5_5"
+            android:label="@string/title_activity_week_5__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_5_7"
+            android:label="@string/title_activity_week_5__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_6_2"
+            android:label="@string/title_activity_week_6__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_6_3"
+            android:label="@string/title_activity_week_6__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_6_4"
+            android:label="@string/title_activity_week_6__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_6_7"
+            android:label="@string/title_activity_week_6__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_7_2"
+            android:label="@string/title_activity_week_7__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_7_3"
+            android:label="@string/title_activity_week_7__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_7_5"
+            android:label="@string/title_activity_week_7__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_7_7"
+            android:label="@string/title_activity_week_7__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_8_2"
+            android:label="@string/title_activity_week_8__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_8_4"
+            android:label="@string/title_activity_week_8__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_8_5"
+            android:label="@string/title_activity_week_8__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_8_7"
+            android:label="@string/title_activity_week_8__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_9_2"
+            android:label="@string/title_activity_week_9__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_9_3"
+            android:label="@string/title_activity_week_9__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Int_9_4"
+            android:label="@string/title_activity_week_9__day_4" >
+        </activity>
+
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_1"
+            android:label="@string/title_activity_week_1_day_1" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_2"
+            android:label="@string/title_activity_week_1_day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_3"
+            android:label="@string/title_activity_week_1__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_4"
+            android:label="@string/title_activity_week_1__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_5"
+            android:label="@string/title_activity_week_1__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_6"
+            android:label="@string/title_activity_week_1__day_6" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_1_7"
+            android:label="@string/title_activity_week_1__day_6" >
+        </activity>
+        
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_2_2"
+            android:label="@string/title_activity_week_2__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_2_3"
+            android:label="@string/title_activity_week_2__day_1" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_2_4"
+            android:label="@string/title_activity_week_2__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_2_5"
+            android:label="@string/title_activity_week_2__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_2_7"
+            android:label="@string/title_activity_week_2__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_3_2"
+            android:label="@string/title_activity_week_3__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_3_3"
+            android:label="@string/title_activity_week_1__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_3_4"
+            android:label="@string/title_activity_week_3__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_3_5"
+            android:label="@string/title_activity_week_3__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_3_7"
+            android:label="@string/title_activity_week_3__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_4_2"
+            android:label="@string/title_activity_week_4__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_4_3"
+            android:label="@string/title_activity_week_4__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_4_5"
+            android:label="@string/title_activity_week_4__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_4_7"
+            android:label="@string/title_activity_week_4__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_5_2"
+            android:label="@string/title_activity_week_5__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_5_3"
+            android:label="@string/title_activity_week_5__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_5_4"
+            android:label="@string/title_activity_week_5__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_5_5"
+            android:label="@string/title_activity_week_5__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_5_7"
+            android:label="@string/title_activity_week_5__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_6_2"
+            android:label="@string/title_activity_week_6__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_6_3"
+            android:label="@string/title_activity_week_6__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_6_4"
+            android:label="@string/title_activity_week_6__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_6_5"
+            android:label="@string/title_activity_week_6__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_6_7"
+            android:label="@string/title_activity_week_6__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_7_2"
+            android:label="@string/title_activity_week_7__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_7_3"
+            android:label="@string/title_activity_week_7__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_7_4"
+            android:label="@string/title_activity_week_7__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_7_5"
+            android:label="@string/title_activity_week_7__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_7_7"
+            android:label="@string/title_activity_week_7__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_8_2"
+            android:label="@string/title_activity_week_8__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_8_3"
+            android:label="@string/title_activity_week_8__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_8_4"
+            android:label="@string/title_activity_week_8__day_4" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_8_5"
+            android:label="@string/title_activity_week_8__day_5" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_8_7"
+            android:label="@string/title_activity_week_8__day_7" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_9_2"
+            android:label="@string/title_activity_week_9__day_2" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_9_3"
+            android:label="@string/title_activity_week_9__day_3" >
+        </activity>
+        <activity
+            android:name="com.fitivity.fivek_training.Adv_9_4"
+            android:label="@string/title_activity_week_9__day_4" >
+        </activity>
+        
         <activity
             android:name=".SevenPartActivity"
             android:label="@string/title_activity_seven_part" >

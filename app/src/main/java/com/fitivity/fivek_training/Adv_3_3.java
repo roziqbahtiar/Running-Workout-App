@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.stropheum.speedcalculatortest.FourteenPartActivity;
+import com.example.stropheum.speedcalculatortest.R;
+
 
 public class Adv_3_3 extends FourteenPartActivity {
 
@@ -56,13 +59,13 @@ public class Adv_3_3 extends FourteenPartActivity {
         PART_FOURTEEN_SECONDARY_TITLE = "15:00 min/mile";
 
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setCustomView(R.layout.action_bar_3_3;
+        getSupportActionBar().setCustomView(R.layout.action_bar_3_3);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_workout_2_3, menu);
+        getMenuInflater().inflate(R.menu.menu_week_1_day_1, menu);
         return true;
     }
 

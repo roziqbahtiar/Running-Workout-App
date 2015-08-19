@@ -166,7 +166,7 @@ public abstract class OnePartActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_one_part, menu);
+//        getMenuInflater().inflate(R.menu.menu_one_part, menu);
         return true;
     }
 
@@ -196,7 +196,7 @@ public abstract class OnePartActivity extends ActionBarActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_settings).setVisible(false);
+//        menu.findItem(R.id.action_settings).setVisible(false);
         return super.onPrepareOptionsMenu(menu);
     }
 

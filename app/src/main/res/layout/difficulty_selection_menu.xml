@@ -46,21 +46,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/competitive_button"
-                android:paddingTop="20dp"
-                android:paddingBottom="25dp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/advanced_button"
-                android:paddingTop="20dp"
-                android:paddingBottom="25dp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/elite_button"
                 android:paddingTop="20dp"
                 android:paddingBottom="25dp" />
         </RadioGroup>
@@ -141,39 +127,6 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/competitive_row"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Competitive"
-                        android:id="@+id/competitive_main_text"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Goal: Do the thing"
-                        android:id="@+id/competitive_secondary_text"
-                        android:textStyle="italic"
-                        android:textSize="15dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/advanced_row"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
@@ -198,39 +151,6 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Goal: Do the thing"
                         android:id="@+id/advanced_secondary_text"
-                        android:textStyle="italic"
-                        android:textSize="15dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/elite_row"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Elite"
-                        android:id="@+id/elite_main_text"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Goal: Do the thing"
-                        android:id="@+id/elite_secondary_text"
                         android:textStyle="italic"
                         android:textSize="15dp" />
                 </LinearLayout>
