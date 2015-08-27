@@ -417,11 +417,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_1_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][0].setOnTouchListener(new View.OnTouchListener() {
@@ -463,11 +463,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_2_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][1].setOnTouchListener(new View.OnTouchListener() {
@@ -509,11 +509,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_3_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][2].setOnTouchListener(new View.OnTouchListener() {
@@ -555,11 +555,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_4_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][3].setOnTouchListener(new View.OnTouchListener() {
@@ -600,11 +600,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_5_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][4].setOnTouchListener(new View.OnTouchListener() {
@@ -647,11 +647,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_6_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[0][5].setOnTouchListener(new View.OnTouchListener() {
@@ -693,11 +693,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.row_1_7_image);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[0][6].setOnTouchListener(new View.OnTouchListener() {
@@ -739,11 +739,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[1][0].setOnTouchListener(new View.OnTouchListener() {
@@ -785,11 +785,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[1][1].setOnTouchListener(new View.OnTouchListener() {
@@ -831,11 +831,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[1][2].setOnTouchListener(new View.OnTouchListener() {
@@ -877,11 +877,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[1][3].setOnTouchListener(new View.OnTouchListener() {
@@ -923,11 +923,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[1][4].setOnTouchListener(new View.OnTouchListener() {
@@ -969,11 +969,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[1][5].setOnTouchListener(new View.OnTouchListener() {
@@ -1015,11 +1015,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_2_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[1][6].setOnTouchListener(new View.OnTouchListener() {
@@ -1061,11 +1061,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[2][0].setOnTouchListener(new View.OnTouchListener() {
@@ -1107,11 +1107,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[2][1].setOnTouchListener(new View.OnTouchListener() {
@@ -1153,11 +1153,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[2][2].setOnTouchListener(new View.OnTouchListener() {
@@ -1199,11 +1199,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l2);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[2][3].setOnTouchListener(new View.OnTouchListener() {
@@ -1245,11 +1245,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l2);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[2][4].setOnTouchListener(new View.OnTouchListener() {
@@ -1291,11 +1291,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[2][5].setOnTouchListener(new View.OnTouchListener() {
@@ -1337,11 +1337,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_3_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[2][6].setOnTouchListener(new View.OnTouchListener() {
@@ -1383,11 +1383,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[3][0].setOnTouchListener(new View.OnTouchListener() {
@@ -1429,11 +1429,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[3][1].setOnTouchListener(new View.OnTouchListener() {
@@ -1475,11 +1475,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[3][2].setOnTouchListener(new View.OnTouchListener() {
@@ -1521,11 +1521,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[3][3].setOnTouchListener(new View.OnTouchListener() {
@@ -1567,11 +1567,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[3][4].setOnTouchListener(new View.OnTouchListener() {
@@ -1613,11 +1613,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l1);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[3][5].setOnTouchListener(new View.OnTouchListener() {
@@ -1659,11 +1659,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_4_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[3][6].setOnTouchListener(new View.OnTouchListener() {
@@ -1705,11 +1705,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[4][0].setOnTouchListener(new View.OnTouchListener() {
@@ -1751,11 +1751,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l2);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[4][1].setOnTouchListener(new View.OnTouchListener() {
@@ -1797,11 +1797,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[4][2].setOnTouchListener(new View.OnTouchListener() {
@@ -1843,11 +1843,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[4][3].setOnTouchListener(new View.OnTouchListener() {
@@ -1889,11 +1889,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[4][4].setOnTouchListener(new View.OnTouchListener() {
@@ -1935,11 +1935,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[4][5].setOnTouchListener(new View.OnTouchListener() {
@@ -1981,11 +1981,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_5_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[4][6].setOnTouchListener(new View.OnTouchListener() {
@@ -2027,11 +2027,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[5][0].setOnTouchListener(new View.OnTouchListener() {
@@ -2073,11 +2073,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[5][1].setOnTouchListener(new View.OnTouchListener() {
@@ -2119,11 +2119,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[5][2].setOnTouchListener(new View.OnTouchListener() {
@@ -2165,11 +2165,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[5][3].setOnTouchListener(new View.OnTouchListener() {
@@ -2211,11 +2211,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[5][4].setOnTouchListener(new View.OnTouchListener() {
@@ -2257,11 +2257,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[5][5].setOnTouchListener(new View.OnTouchListener() {
@@ -2303,11 +2303,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_6_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[5][6].setOnTouchListener(new View.OnTouchListener() {
@@ -2349,11 +2349,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[6][0].setOnTouchListener(new View.OnTouchListener() {
@@ -2395,11 +2395,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[6][1].setOnTouchListener(new View.OnTouchListener() {
@@ -2441,11 +2441,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[6][2].setOnTouchListener(new View.OnTouchListener() {
@@ -2487,11 +2487,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[6][3].setOnTouchListener(new View.OnTouchListener() {
@@ -2533,11 +2533,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[6][4].setOnTouchListener(new View.OnTouchListener() {
@@ -2579,11 +2579,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[6][5].setOnTouchListener(new View.OnTouchListener() {
@@ -2625,11 +2625,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_7_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[6][6].setOnTouchListener(new View.OnTouchListener() {
@@ -2671,11 +2671,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[7][0].setOnTouchListener(new View.OnTouchListener() {
@@ -2717,11 +2717,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[7][1].setOnTouchListener(new View.OnTouchListener() {
@@ -2763,11 +2763,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[7][2].setOnTouchListener(new View.OnTouchListener() {
@@ -2809,11 +2809,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[7][3].setOnTouchListener(new View.OnTouchListener() {
@@ -2855,11 +2855,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[7][4].setOnTouchListener(new View.OnTouchListener() {
@@ -2901,11 +2901,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[7][5].setOnTouchListener(new View.OnTouchListener() {
@@ -2947,11 +2947,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_8_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[7][6].setOnTouchListener(new View.OnTouchListener() {
@@ -2993,11 +2993,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_1);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[8][0].setOnTouchListener(new View.OnTouchListener() {
@@ -3039,11 +3039,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_2);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[8][1].setOnTouchListener(new View.OnTouchListener() {
@@ -3085,11 +3085,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_3);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[8][2].setOnTouchListener(new View.OnTouchListener() {
@@ -3131,11 +3131,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_4);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l3);
         }
 
         layout[8][3].setOnTouchListener(new View.OnTouchListener() {
@@ -3177,11 +3177,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_5);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[8][4].setOnTouchListener(new View.OnTouchListener() {
@@ -3223,11 +3223,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_6);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_rest);
         }
 
         layout[8][5].setOnTouchListener(new View.OnTouchListener() {
@@ -3269,11 +3269,11 @@ public class MainMenu extends ActionBarActivity {
 
         ImageView difficulty_image = (ImageView) findViewById(R.id.imageView_9_7);
         if (difficulty[BEGINNER]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[INTERMEDIATE]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         } else if (difficulty[ADVANCED]) {
-            difficulty_image.setImageResource(R.drawable.rest_day);
+            difficulty_image.setImageResource(R.drawable.running_parts_l4);
         }
 
         layout[8][6].setOnTouchListener(new View.OnTouchListener() {
