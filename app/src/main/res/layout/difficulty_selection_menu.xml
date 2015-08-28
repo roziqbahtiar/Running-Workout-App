@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Goal: Do the thing"
+                        android:text="Goal: 10:00 pace"
                         android:id="@+id/beginner_secondary_text"
                         android:textStyle="italic"
                         android:textSize="15dp" />
@@ -116,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Goal: Do the thing"
+                        android:text="Goal: 7:24 pace"
                         android:id="@+id/intermediate_secondary_text"
                         android:textStyle="italic"
                         android:textSize="15dp" />
@@ -149,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Goal: Do the thing"
+                        android:text="Goal: 5:28 pace"
                         android:id="@+id/advanced_secondary_text"
                         android:textStyle="italic"
                         android:textSize="15dp" />
